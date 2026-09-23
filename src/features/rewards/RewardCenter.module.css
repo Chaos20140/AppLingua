@@ -1,0 +1,29 @@
+.emoji {
+  font-size: 2.6rem;
+  line-height: 1;
+}
+
+.list {
+  display: grid;
+  gap: var(--sp-2);
+  max-height: 40dvh;
+  padding: 0;
+  margin: 0;
+  overflow-y: auto;
+  text-align: left;
+  list-style: none;
+}
+
+.list li {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--sp-2);
+  font-size: var(--fs-sm);
+  line-height: var(--lh-snug);
+}
+
+.itemIcon {
+  flex: none;
+  font-size: 1.25rem;
+  line-height: 1.1;
+}

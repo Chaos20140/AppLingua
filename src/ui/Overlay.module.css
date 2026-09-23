@@ -1,0 +1,211 @@
+/* Gemeinsame Styles für BottomSheet und Dialog. */
+
+.root {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-overlay);
+  display: flex;
+}
+.root[data-state='closed'] {
+  pointer-events: none;
+}
+
+.backdrop {
+  position: absolute;
+  inset: 0;
+  background: var(--overlay);
+  -webkit-backdrop-filter: blur(3px);
+  backdrop-filter: blur(3px);
+  touch-action: none;
+  animation: fade-in var(--dur-slow) var(--ease-out) backwards;
+}
+.root[data-state='closed'] .backdrop {
+  animation: fade-out var(--dur) var(--ease-in-out) forwards;
+}
+
+/* ───── Bottom-Sheet ───── */
+.sheetRoot {
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.sheet {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 640px;
+  max-height: calc(100vh - var(--safe-top) - 12px);
+  max-height: calc(100dvh - var(--safe-top) - 12px);
+  background: var(--surface);
+  border-radius: var(--r-xl) var(--r-xl) 0 0;
+  box-shadow: var(--shadow-lg);
+  padding-bottom: calc(var(--safe-bottom) + var(--kb-inset));
+  outline: none;
+  transform: translate3d(0, var(--drag-y, 0px), 0);
+  transition: transform var(--dur) var(--ease-out);
+  animation: sheet-in var(--dur-slow) var(--ease-out) backwards;
+}
+.sheet[data-dragging] {
+  transition: none;
+}
+.root[data-state='closed'] .sheet {
+  animation: sheet-out var(--dur) var(--ease-in-out) forwards;
+}
+
+.grabber {
+  flex-shrink: 0;
+  padding: var(--sp-2) var(--sp-2) 0 var(--sp-4);
+  touch-action: none;
+  cursor: grab;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.handle {
+  display: block;
+  width: 40px;
+  height: 5px;
+  margin: 0 auto var(--sp-1);
+  border-radius: 3px;
+  background: var(--border-strong);
+}
+
+.sheetHeader {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+  min-height: 48px;
+}
+
+.sheetTitle {
+  flex: 1;
+  min-width: 0;
+  font-size: var(--fs-lg);
+  font-weight: var(--fw-bold);
+  letter-spacing: -0.012em;
+}
+
+.sheetDescription {
+  padding: 0 var(--sp-4);
+  color: var(--text-2);
+  font-size: var(--fs-sm);
+}
+
+.sheetBody {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+  padding: var(--sp-3) var(--sp-4) var(--sp-5);
+}
+
+.sheetFooter {
+  flex-shrink: 0;
+  display: flex;
+  gap: var(--sp-3);
+  padding: var(--sp-3) var(--sp-4) var(--sp-4);
+  border-top: 1px solid var(--border);
+}
+.sheetFooter > * {
+  flex: 1;
+}
+
+@media (min-width: 640px) {
+  .sheetRoot {
+    padding: var(--sp-6);
+  }
+  .sheet {
+    border-radius: var(--r-xl);
+    padding-bottom: 0;
+  }
+}
+
+/* ───── Dialog ───── */
+.dialogRoot {
+  align-items: center;
+  justify-content: center;
+  padding:
+    calc(var(--safe-top) + var(--sp-4))
+    calc(var(--safe-right) + var(--sp-4))
+    calc(var(--safe-bottom) + var(--kb-inset) + var(--sp-4))
+    calc(var(--safe-left) + var(--sp-4));
+}
+
+.dialog {
+  position: relative;
+  width: 100%;
+  max-width: 420px;
+  max-height: 100%;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  background: var(--surface);
+  border-radius: var(--r-xl);
+  box-shadow: var(--shadow-lg);
+  padding: var(--sp-6) var(--sp-5) var(--sp-5);
+  outline: none;
+  animation: dialog-in var(--dur-slow) var(--ease-spring) backwards;
+}
+.root[data-state='closed'] .dialog {
+  animation: dialog-out var(--dur) var(--ease-in-out) forwards;
+}
+
+.dialogClose {
+  position: absolute;
+  top: var(--sp-2);
+  right: var(--sp-2);
+}
+
+.dialogTitle {
+  padding-right: var(--sp-8);
+  font-size: var(--fs-xl);
+  font-weight: var(--fw-bold);
+  letter-spacing: -0.018em;
+  line-height: var(--lh-snug);
+}
+
+.dialogDescription {
+  margin-top: var(--sp-2);
+  color: var(--text-2);
+}
+
+.dialogBody {
+  margin-top: var(--sp-3);
+}
+
+.dialogActions {
+  display: flex;
+  flex-direction: column-reverse;
+  gap: var(--sp-2);
+  margin-top: var(--sp-6);
+}
+
+@media (min-width: 480px) {
+  .dialogActions {
+    flex-direction: row;
+    justify-content: flex-end;
+  }
+  .dialogActions > * {
+    flex: 1;
+  }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+}
+@keyframes fade-out {
+  to { opacity: 0; }
+}
+@keyframes sheet-in {
+  from { transform: translate3d(0, 100%, 0); }
+}
+@keyframes sheet-out {
+  to { transform: translate3d(0, 105%, 0); }
+}
+@keyframes dialog-in {
+  from { opacity: 0; transform: translateY(10px) scale(0.95); }
+}
+@keyframes dialog-out {
+  to { opacity: 0; transform: scale(0.97); }
+}

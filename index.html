@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="de" dir="ltr">
+  <head>
+    <meta charset="UTF-8" />
+    <!--app:csp-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>AppLingua – Spanisch & Portugiesisch lernen</title>
+    <meta name="description" content="AppLingua ist dein motivierender Sprachcoach für Spanisch und brasilianisches Portugiesisch: klare Lektionen, Aussprache-Training, Lernlieder und ein KI-Gesprächspartner – auch offline." />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="theme-color" content="#F7F4EE" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#0D111D" media="(prefers-color-scheme: dark)" />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="AppLingua" />
+    <link rel="icon" href="/icon.svg" type="image/svg+xml" />
+    <link rel="icon" href="/icons/favicon-32.png" sizes="32x32" type="image/png" />
+    <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png" />
+    <style>
+      /* Erste Farbe vor dem Laden des Bundles – verhindert weißes Aufblitzen im Dunkelmodus. */
+      html { background: #F7F4EE; }
+      @media (prefers-color-scheme: dark) { html { background: #0D111D; } }
+      noscript p { max-width: 32rem; margin: 20vh auto 0; padding: 0 1.25rem; font: 17px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif; color: #494F66; text-align: center; }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+    <noscript>
+      <p>AppLingua benötigt JavaScript. Bitte aktiviere JavaScript in deinem Browser, um mit dem Lernen zu beginnen.</p>
+    </noscript>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

@@ -1,0 +1,355 @@
+/* ───────── Profil ───────── */
+.identity {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-4);
+}
+
+.avatar {
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: var(--accent-grad);
+  color: var(--on-accent);
+  font-family: var(--font-display);
+  font-size: var(--fs-2xl);
+  font-weight: var(--fw-heavy);
+  letter-spacing: 0.02em;
+  box-shadow: var(--shadow-accent);
+  animation: pop var(--dur-xslow) var(--ease-spring) both;
+}
+
+@keyframes pop {
+  from { opacity: 0; transform: scale(0.8); }
+  to { opacity: 1; transform: none; }
+}
+
+.who {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.name {
+  font-family: var(--font-display);
+  font-size: var(--fs-xl);
+  font-weight: var(--fw-heavy);
+  line-height: var(--lh-tight);
+  overflow-wrap: anywhere;
+}
+
+.meta {
+  color: var(--text-2);
+  font-size: var(--fs-sm);
+}
+
+.twoCol {
+  display: grid;
+  gap: var(--sp-3);
+}
+@media (min-width: 560px) {
+  .twoCol {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.levelCard {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+  height: 100%;
+}
+
+.levelHead {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+}
+
+.eyebrow {
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-bold);
+  letter-spacing: var(--tracking-caps);
+  text-transform: uppercase;
+  color: var(--text-3);
+}
+
+.levelValue {
+  font-family: var(--font-display);
+  font-size: var(--fs-xl);
+  font-weight: var(--fw-heavy);
+  line-height: var(--lh-tight);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--sp-2);
+}
+
+.ringNumber {
+  font-family: var(--font-display);
+  font-weight: var(--fw-heavy);
+  font-size: var(--fs-lg);
+}
+
+.langBadge {
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  min-width: 64px;
+  height: 64px;
+  padding: 0 var(--sp-2);
+  border-radius: var(--r-lg);
+  background: var(--info-soft);
+  color: var(--info-ink);
+  font-family: var(--font-display);
+  font-size: var(--fs-xl);
+  font-weight: var(--fw-heavy);
+}
+.langBadgeLong {
+  font-size: var(--fs-sm);
+  text-align: center;
+  line-height: var(--lh-snug);
+}
+
+.explain {
+  font-size: var(--fs-sm);
+  color: var(--text-2);
+  line-height: var(--lh-normal);
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--sp-3);
+}
+@media (min-width: 640px) {
+  .stats {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.accountHead {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--sp-3);
+}
+
+.accountIcon {
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: var(--r-md);
+  background: var(--surface-2);
+  color: var(--text-2);
+}
+.accountIconOk {
+  background: var(--success-soft);
+  color: var(--success-ink);
+}
+
+.accountText {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  line-height: var(--lh-normal);
+}
+
+.accountTitle {
+  font-weight: var(--fw-bold);
+  font-size: var(--fs-md);
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--sp-2);
+}
+
+.email {
+  font-size: var(--fs-sm);
+  color: var(--text-2);
+  overflow-wrap: anywhere;
+}
+
+.buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-2);
+  margin-top: var(--sp-4);
+}
+.buttons > * {
+  flex: 1 1 160px;
+}
+
+.stack {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-4);
+}
+
+/* ───────── Einstellungen ───────── */
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-2);
+}
+
+.sectionTitle {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-bold);
+  letter-spacing: var(--tracking-caps);
+  text-transform: uppercase;
+  color: var(--text-3);
+  padding: 0 var(--sp-1);
+}
+
+.sectionNote {
+  font-size: var(--fs-xs);
+  color: var(--text-3);
+  line-height: var(--lh-normal);
+  padding: 0 var(--sp-1);
+}
+
+.group {
+  display: flex;
+  flex-direction: column;
+}
+
+.item {
+  position: relative;
+  padding: var(--sp-3) var(--sp-4);
+}
+.item + .item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: var(--sp-4);
+  right: 0;
+  height: 1px;
+  background: var(--border);
+}
+.itemTight {
+  padding-top: var(--sp-1);
+  padding-bottom: var(--sp-1);
+}
+
+.label {
+  display: block;
+  font-weight: var(--fw-semibold);
+  font-size: var(--fs-md);
+  margin-bottom: var(--sp-1);
+}
+
+.desc {
+  display: block;
+  font-size: var(--fs-sm);
+  color: var(--text-2);
+  line-height: var(--lh-normal);
+  margin-bottom: var(--sp-3);
+}
+
+.inlineRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sp-3);
+}
+
+.voiceRow {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+}
+.voiceInfo {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.voiceName {
+  font-weight: var(--fw-semibold);
+}
+.voiceButtons {
+  display: flex;
+  gap: var(--sp-1);
+}
+.voiceHelp {
+  margin-top: var(--sp-2);
+  font-size: var(--fs-sm);
+  color: var(--warning-ink);
+  background: var(--warning-soft);
+  border-radius: var(--r-md);
+  padding: var(--sp-3);
+  line-height: var(--lh-normal);
+}
+
+.range {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-1);
+}
+.rangeHead {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: var(--sp-3);
+}
+.rangeValue {
+  font-variant-numeric: tabular-nums;
+  font-weight: var(--fw-semibold);
+  color: var(--accent-ink);
+}
+.slider {
+  width: 100%;
+  height: var(--tap);
+  margin: 0;
+  accent-color: var(--accent-solid, var(--accent));
+  cursor: pointer;
+  background: transparent;
+}
+.slider:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-2);
+}
+
+.version {
+  text-align: center;
+  font-size: var(--fs-xs);
+  color: var(--text-3);
+  padding: var(--sp-2) 0 var(--sp-4);
+}
+
+.warnText {
+  font-size: var(--fs-sm);
+  color: var(--warning-ink);
+  line-height: var(--lh-normal);
+}
+
+.confirmField {
+  margin-top: var(--sp-3);
+}
+
+/* Abstand-Modifikatoren (nach .label/.desc definiert, damit sie gewinnen) */
+.flush {
+  margin: 0;
+}
+.below {
+  margin: var(--sp-2) 0 0;
+}

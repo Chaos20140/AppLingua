@@ -1,0 +1,390 @@
+import type { Lesson } from '../../types';
+
+const L = 'es.s0.l06';
+
+const lesson: Lesson = {
+  id: L,
+  courseId: 'es',
+  stageId: 'stage0',
+  chapterId: 'es.s0.c2',
+  order: 6,
+  title: 'Ser oder estar?',
+  subtitle: 'Zwei Verben für „sein“',
+  icon: '⚖️',
+  minutes: 12,
+  goal:
+    'Du lernst, **ser** und **estar** sicher zu unterscheiden – mit einer tragfähigen Faustregel, den bekannten Merkhilfen DOCTOR und PLACE und dem Wissen, wo diese Merkhilfen an ihre Grenzen stoßen.',
+  canDo: [
+    'Ich wähle ser für Identität, Herkunft, Beruf und Eigenschaften.',
+    'Ich wähle estar für Ort, Befinden und Zustände.',
+    'Ich verstehe, wie sich die Bedeutung ändert: es aburrido / está aburrido.',
+    'Ich weiß, dass Ereignisse mit ser verortet werden.',
+  ],
+  topicIds: ['es.g.ser-estar', 'es.g.ser', 'es.g.estar'],
+  vocab: [
+    { id: `${L}.v.aburrido`, target: 'aburrido / aburrida', german: 'langweilig (ser) · gelangweilt (estar)', pos: 'adj', gender: 'm/f', field: 'Eigenschaften', stageId: 'stage0', lessonId: L, example: { target: 'Estoy aburrido.', german: 'Mir ist langweilig.' } },
+    { id: `${L}.v.listo`, target: 'listo / lista', german: 'klug (ser) · fertig, bereit (estar)', pos: 'adj', gender: 'm/f', field: 'Eigenschaften', stageId: 'stage0', lessonId: L, example: { target: '¿Estás lista?', german: 'Bist du fertig?' } },
+    { id: `${L}.v.simpatico`, target: 'simpático / simpática', german: 'sympathisch, nett', pos: 'adj', gender: 'm/f', emoji: '😊', field: 'Eigenschaften', stageId: 'stage0', lessonId: L, example: { target: 'Marcos es muy simpático.', german: 'Marcos ist sehr nett.' } },
+    { id: `${L}.v.alto`, target: 'alto / alta', german: 'groß (Körpergröße), hoch', pos: 'adj', gender: 'm/f', field: 'Eigenschaften', stageId: 'stage0', lessonId: L, example: { target: 'Pablo es alto.', german: 'Pablo ist groß.' } },
+    { id: `${L}.v.joven`, target: 'joven', german: 'jung', pos: 'adj', gender: 'm/f', field: 'Eigenschaften', stageId: 'stage0', lessonId: L, example: { target: 'Ella es joven.', german: 'Sie ist jung.' } },
+    { id: `${L}.v.guapo`, target: 'guapo / guapa', german: 'gutaussehend, hübsch', pos: 'adj', gender: 'm/f', field: 'Eigenschaften', stageId: 'stage0', lessonId: L, example: { target: 'Hoy estás muy guapa.', german: 'Heute siehst du sehr hübsch aus.' } },
+    { id: `${L}.v.abierto`, target: 'abierto / abierta', german: 'geöffnet, offen', pos: 'adj', gender: 'm/f', field: 'Zustände', stageId: 'stage0', lessonId: L, example: { target: 'El banco está abierto.', german: 'Die Bank ist geöffnet.' } },
+    { id: `${L}.v.cerrado`, target: 'cerrado / cerrada', german: 'geschlossen', pos: 'adj', gender: 'm/f', field: 'Zustände', stageId: 'stage0', lessonId: L, example: { target: 'Hoy el banco está cerrado.', german: 'Heute ist die Bank geschlossen.' } },
+    { id: `${L}.v.fiesta`, target: 'la fiesta', german: 'die Party, das Fest', pos: 'noun', gender: 'f', plural: 'las fiestas', emoji: '🎉', field: 'Freizeit', stageId: 'stage0', lessonId: L, example: { target: 'La fiesta es en casa de Ana.', german: 'Die Party ist bei Ana.' } },
+    { id: `${L}.v.banco`, target: 'el banco', german: 'die Bank (Geldinstitut)', pos: 'noun', gender: 'm', plural: 'los bancos', emoji: '🏦', field: 'Orte', stageId: 'stage0', lessonId: L },
+    { id: `${L}.v.hoy`, target: 'hoy', german: 'heute', pos: 'adv', field: 'Zeit', stageId: 'stage0', lessonId: L, example: { target: 'Hoy estoy contenta.', german: 'Heute bin ich froh.' } },
+    { id: `${L}.v.ahora`, target: 'ahora', german: 'jetzt', pos: 'adv', field: 'Zeit', stageId: 'stage0', lessonId: L, example: { target: 'Ahora estoy en Madrid.', german: 'Jetzt bin ich in Madrid.' } },
+  ],
+  explanation: [
+    {
+      type: 'text',
+      md:
+        '**Die Faustregel, die fast immer trägt:**\n' +
+        '- `ser` sagt, **was oder wer** etwas ist – Identität, Herkunft, Beruf, Wesen, typische Eigenschaften.\n' +
+        '- `estar` sagt, **wie oder wo** etwas gerade ist – Ort, Befinden, Zustand, Ergebnis einer Veränderung.\n' +
+        'Oft hört man „ser = dauerhaft, estar = vorübergehend“. Das stimmt nur ungefähr: `Soy joven` (ich bin jung) ist vorübergehend und trotzdem ser; `Está muerto` (er ist tot) ist endgültig und trotzdem estar – es ist ein Zustand.',
+    },
+    {
+      type: 'table',
+      title: 'ser oder estar – typische Fälle',
+      headers: ['ser', 'estar'],
+      rows: [
+        ['Identität: Soy Ana.', 'Ort von Personen/Dingen: Estoy en Madrid.'],
+        ['Herkunft: Soy de Hamburgo.', 'Befinden: Estoy bien.'],
+        ['Beruf: Es médica.', 'Zustand: El banco está cerrado.'],
+        ['Eigenschaft: Es simpático.', 'momentaner Eindruck: Hoy estás muy guapa.'],
+        ['Uhrzeit: Son las dos.', 'Stimmung: Estoy contento.'],
+        ['Ort von Ereignissen: La fiesta es en casa de Ana.', 'Ort eines Gebäudes: La casa de Ana está aquí.'],
+      ],
+    },
+    {
+      type: 'text',
+      md:
+        '**Merkhilfen – nützlich, aber mit Vorsicht:** Im Unterricht hört man oft zwei englische Akronyme:\n' +
+        '- **DOCTOR** → ser: _Description, Occupation, Characteristic, Time, Origin, Relationship_\n' +
+        '- **PLACE** → estar: _Position, Location, Action, Condition, Emotion_\n' +
+        'Sie helfen beim Einstieg, haben aber Lücken:\n' +
+        '- „Location“ gilt nicht für **Ereignisse**: Wo eine Party stattfindet, sagt man mit ser – `La fiesta es en mi casa.`\n' +
+        '- „Description“ und „Condition“ überschneiden sich: `Es guapo` (er ist gutaussehend) vs. `Está guapo` (er sieht heute gut aus).\n' +
+        '- „Action“ meint die Verlaufsform (`estoy hablando`), die du erst später lernst.\n' +
+        'Denk deshalb lieber in der Faustregel: **Wesen → ser, Zustand/Ort → estar.**',
+    },
+    {
+      type: 'compare',
+      target: 'Es aburrido. / Está aburrido.',
+      german: 'Er ist langweilig. / Ihm ist langweilig.',
+      md: 'Im Deutschen wechselst du das Adjektiv („langweilig“ – „gelangweilt“), im Spanischen das Verb. Genauso: `es listo` (er ist klug) – `está listo` (er ist fertig).',
+    },
+    {
+      type: 'colored',
+      parts: [
+        { text: 'Ana', role: 'subject' }, { text: ' ' }, { text: 'es', role: 'verb' }, { text: ' ' }, { text: 'simpática', role: 'adjective' },
+        { text: ', pero hoy ' }, { text: 'está', role: 'verb' }, { text: ' ' }, { text: 'cansada', role: 'adjective' }, { text: '.' },
+      ],
+      german: 'Ana ist sympathisch, aber heute ist sie müde.',
+    },
+    {
+      type: 'mistake',
+      wrong: 'Soy cansado.',
+      right: 'Estoy cansado.',
+      why: 'Müdigkeit ist ein Zustand → estar. Mit ser bekommt das Wort eine andere Bedeutung: `ser cansado` heißt eher „ermüdend, anstrengend sein“ – du würdest also sagen, dass du andere ermüdest.',
+    },
+    {
+      type: 'tip',
+      md: '**ser sagt, WAS etwas ist. estar sagt, WIE und WO es gerade ist.**',
+    },
+    { type: 'audio', text: 'Es aburrido. Está aburrido.', label: 'Hören: „Er ist langweilig.“ – „Ihm ist langweilig.“' },
+  ],
+  examples: [
+    {
+      target: 'Soy profesora y estoy en el trabajo.',
+      german: 'Ich bin Lehrerin und gerade bei der Arbeit.',
+      parts: [
+        { text: 'Soy', role: 'verb' }, { text: ' ' }, { text: 'profesora', role: 'noun' }, { text: ' y ' },
+        { text: 'estoy', role: 'verb' }, { text: ' ' }, { text: 'en el trabajo', role: 'adverb' }, { text: '.' },
+      ],
+    },
+    {
+      target: 'Marcos es de Chile, pero está en Berlín.',
+      german: 'Marcos kommt aus Chile, ist aber (gerade) in Berlin.',
+      parts: [
+        { text: 'Marcos', role: 'subject' }, { text: ' ' }, { text: 'es', role: 'verb' }, { text: ' ' }, { text: 'de Chile', role: 'other' },
+        { text: ', pero ' }, { text: 'está', role: 'verb' }, { text: ' ' }, { text: 'en Berlín', role: 'adverb' }, { text: '.' },
+      ],
+    },
+    { target: 'La fiesta es aburrida.', german: 'Die Party ist langweilig.' },
+    { target: 'Estoy aburrido.', german: 'Mir ist langweilig.', literal: 'Ich bin gelangweilt.' },
+    { target: 'Carmen es lista.', german: 'Carmen ist klug.' },
+    { target: 'Carmen está lista.', german: 'Carmen ist fertig. / Carmen ist bereit.' },
+    { target: 'La fiesta es en casa de Ana.', german: 'Die Party findet bei Ana statt.', note: 'Ort eines **Ereignisses** → ser.' },
+    { target: 'Hoy el banco está cerrado.', german: 'Heute ist die Bank geschlossen.' },
+  ],
+  guided: [
+    {
+      id: `${L}.g01`,
+      type: 'cloze',
+      skills: ['grammar', 'writing'],
+      topicIds: ['es.g.ser-estar'],
+      difficulty: 1,
+      instruction: 'ser oder estar? Ergänze.',
+      sentence: 'Pablo ___ de Perú, pero ahora ___ en Madrid.',
+      answers: [['es'], ['está']],
+      bank: ['es', 'está', 'son', 'están'],
+      german: 'Pablo kommt aus Peru, ist aber jetzt in Madrid.',
+      feedback: {
+        rule: 'Herkunft → ser (`es de Perú`); Ort → estar (`está en Madrid`).',
+        why: 'Herkunft ist Teil der Identität, der Aufenthaltsort ist eine Lage.',
+        avoid: '„de + Land“ → ser; „en + Ort“ → estar.',
+      },
+    },
+    {
+      id: `${L}.g02`,
+      type: 'mc',
+      skills: ['grammar', 'vocabulary'],
+      topicIds: ['es.g.ser-estar'],
+      difficulty: 1,
+      prompt: 'Was bedeutet `Estoy listo.`?',
+      options: [
+        { text: 'Ich bin klug.', why: '„klug sein“ ist eine Eigenschaft → `Soy listo.`' },
+        { text: 'Ich bin fertig / bereit.' },
+        { text: 'Ich bin müde.', why: '„müde“ heißt `cansado`.' },
+      ],
+      answer: 1,
+      feedback: {
+        rule: '`estar listo` = fertig, bereit (Zustand); `ser listo` = klug (Eigenschaft).',
+        why: 'Das Verb verändert hier die Bedeutung des Adjektivs.',
+        avoid: 'Bereit ist ein Zustand, der sich ändert → estar.',
+      },
+    },
+    {
+      id: `${L}.g03`,
+      type: 'listening',
+      skills: ['listening'],
+      topicIds: ['es.g.ser-estar'],
+      difficulty: 2,
+      audio: 'La fiesta es aburrida.',
+      question: 'Was sagt die Person?',
+      options: ['Die Party ist langweilig.', 'Sie langweilt sich auf der Party.', 'Die Party ist vorbei.'],
+      answer: 0,
+      feedback: {
+        rule: '`es aburrida` (ser) = ist langweilig; `está aburrida` (estar) = ist gelangweilt.',
+        why: 'Du hast `es` gehört – damit wird die Party charakterisiert, nicht das Gefühl einer Person.',
+        avoid: 'Hör genau auf das Verb: es oder está?',
+      },
+    },
+    {
+      id: `${L}.g04`,
+      type: 'order',
+      skills: ['grammar', 'reading'],
+      topicIds: ['es.g.ser-estar'],
+      difficulty: 2,
+      instruction: 'Bilde den Satz.',
+      tokens: ['Marcos', 'es', 'de', 'Chile,', 'pero', 'está', 'en', 'Berlín.'],
+      extra: ['son', 'estoy'],
+      german: 'Marcos kommt aus Chile, ist aber in Berlin.',
+      feedback: {
+        rule: 'Herkunft mit ser (`es de Chile`), Ort mit estar (`está en Berlín`).',
+        why: '`son` ist Plural, `estoy` die ich-Form – beide passen nicht zu Marcos.',
+        avoid: 'Ordne erst die beiden Satzteile: „Herkunft“ und „Aufenthaltsort“.',
+      },
+    },
+    {
+      id: `${L}.g05`,
+      type: 'fixError',
+      skills: ['grammar', 'writing'],
+      topicIds: ['es.g.ser-estar'],
+      difficulty: 2,
+      instruction: 'Korrigiere den Satz (eine Frau spricht).',
+      sentence: 'Soy cansada hoy.',
+      answers: ['Estoy cansada hoy.', 'Hoy estoy cansada.', 'Yo estoy cansada hoy.', 'Hoy yo estoy cansada.'],
+      german: 'Ich bin heute müde.',
+      feedback: {
+        rule: 'Befinden → estar: `Estoy cansada.`',
+        why: '`ser cansada` würde „ermüdend sein“ bedeuten.',
+        avoid: 'Müde, froh, krank, gelangweilt = Zustände → estar.',
+      },
+    },
+    {
+      id: `${L}.g06`,
+      type: 'translate',
+      skills: ['reading', 'grammar'],
+      topicIds: ['es.g.ser-estar'],
+      difficulty: 2,
+      direction: 'toGerman',
+      source: 'Estoy aburrido.',
+      answers: ['Mir ist langweilig.', 'Ich bin gelangweilt.', 'Ich langweile mich.'],
+      feedback: {
+        rule: '`estar aburrido` = gelangweilt sein; `ser aburrido` = langweilig sein.',
+        why: '„Ich bin langweilig“ wäre `Soy aburrido` – das sagt etwas über deinen Charakter.',
+        avoid: 'estar + Gefühl → wie es dir geht, nicht wie du bist.',
+      },
+    },
+    {
+      id: `${L}.g07`,
+      type: 'mc',
+      skills: ['grammar', 'reading'],
+      topicIds: ['es.g.ser-estar'],
+      difficulty: 3,
+      prompt: 'Du lädst zu einer Party bei Ana ein. Welcher Satz ist korrekt?',
+      options: [
+        { text: 'La fiesta está en casa de Ana.', why: 'Die „Location“-Regel aus PLACE gilt nicht für Ereignisse.' },
+        { text: 'La fiesta es en casa de Ana.' },
+      ],
+      answer: 1,
+      feedback: {
+        rule: 'Wo ein **Ereignis** stattfindet (Party, Konzert, Prüfung), sagt man mit ser.',
+        why: 'Ein Ereignis „befindet“ sich nicht irgendwo, es **findet statt** – das drückt ser aus.',
+        avoid: 'Kann ich „findet statt“ sagen? Dann ser.',
+      },
+    },
+    {
+      id: `${L}.g08`,
+      type: 'translate',
+      skills: ['writing', 'grammar'],
+      topicIds: ['es.g.ser-estar'],
+      difficulty: 3,
+      direction: 'toTarget',
+      source: 'Er ist Arzt, aber heute ist er krank.',
+      answers: [
+        'Es médico, pero hoy está enfermo.',
+        'Él es médico, pero hoy está enfermo.',
+        'Es médico, pero está enfermo hoy.',
+        'Él es médico, pero está enfermo hoy.',
+        'Es médico, pero hoy él está enfermo.',
+      ],
+      feedback: {
+        rule: 'Beruf → ser (`es médico`, ohne Artikel); Befinden → estar (`está enfermo`).',
+        why: '`es enfermo` würde bedeuten, dass er von Natur aus krank ist, und `un médico` ist ohne Adjektiv unüblich.',
+        avoid: 'Zerlege den Satz: Was ist er? (ser) – Wie geht es ihm? (estar)',
+      },
+    },
+  ],
+  pronunciation: ['es.p.r.pero', 'es.p.into.de-donde-eres'],
+  application: [
+    {
+      id: `${L}.a01`,
+      type: 'situation',
+      skills: ['grammar', 'reading'],
+      topicIds: ['es.g.ser-estar'],
+      difficulty: 2,
+      scenario: 'Du holst eine Freundin ab. Sie steht schon mit Jacke an der Tür und will dir sagen, dass sie fertig ist. Was sagt sie?',
+      options: [
+        { text: 'Soy lista.', why: '`ser lista` = klug sein – das wollte sie nicht sagen.' },
+        { text: 'Estoy lista.' },
+        { text: 'Está listo.', why: '`está` ist die er/sie-Form, und `listo` die männliche Endung.' },
+      ],
+      answer: 1,
+      feedback: {
+        rule: 'Bereit/fertig = Zustand → `estar lista`.',
+        why: 'Mit ser würde sich die Bedeutung zu „klug“ ändern.',
+        avoid: 'listo/lista: Mit estar „fertig“, mit ser „klug“.',
+      },
+    },
+    {
+      id: `${L}.a02`,
+      type: 'freeText',
+      skills: ['writing', 'grammar'],
+      topicIds: ['es.g.ser-estar'],
+      difficulty: 3,
+      prompt: 'Beschreibe eine Person, die du kennst, in 2–3 Sätzen: Wer ist sie, woher kommt sie, wo ist sie gerade und wie geht es ihr?',
+      requirements: [
+        { pattern: '\\b(es|soy|eres|somos|sois|son)\\b', hint: 'Verwende ser (z. B. `es`) für Beruf, Herkunft oder Charakter.' },
+        { pattern: '\\best(oy|ás|as|á|a|amos|áis|ais|án|an)', hint: 'Verwende estar (z. B. `está`) für Ort oder Befinden.' },
+      ],
+      samples: [
+        'Lena es profesora y es de Austria. Es muy simpática. Hoy está en Madrid y está cansada.',
+        'Pablo es médico. Es de Chile, pero ahora está en Berlín. Está contento.',
+      ],
+      minWords: 10,
+      feedback: {
+        rule: 'Wer/was/woher → ser. Wo/wie geht’s → estar.',
+        why: 'Eine gute Personenbeschreibung braucht beide Verben.',
+        avoid: 'Schreib erst zwei ser-Sätze (Beruf, Herkunft), dann zwei estar-Sätze (Ort, Befinden).',
+      },
+    },
+    {
+      id: `${L}.a03`,
+      type: 'speakFree',
+      skills: ['speaking', 'grammar'],
+      topicIds: ['es.g.ser-estar'],
+      difficulty: 2,
+      prompt: 'Sag laut zwei Sätze über dich: einen mit **ser** (wer du bist oder woher du kommst) und einen mit **estar** (wie es dir geht oder wo du gerade bist).',
+      keywords: ['soy', 'estoy'],
+      minMatch: 2,
+      sample: 'Soy de Alemania. Hoy estoy muy bien.',
+      feedback: {
+        rule: 'Über dich: ser → `soy`, estar → `estoy`.',
+        why: 'Die Spracherkennung hat nicht beide Verbformen gehört.',
+        avoid: 'Sprich beide Sätze getrennt und deutlich: „Soy …“ – Pause – „Estoy …“.',
+      },
+    },
+    {
+      id: `${L}.a04`,
+      type: 'aiChat',
+      skills: ['speaking', 'listening'],
+      topicIds: ['es.g.ser-estar'],
+      difficulty: 3,
+      scenarioId: 'es.sc.gefuehrt',
+      goal: 'Stell dich vor (ser: Name, Herkunft, Beruf) und erzähl, wie es dir heute geht und wo du gerade bist (estar).',
+      turns: 5,
+      feedback: {
+        rule: 'Vorstellung mit `soy`, Befinden und Ort mit `estoy`.',
+        avoid: 'Vor jedem Satz kurz prüfen: Wesen oder Zustand?',
+      },
+    },
+  ],
+  review: [
+    {
+      id: `${L}.r01`,
+      type: 'conjugate',
+      skills: ['grammar', 'writing'],
+      topicIds: ['es.g.estar'],
+      difficulty: 1,
+      verb: 'estar',
+      tense: 'Präsens',
+      person: 'ellos',
+      sentence: 'Ellos ___ en Madrid.',
+      answers: ['están'],
+      feedback: {
+        rule: 'ellos → `están`.',
+        why: '`están` ist die Form für ellos/ellas/ustedes.',
+        avoid: 'Reihe: estoy – estás – está – estamos – estáis – están.',
+      },
+    },
+    {
+      id: `${L}.r02`,
+      type: 'conjugate',
+      skills: ['grammar', 'writing'],
+      topicIds: ['es.g.ser'],
+      difficulty: 1,
+      verb: 'ser',
+      tense: 'Präsens',
+      person: 'ellas',
+      sentence: 'Ellas ___ de Argentina.',
+      answers: ['son'],
+      feedback: {
+        rule: 'Herkunft → ser; ellas → `son`.',
+        why: '`están` wäre estar und passt nicht zur Herkunft.',
+        avoid: 'Reihe: soy – eres – es – somos – sois – son.',
+      },
+    },
+    {
+      id: `${L}.r03`,
+      type: 'minimalPair',
+      skills: ['listening', 'pronunciation'],
+      topicIds: ['es.g.stress'],
+      difficulty: 2,
+      instruction: 'Welches Wort hörst du?',
+      options: ['esta', 'está'],
+      answer: 1,
+      hint: '`esta` (diese) wird auf der ersten Silbe betont: ES-ta. `está` (ist) auf der letzten: es-TÁ.',
+      feedback: {
+        rule: 'Der Akzent zeigt die Betonung: `está` = es-TÁ.',
+        why: 'Die Betonung lag auf der letzten Silbe.',
+        avoid: 'Sprich `está` immer mit Nachdruck am Ende – sonst verstehen Muttersprachler „diese“.',
+      },
+    },
+  ],
+};
+
+export default lesson;

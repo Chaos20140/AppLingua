@@ -1,0 +1,386 @@
+import type { Lesson } from '../../types';
+
+const L = 'es.s0.l01';
+
+const lesson: Lesson = {
+  id: L,
+  courseId: 'es',
+  stageId: 'stage0',
+  chapterId: 'es.s0.c1',
+  order: 1,
+  title: 'Hola – begrüßen & verabschieden',
+  subtitle: 'Die ersten Sätze für jede Tageszeit',
+  icon: '👋',
+  minutes: 10,
+  goal:
+    'Du lernst, Menschen zu jeder Tageszeit passend zu **begrüßen**, kurz nach dem Befinden zu fragen und dich zu **verabschieden** – und wann du `tú` (du) oder `usted` (Sie) verwendest.',
+  canDo: [
+    'Ich kann jemanden zu jeder Tageszeit passend begrüßen.',
+    'Ich kann mit ¿Qué tal? fragen, wie es jemandem geht, und kurz antworten.',
+    'Ich kann mich im Alltag passend verabschieden.',
+    'Ich kann einschätzen, ob ich jemanden mit tú oder usted anspreche.',
+  ],
+  topicIds: ['es.g.formality'],
+  vocab: [
+    { id: `${L}.v.hola`, target: 'hola', german: 'hallo', pos: 'phrase', emoji: '👋', field: 'Begrüßung', stageId: 'stage0', lessonId: L, example: { target: '¡Hola! ¿Qué tal?', german: 'Hallo! Wie geht’s?' } },
+    { id: `${L}.v.buenos-dias`, target: 'buenos días', german: 'guten Morgen / guten Tag (bis mittags)', pos: 'phrase', emoji: '🌅', field: 'Begrüßung', stageId: 'stage0', lessonId: L, example: { target: 'Buenos días, señora.', german: 'Guten Morgen.' } },
+    { id: `${L}.v.buenas-tardes`, target: 'buenas tardes', german: 'guten Tag (nachmittags bis abends)', pos: 'phrase', emoji: '🌇', field: 'Begrüßung', stageId: 'stage0', lessonId: L, example: { target: 'Buenas tardes, señor.', german: 'Guten Tag.' } },
+    { id: `${L}.v.buenas-noches`, target: 'buenas noches', german: 'guten Abend / gute Nacht', pos: 'phrase', emoji: '🌙', field: 'Begrüßung', stageId: 'stage0', lessonId: L, example: { target: 'Buenas noches. ¡Hasta mañana!', german: 'Gute Nacht. Bis morgen!' } },
+    { id: `${L}.v.adios`, target: 'adiós', german: 'tschüss / auf Wiedersehen', pos: 'phrase', field: 'Verabschiedung', stageId: 'stage0', lessonId: L, example: { target: '¡Adiós, hasta luego!', german: 'Tschüss, bis später!' } },
+    { id: `${L}.v.hasta-luego`, target: 'hasta luego', german: 'bis später / tschüss', pos: 'phrase', field: 'Verabschiedung', stageId: 'stage0', lessonId: L, example: { target: '¡Hasta luego, Ana!', german: 'Bis später, Ana!' } },
+    { id: `${L}.v.hasta-manana`, target: 'hasta mañana', german: 'bis morgen', pos: 'phrase', field: 'Verabschiedung', stageId: 'stage0', lessonId: L, example: { target: 'Buenas noches, ¡hasta mañana!', german: 'Gute Nacht, bis morgen!' } },
+    { id: `${L}.v.que-tal`, target: '¿qué tal?', german: 'wie geht’s? / wie läuft’s?', pos: 'phrase', field: 'Begrüßung', stageId: 'stage0', lessonId: L, example: { target: 'Hola, Pablo, ¿qué tal?', german: 'Hallo Pablo, wie geht’s?' } },
+    { id: `${L}.v.muy-bien`, target: 'muy bien', german: 'sehr gut', pos: 'phrase', field: 'Befinden', stageId: 'stage0', lessonId: L, example: { target: 'Muy bien, gracias.', german: 'Sehr gut, danke.' } },
+    { id: `${L}.v.gracias`, target: 'gracias', german: 'danke', pos: 'phrase', field: 'Höflichkeit', stageId: 'stage0', lessonId: L, example: { target: 'Bien, gracias.', german: 'Gut, danke.' } },
+    { id: `${L}.v.y-tu`, target: '¿y tú?', german: 'und du? / und dir?', pos: 'phrase', field: 'Begrüßung', stageId: 'stage0', lessonId: L, example: { target: 'Bien, gracias. ¿Y tú?', german: 'Gut, danke. Und dir?' } },
+    { id: `${L}.v.y-usted`, target: '¿y usted?', german: 'und Sie? / und Ihnen?', pos: 'phrase', field: 'Begrüßung', stageId: 'stage0', lessonId: L, example: { target: 'Muy bien, gracias. ¿Y usted?', german: 'Sehr gut, danke. Und Ihnen?' } },
+    { id: `${L}.v.senor`, target: 'señor', german: 'Herr (Anrede)', pos: 'noun', gender: 'm', field: 'Anrede', stageId: 'stage0', lessonId: L, example: { target: 'Buenos días, señor.', german: 'Guten Morgen (, mein Herr).' } },
+    { id: `${L}.v.senora`, target: 'señora', german: 'Frau (Anrede)', pos: 'noun', gender: 'f', field: 'Anrede', stageId: 'stage0', lessonId: L, example: { target: 'Buenas tardes, señora.', german: 'Guten Tag (, meine Dame).' } },
+  ],
+  explanation: [
+    {
+      type: 'text',
+      md:
+        '`Hola` ist das universelle „Hallo“ – passt immer und zu jedem. Das **h** ist stumm: Sprich einfach „ola“.\n' +
+        'Für die Tageszeit gibt es drei feste Grüße:\n' +
+        '- `buenos días` – morgens bis zum Mittagessen (in Spanien oft bis 13 oder 14 Uhr)\n' +
+        '- `buenas tardes` – nachmittags bis etwa zum Abendessen bzw. bis es dunkel ist\n' +
+        '- `buenas noches` – abends und nachts\n' +
+        'Sehr üblich ist die Kombination: `Hola, buenos días.` Kurz und locker geht auch nur `¡Buenas!`.\n' +
+        'Zum Abschied sagst du `adiós`, `hasta luego` (bis später – wird auch als einfaches „Tschüss“ benutzt) oder `hasta mañana` (bis morgen).',
+    },
+    {
+      type: 'compare',
+      target: 'Buenas noches.',
+      german: 'Guten Abend. / Gute Nacht.',
+      md: 'Das Deutsche trennt „Guten Abend“ (Begrüßung) und „Gute Nacht“ (Abschied). `Buenas noches` deckt beides ab – du kannst damit abends ein Restaurant betreten **und** dich spät verabschieden.',
+    },
+    {
+      type: 'mistake',
+      wrong: 'Buenos tardes.',
+      right: 'Buenas tardes.',
+      why: '`tarde` (Nachmittag) und `noche` (Nacht) sind **weiblich**, darum `buenas`. `día` (Tag) ist trotz der Endung -a **männlich**, darum `buenos días`. Lerne die drei Grüße am besten als feste Blöcke.',
+    },
+    {
+      type: 'text',
+      md:
+        '**Du oder Sie?** Spanisch unterscheidet wie das Deutsche:\n' +
+        '- `tú` = du: Freunde, Familie, Gleichaltrige, Kinder, meist auch Kolleginnen und Kollegen\n' +
+        '- `usted` = Sie: ältere Unbekannte, Behörden, formelle Situationen (abgekürzt oft _Ud._)\n' +
+        'Du merkst es schon bei der Rückfrage: `¿Y tú?` (Und dir?) oder `¿Y usted?` (Und Ihnen?). `¿Qué tal?` selbst ist neutral und passt zu beiden.',
+    },
+    {
+      type: 'variant',
+      variant: 'es-ES',
+      md: 'In **Spanien** duzt man viel schneller als in Deutschland – im Café, im Laden, unter Kollegen, oft sogar bei Fremden im gleichen Alter. `usted` hörst du vor allem gegenüber deutlich älteren Menschen und in sehr formellen Situationen. Beim Verlassen eines Ladens sagt man gern einfach `¡Hasta luego!` – auch wenn man sich nie wiedersieht.',
+    },
+    {
+      type: 'variant',
+      variant: 'es-LA',
+      md: 'In vielen Ländern **Lateinamerikas** wird `usted` häufiger verwendet als in Spanien – in Kolumbien oder Costa Rica siezt man sich teils sogar in der Familie oder unter Freunden. Zum Abschied hörst du oft locker `chao` (in Argentinien und Uruguay: `chau`). In Argentinien sagt man morgens gern `buen día` statt `buenos días`.',
+    },
+    {
+      type: 'tip',
+      md: '**Días → buenos, tardes und noches → buenas.** Im Zweifel siezen: Mit `usted` bist du nie unhöflich – dein Gegenüber bietet dir das `tú` schon an.',
+    },
+    { type: 'audio', text: '¡Hola! Buenos días. ¿Qué tal?', label: 'Hören: Hallo! Guten Morgen. Wie geht’s?' },
+  ],
+  examples: [
+    {
+      target: '¡Hola! ¿Qué tal?',
+      german: 'Hallo! Wie geht’s?',
+      parts: [{ text: '¡Hola! ' }, { text: '¿Qué tal?', role: 'question' }],
+    },
+    {
+      target: 'Buenos días, señora.',
+      german: 'Guten Morgen.',
+      literal: 'Gute Tage, Frau.',
+      parts: [{ text: 'Buenos', role: 'adjective' }, { text: ' ' }, { text: 'días', role: 'noun' }, { text: ', ' }, { text: 'señora', role: 'noun' }, { text: '.' }],
+      note: 'Im Deutschen lässt man die Anrede meist weg – im Spanischen ist `señora`/`señor` ganz normal und höflich.',
+    },
+    {
+      target: 'Bien, gracias. ¿Y tú?',
+      german: 'Gut, danke. Und dir?',
+      parts: [{ text: 'Bien', role: 'adverb' }, { text: ', gracias. ' }, { text: '¿Y ', role: 'question' }, { text: 'tú', role: 'pronoun' }, { text: '?', role: 'question' }],
+    },
+    {
+      target: 'Muy bien, gracias. ¿Y usted?',
+      german: 'Sehr gut, danke. Und Ihnen?',
+      literal: 'Sehr gut, danke. Und Sie?',
+      parts: [{ text: 'Muy bien', role: 'adverb' }, { text: ', gracias. ' }, { text: '¿Y ', role: 'question' }, { text: 'usted', role: 'pronoun' }, { text: '?', role: 'question' }],
+      note: '`usted` = höfliches „Sie“.',
+    },
+    { target: 'Buenas tardes, señor. ¿Qué tal?', german: 'Guten Tag. Wie geht es Ihnen?' },
+    { target: 'Buenas noches. ¡Hasta mañana!', german: 'Gute Nacht. Bis morgen!', note: 'Hier ist `buenas noches` ein Abschied.' },
+    { target: '¡Adiós, hasta luego!', german: 'Tschüss, bis später!' },
+  ],
+  guided: [
+    {
+      id: `${L}.g01`,
+      type: 'imageMatch',
+      skills: ['vocabulary', 'reading'],
+      difficulty: 1,
+      instruction: 'Ordne jedem Bild den passenden Gruß zu.',
+      pairs: [
+        { emoji: '👋', word: 'hola' },
+        { emoji: '🌅', word: 'buenos días' },
+        { emoji: '🌇', word: 'buenas tardes' },
+        { emoji: '🌙', word: 'buenas noches' },
+      ],
+      feedback: {
+        rule: 'Morgens bis mittags `buenos días`, nachmittags `buenas tardes`, abends und nachts `buenas noches`. `hola` passt immer.',
+        why: 'Die Grüße hängen an der Tageszeit, nicht an der Uhrzeit auf die Minute – entscheidend ist grob: vor dem Mittagessen, danach, nach Einbruch der Dunkelheit.',
+        avoid: 'Denk an den Tagesablauf: Frühstück → días, Mittagessen → tardes, Abendessen/Dunkelheit → noches.',
+      },
+    },
+    {
+      id: `${L}.g02`,
+      type: 'mc',
+      skills: ['vocabulary', 'reading'],
+      topicIds: ['es.g.formality'],
+      difficulty: 1,
+      prompt: 'Es ist 22 Uhr und längst dunkel. Du betrittst ein Restaurant. Wie grüßt du?',
+      options: [
+        { text: 'Buenos días.', why: '`Buenos días` sagt man nur morgens bis etwa zum Mittagessen.' },
+        { text: 'Buenas tardes.', why: '`Buenas tardes` gilt nachmittags bis zum frühen Abend – um 22 Uhr ist es dafür zu spät.' },
+        { text: 'Buenas noches.' },
+      ],
+      answer: 2,
+      feedback: {
+        rule: '`Buenas noches` ist Gruß **und** Abschied am Abend und in der Nacht.',
+        why: 'Anders als „Gute Nacht“ im Deutschen kann `buenas noches` auch zur Begrüßung verwendet werden.',
+        avoid: 'Merke: Sobald es dunkel ist, passt `buenas noches` – beim Kommen und beim Gehen.',
+      },
+    },
+    {
+      id: `${L}.g03`,
+      type: 'listening',
+      skills: ['listening'],
+      difficulty: 1,
+      audio: 'Buenas tardes, señora. ¿Qué tal?',
+      question: 'Zu welcher Tageszeit findet dieses Gespräch ungefähr statt?',
+      options: ['am Morgen', 'am Nachmittag', 'spät in der Nacht'],
+      answer: 1,
+      feedback: {
+        rule: '`buenas tardes` = Gruß für den Nachmittag bis zum frühen Abend.',
+        why: 'Du hast `tardes` gehört – `días` wäre der Morgen, `noches` der Abend bzw. die Nacht.',
+        avoid: 'Achte beim Hören auf das zweite Wort: días, tardes oder noches.',
+      },
+    },
+    {
+      id: `${L}.g04`,
+      type: 'cloze',
+      skills: ['grammar', 'writing'],
+      difficulty: 2,
+      instruction: 'Ergänze die Grüße.',
+      sentence: '___ días, señor. ___ tardes, señora.',
+      answers: [['Buenos'], ['Buenas']],
+      bank: ['Buenos', 'Buenas', 'Bueno'],
+      german: 'Guten Morgen. – Guten Tag.',
+      feedback: {
+        rule: '`día` ist männlich → `buenos días`; `tarde` und `noche` sind weiblich → `buenas tardes`, `buenas noches`.',
+        why: '`día` endet zwar auf -a, ist aber eine Ausnahme und männlich. `Bueno` (Singular) passt nicht, weil die Grüße im Plural stehen.',
+        avoid: 'Lerne die drei Grüße als feste Blöcke: buenos días – buenas tardes – buenas noches.',
+      },
+    },
+    {
+      id: `${L}.g05`,
+      type: 'mc',
+      skills: ['grammar', 'reading'],
+      topicIds: ['es.g.formality'],
+      difficulty: 2,
+      prompt: 'Eine ältere Dame, die du nicht kennst, fragt dich freundlich: `¿Qué tal?` Wie antwortest du höflich und fragst zurück?',
+      options: [
+        { text: 'Bien, gracias. ¿Y tú?', why: '`tú` ist das vertraute „du“ – gegenüber einer älteren Unbekannten zu vertraulich.' },
+        { text: 'Bien, gracias. ¿Y usted?' },
+        { text: 'Adiós, señora.', why: '`Adiós` ist eine Verabschiedung und beantwortet die Frage nicht.' },
+      ],
+      answer: 1,
+      feedback: {
+        rule: 'Ältere oder unbekannte Personen in formellen Situationen sprichst du mit `usted` (Sie) an: `¿Y usted?`',
+        why: '`¿Y tú?` wäre das vertraute „Und dir?“ – das klingt gegenüber einer älteren Fremden zu locker.',
+        avoid: 'Frag dich: Würde ich diese Person auf Deutsch siezen? Dann `usted`.',
+      },
+    },
+    {
+      id: `${L}.g06`,
+      type: 'order',
+      skills: ['grammar', 'reading'],
+      difficulty: 2,
+      instruction: 'Bilde den Satz.',
+      tokens: ['Hola,', 'buenas', 'tardes.', '¿Qué', 'tal?'],
+      extra: ['buenos'],
+      german: 'Hallo, guten Tag. Wie geht’s?',
+      feedback: {
+        rule: 'Erst der Gruß (`Hola, buenas tardes.`), dann die Frage `¿Qué tal?`. Zu `tardes` gehört `buenas`.',
+        why: '`buenos` passt nur zu `días` – `tarde` ist weiblich.',
+        avoid: 'Fragen stehen im Spanischen zwischen ¿ und ? – so erkennst du, wo die Frage beginnt.',
+      },
+    },
+    {
+      id: `${L}.g07`,
+      type: 'translate',
+      skills: ['writing', 'vocabulary'],
+      difficulty: 3,
+      direction: 'toTarget',
+      source: 'Gute Nacht, bis morgen!',
+      answers: [
+        'Buenas noches, hasta mañana.',
+        '¡Buenas noches, hasta mañana!',
+        'Buenas noches. ¡Hasta mañana!',
+        'Hasta mañana, buenas noches.',
+      ],
+      feedback: {
+        rule: '„Gute Nacht“ = `buenas noches`, „bis morgen“ = `hasta mañana`.',
+        why: '`hasta luego` heißt „bis später“, nicht „bis morgen“. Und `noches` braucht die weibliche Form `buenas`.',
+        avoid: '`mañana` schreibt sich mit ñ (gesprochen „nj“): ma-NJA-na.',
+      },
+    },
+    {
+      id: `${L}.g08`,
+      type: 'translate',
+      skills: ['reading', 'grammar'],
+      topicIds: ['es.g.formality'],
+      difficulty: 3,
+      direction: 'toGerman',
+      source: 'Muy bien, gracias. ¿Y usted?',
+      answers: [
+        'Sehr gut, danke. Und Ihnen?',
+        'Sehr gut, danke. Und Sie?',
+        'Danke, sehr gut. Und Ihnen?',
+        'Mir geht es sehr gut, danke. Und Ihnen?',
+        'Sehr gut, danke. Wie geht es Ihnen?',
+        'Sehr gut, danke. Und wie geht es Ihnen?',
+        'Danke, sehr gut. Und Sie?',
+      ],
+      feedback: {
+        rule: '`usted` ist das höfliche „Sie“ – `¿Y usted?` heißt also „Und Ihnen?“ bzw. „Und Sie?“.',
+        why: '„Und dir?“ wäre `¿Y tú?`. `muy` bedeutet „sehr“.',
+        avoid: 'tú = du, usted = Sie. Achte bei der Übersetzung genau darauf, welches Pronomen steht.',
+      },
+    },
+  ],
+  pronunciation: ['es.p.h.hola', 'es.p.syl.buenos-dias', 'es.p.ny.manana'],
+  application: [
+    {
+      id: `${L}.a01`,
+      type: 'situation',
+      skills: ['grammar', 'reading'],
+      topicIds: ['es.g.formality'],
+      difficulty: 2,
+      scenario: 'Es ist 10 Uhr morgens. Du betrittst eine kleine Bäckerei in Sevilla. Hinter der Theke steht ein älterer Herr, den du nicht kennst. Wie begrüßt du ihn?',
+      options: [
+        { text: 'Buenos días, señor.' },
+        { text: 'Buenas noches, señor.', why: '`buenas noches` sagt man erst abends.' },
+        { text: '¡Hasta luego, señor!', why: '`hasta luego` ist ein Abschied – den brauchst du erst beim Gehen.' },
+      ],
+      answer: 0,
+      feedback: {
+        rule: 'Morgens grüßt du mit `buenos días`; `señor` macht den Gruß höflich.',
+        why: 'Die Tageszeit entscheidet über den Gruß, `hasta luego` gehört ans Ende des Besuchs.',
+        avoid: 'Beim Betreten: Gruß nach Tageszeit. Beim Gehen: `adiós` oder `hasta luego`.',
+      },
+    },
+    {
+      id: `${L}.a02`,
+      type: 'dialogue',
+      skills: ['reading', 'grammar'],
+      topicIds: ['es.g.formality'],
+      difficulty: 2,
+      instruction: 'Ergänze Toms Antwort. Ana und Tom sind Freunde.',
+      lines: [
+        { speaker: 'Ana', text: '¡Hola, Tom! ¿Qué tal?', german: 'Hallo Tom! Wie geht’s?' },
+        { speaker: 'Tom', text: 'Muy bien, gracias. ¿Y tú?', german: 'Sehr gut, danke. Und dir?' },
+        { speaker: 'Ana', text: 'Bien, gracias.', german: 'Gut, danke.' },
+        { speaker: 'Tom', text: '¡Hasta luego, Ana!', german: 'Bis später, Ana!' },
+      ],
+      gapIndex: 1,
+      options: ['Muy bien, gracias. ¿Y tú?', 'Muy bien, gracias. ¿Y usted?', 'Buenas noches, señora.'],
+      answer: 0,
+      feedback: {
+        rule: 'Unter Freunden verwendest du `tú`: `¿Y tú?`',
+        why: '`¿Y usted?` wäre unter Freunden viel zu förmlich, und `Buenas noches, señora` passt weder zur Situation noch zur Anrede.',
+        avoid: 'Ana begrüßt Tom mit `hola` und Vornamen – ein klares Signal für `tú`.',
+      },
+    },
+    {
+      id: `${L}.a03`,
+      type: 'speakFree',
+      skills: ['speaking', 'pronunciation'],
+      difficulty: 2,
+      prompt: 'Stell dir vor, du triffst morgens eine Kollegin. Begrüße sie laut, frag, wie es ihr geht, und verabschiede dich.',
+      keywords: ['hola', 'buenos días', 'qué tal', 'hasta luego', 'adiós', 'hasta mañana'],
+      minMatch: 3,
+      sample: '¡Hola, buenos días! ¿Qué tal? … ¡Hasta luego!',
+      feedback: {
+        rule: 'Ein kurzes Gespräch besteht aus Gruß (`hola`, `buenos días`), Frage (`¿qué tal?`) und Abschied (`hasta luego`, `adiós`).',
+        why: 'Die Spracherkennung hat nicht genug der erwarteten Ausdrücke erkannt – vielleicht fehlte ein Teil, oder ein Wort war schwer zu verstehen.',
+        avoid: 'Sprich in ruhigem Tempo und denk an das stumme h: „ola“.',
+      },
+    },
+    {
+      id: `${L}.a04`,
+      type: 'aiChat',
+      skills: ['speaking', 'listening'],
+      topicIds: ['es.g.formality'],
+      difficulty: 2,
+      scenarioId: 'es.sc.alltag',
+      goal: 'Begrüße dein Gegenüber passend zur Tageszeit, frag mit `¿Qué tal?` nach dem Befinden, antworte selbst und verabschiede dich.',
+      turns: 4,
+      feedback: {
+        rule: 'Gruß nach Tageszeit → `¿Qué tal?` → Antwort mit `bien`/`muy bien, gracias` → Abschied.',
+        avoid: 'Wenn du unsicher bist: `Bien, gracias. ¿Y tú?` passt fast immer.',
+      },
+    },
+  ],
+  review: [
+    {
+      id: `${L}.r01`,
+      type: 'dictation',
+      skills: ['listening', 'writing'],
+      difficulty: 1,
+      audio: 'Hasta mañana.',
+      answers: ['Hasta mañana.'],
+      german: 'Bis morgen.',
+      feedback: {
+        rule: '`hasta mañana` = bis morgen. Das h ist stumm, ñ klingt wie „nj“.',
+        why: 'Man hört das h in `hasta` nicht – geschrieben wird es trotzdem.',
+        avoid: 'Merke: Ein stummes h am Wortanfang musst du beim Schreiben mitdenken (hola, hasta).',
+      },
+    },
+    {
+      id: `${L}.r02`,
+      type: 'matchPairs',
+      skills: ['vocabulary'],
+      difficulty: 1,
+      pairs: [
+        { left: 'hola', right: 'hallo' },
+        { left: 'adiós', right: 'tschüss' },
+        { left: 'hasta luego', right: 'bis später' },
+        { left: 'gracias', right: 'danke' },
+        { left: '¿qué tal?', right: 'wie geht’s?' },
+      ],
+      feedback: {
+        rule: 'Die wichtigsten Grüße: hola – hallo, adiós – tschüss, hasta luego – bis später, gracias – danke, ¿qué tal? – wie geht’s?',
+        avoid: 'Sag die Wörter beim Zuordnen laut mit – so bleiben sie besser hängen.',
+      },
+    },
+    {
+      id: `${L}.r03`,
+      type: 'fixError',
+      skills: ['grammar', 'writing'],
+      difficulty: 2,
+      instruction: 'Im Satz steckt ein Fehler. Schreib ihn richtig.',
+      sentence: 'Buenos noches, señora.',
+      answers: ['Buenas noches, señora.'],
+      german: 'Guten Abend.',
+      feedback: {
+        rule: '`noche` ist weiblich → `buenas noches`.',
+        why: '`buenos` passt nur zu `días`.',
+        avoid: 'Nur der Morgen ist „buenos“ – Nachmittag und Abend sind „buenas“.',
+      },
+    },
+  ],
+};
+
+export default lesson;

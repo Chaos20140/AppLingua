@@ -1,0 +1,95 @@
+.row {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: var(--sp-4);
+  min-height: 52px;
+  padding: var(--sp-2) 0;
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+}
+.compact {
+  display: inline-flex;
+  min-height: var(--tap);
+}
+
+.text {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.label {
+  font-weight: var(--fw-medium);
+  line-height: var(--lh-snug);
+}
+
+.description {
+  font-size: var(--fs-sm);
+  color: var(--text-2);
+  line-height: var(--lh-snug);
+}
+
+.input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: 0;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.track {
+  position: relative;
+  flex-shrink: 0;
+  width: 52px;
+  height: 32px;
+  border-radius: var(--r-full);
+  background: var(--surface-3);
+  box-shadow: inset 0 0 0 1px var(--border);
+  transition: background-color var(--dur);
+}
+
+.thumb {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.22), 0 0 0 0.5px rgba(0, 0, 0, 0.05);
+  transition: transform var(--dur) var(--ease-spring);
+}
+
+.input:checked + .track {
+  background-color: var(--accent-solid);
+  box-shadow: none;
+}
+.input:checked + .track .thumb {
+  transform: translateX(20px);
+}
+.input:focus-visible + .track {
+  outline: 3px solid var(--focus);
+  outline-offset: 2px;
+}
+.row:active .thumb {
+  transform: scaleX(1.12);
+}
+.row:active .input:checked + .track .thumb {
+  transform: translateX(17px) scaleX(1.12);
+}
+
+/* Gesperrt: Schalter und Titel gedimmt – die Beschreibung (oft der Grund, z. B. „Nur mit Konto möglich“) bleibt gut lesbar. */
+.disabled {
+  cursor: not-allowed;
+}
+.disabled .track {
+  opacity: 0.45;
+}
+.disabled .label {
+  opacity: 0.6;
+}

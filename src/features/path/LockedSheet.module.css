@@ -1,0 +1,39 @@
+.intro {
+  margin-bottom: var(--sp-3);
+  color: var(--text-2);
+  font-size: var(--fs-sm);
+  line-height: var(--lh-normal);
+}
+
+.reasons {
+  display: grid;
+  gap: var(--sp-3);
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.reasons li {
+  display: flex;
+  gap: var(--sp-3);
+  line-height: var(--lh-normal);
+}
+
+.reasons svg {
+  flex: none;
+  width: 20px;
+  height: 20px;
+  margin-top: 2px;
+  color: var(--accent);
+}
+
+.note {
+  margin-top: var(--sp-4);
+  color: var(--text-3);
+  font-size: var(--fs-sm);
+}
+
+.footer {
+  display: grid;
+  gap: var(--sp-2);
+}

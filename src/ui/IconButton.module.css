@@ -1,0 +1,92 @@
+.btn {
+  --size: 44px;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: var(--size);
+  height: var(--size);
+  border-radius: var(--r-full);
+  border: 1px solid transparent;
+  color: var(--text);
+  text-decoration: none;
+  transition: transform var(--dur-fast) var(--ease-out), background-color var(--dur), color var(--dur);
+}
+
+/* Trefferfläche ≥ 44 × 44 px, auch wenn das Icon kleiner dargestellt wird. */
+.btn::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: max(100%, var(--tap));
+  height: max(100%, var(--tap));
+  transform: translate(-50%, -50%);
+}
+
+.btn:active:not(:disabled) {
+  transform: scale(0.92);
+}
+.btn:disabled {
+  opacity: 0.4;
+}
+
+.sm { --size: 36px; }
+.md { --size: 44px; }
+.lg { --size: 52px; }
+
+.icon {
+  display: inline-flex;
+}
+.icon svg {
+  width: 22px;
+  height: 22px;
+}
+.sm .icon svg {
+  width: 19px;
+  height: 19px;
+}
+.lg .icon svg {
+  width: 24px;
+  height: 24px;
+}
+
+.plain {
+  background: transparent;
+}
+.tonal {
+  background: var(--surface-2);
+}
+.outline {
+  background: var(--surface);
+  border-color: var(--border-strong);
+}
+.solid {
+  background-color: var(--accent-solid);
+  background-image: var(--accent-grad);
+  color: var(--on-accent);
+  box-shadow: var(--shadow-accent);
+}
+
+@media (hover: hover) {
+  .plain:hover:not(:disabled),
+  .outline:hover:not(:disabled) { background: var(--surface-2); }
+  .tonal:hover:not(:disabled) { background: var(--surface-3); }
+}
+
+.pressed {
+  color: var(--accent-ink);
+  background: var(--accent-soft);
+}
+
+.dot {
+  position: absolute;
+  top: 7px;
+  right: 7px;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 0 2px var(--bg);
+}

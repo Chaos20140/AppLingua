@@ -1,0 +1,52 @@
+.list {
+  display: grid;
+  gap: var(--sp-4);
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.item {
+  display: grid;
+  gap: 6px;
+  min-width: 0;
+}
+
+.row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--sp-2);
+}
+
+.name {
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-semibold);
+}
+
+.score {
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-bold);
+  font-variant-numeric: tabular-nums;
+}
+
+.of {
+  color: var(--text-3);
+  font-weight: var(--fw-regular);
+}
+
+.hint {
+  color: var(--text-3);
+  font-size: var(--fs-xs);
+}
+
+.help {
+  color: var(--text-2);
+  font-size: var(--fs-xs);
+  line-height: var(--lh-normal);
+}
+
+.evidence {
+  color: var(--text-3);
+  font-weight: var(--fw-medium);
+}

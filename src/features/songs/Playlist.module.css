@@ -1,0 +1,68 @@
+.head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--sp-5);
+}
+.mosaic {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3px;
+  width: 132px;
+  height: 132px;
+  flex-shrink: 0;
+  overflow: hidden;
+  border-radius: var(--r-xl);
+  background: var(--surface-2);
+  box-shadow: var(--shadow-md);
+}
+.mosaic:has(> :only-child) { grid-template-columns: 1fr; }
+.tile { border-radius: 0 !important; aspect-ratio: auto !important; height: 100%; }
+.tile span { font-size: 28px !important; }
+.mosaic:has(> :only-child) .tile span { font-size: 56px !important; }
+.empty { display: grid; place-items: center; grid-column: 1 / -1; color: var(--text-3); }
+.headActions {
+  flex: 1 1 200px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-2);
+}
+
+.order { display: flex; align-items: center; }
+.missing {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sp-2);
+  min-height: 72px;
+  padding: var(--sp-2) var(--sp-2) var(--sp-2) var(--sp-4);
+  border-radius: var(--r-lg);
+  border: 1px dashed var(--border-strong);
+  color: var(--text-2);
+  font-size: var(--fs-sm);
+}
+
+.addList { margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: var(--sp-1); }
+.addRow {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+  width: 100%;
+  min-height: 64px;
+  padding: var(--sp-1) var(--sp-2);
+  border: 0;
+  border-radius: var(--r-md);
+  background: transparent;
+  color: var(--text);
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  transition: background var(--dur-fast) var(--ease-out);
+}
+.addRow:active { background: var(--surface-2); }
+@media (hover: hover) { .addRow:hover { background: var(--surface-2); } }
+.addRow:focus-visible { outline: 2px solid var(--focus); outline-offset: -2px; }
+.addText { flex: 1; min-width: 0; display: flex; flex-direction: column; }
+.addTitle { font-weight: var(--fw-semibold); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.addArtist { font-size: var(--fs-sm); color: var(--text-2); }
+.addIcon { color: var(--accent); flex-shrink: 0; }

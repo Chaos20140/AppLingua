@@ -1,0 +1,756 @@
+/* ───── Begrüßung ───── */
+.greeting {
+  display: grid;
+  gap: var(--sp-1);
+  padding-top: var(--sp-2);
+  animation: rise var(--dur-slow) var(--ease-out) both;
+}
+
+.hello {
+  font-family: var(--font-display);
+  font-size: var(--fs-2xl);
+  font-weight: var(--fw-heavy);
+  letter-spacing: var(--tracking-tight);
+  line-height: var(--lh-tight);
+}
+
+.sub {
+  color: var(--text-2);
+  font-size: var(--fs-md);
+  line-height: var(--lh-normal);
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+}
+
+/* ───── Wiedereinstieg ───── */
+.comeback {
+  display: flex;
+  gap: var(--sp-3);
+  padding: var(--sp-4);
+}
+
+.comebackIcon {
+  display: grid;
+  flex: none;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: var(--r-sm);
+  background: var(--surface);
+  color: var(--accent-ink);
+}
+
+.comebackIcon svg {
+  width: 22px;
+  height: 22px;
+}
+
+.comebackBody {
+  display: grid;
+  gap: var(--sp-2);
+  justify-items: start;
+  min-width: 0;
+}
+
+.comebackTitle {
+  font-weight: var(--fw-bold);
+}
+
+.comebackText {
+  color: var(--text-2);
+  font-size: var(--fs-sm);
+  line-height: var(--lh-normal);
+}
+
+/* ───── Hero: Weiter lernen ───── */
+.hero {
+  display: grid;
+  gap: var(--sp-3);
+  animation: rise var(--dur-slow) var(--ease-out) 60ms both;
+}
+
+.heroEyebrow {
+  position: relative;
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-semibold);
+  letter-spacing: var(--tracking-caps);
+  text-transform: uppercase;
+  opacity: 0.93;
+}
+
+.heroMain {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: var(--sp-4);
+  min-width: 0;
+}
+
+.heroIcon {
+  display: grid;
+  flex: none;
+  place-items: center;
+  width: 64px;
+  height: 64px;
+  border-radius: var(--r-md);
+  background: rgba(255, 255, 255, 0.18);
+  font-size: 2rem;
+  line-height: 1;
+}
+
+.heroText {
+  min-width: 0;
+}
+
+.heroTitle {
+  font-family: var(--font-display);
+  font-size: var(--fs-xl);
+  font-weight: var(--fw-heavy);
+  letter-spacing: var(--tracking-tight);
+  line-height: var(--lh-tight);
+}
+
+.heroSub {
+  margin-top: 2px;
+  opacity: 0.92;
+  font-size: var(--fs-sm);
+  line-height: var(--lh-snug);
+}
+
+.heroMeta {
+  position: relative;
+  opacity: 0.93;
+  font-size: var(--fs-sm);
+}
+
+.heroCta {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--sp-2);
+  min-height: 52px;
+  padding: 0 var(--sp-6);
+  border-radius: var(--r-full);
+  background: #fff;
+  color: var(--accent-solid);
+  font-size: var(--fs-md);
+  font-weight: var(--fw-bold);
+  text-decoration: none;
+  box-shadow: 0 8px 20px -10px rgba(0, 0, 0, 0.45);
+  transition: transform var(--dur-fast) var(--ease-out);
+}
+
+.heroCta svg {
+  width: 20px;
+  height: 20px;
+  transition: transform var(--dur) var(--ease-out);
+}
+
+.heroCta:active {
+  transform: scale(0.98);
+}
+
+@media (hover: hover) {
+  .heroCta:hover svg {
+    transform: translateX(3px);
+  }
+}
+
+.heroCta:focus-visible {
+  outline: 3px solid #fff;
+  outline-offset: 3px;
+}
+
+.doneCard {
+  display: flex;
+  gap: var(--sp-4);
+}
+
+.doneIcon {
+  display: grid;
+  flex: none;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  border-radius: var(--r-sm);
+  background: var(--surface);
+  color: var(--success-ink);
+}
+
+.doneTitle {
+  font-size: var(--fs-lg);
+}
+
+.doneText {
+  margin-top: var(--sp-1);
+  color: var(--text-2);
+  font-size: var(--fs-sm);
+  line-height: var(--lh-normal);
+}
+
+.btnRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-2);
+  margin-top: var(--sp-3);
+}
+
+/* ───── Heute ───── */
+.today {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-5);
+}
+
+.ringInner {
+  display: grid;
+  justify-items: center;
+  line-height: 1;
+}
+
+.ringValue {
+  font-size: var(--fs-xl);
+  font-weight: var(--fw-heavy);
+  font-variant-numeric: tabular-nums;
+}
+
+.ringUnit {
+  margin-top: 2px;
+  color: var(--text-3);
+  font-size: var(--fs-2xs);
+  font-weight: var(--fw-semibold);
+}
+
+.todayText {
+  display: grid;
+  gap: var(--sp-1);
+  min-width: 0;
+}
+
+.todayTitle {
+  font-weight: var(--fw-bold);
+}
+
+.todaySub {
+  color: var(--text-2);
+  font-size: var(--fs-sm);
+  line-height: var(--lh-snug);
+}
+
+.streaks {
+  display: grid;
+  gap: var(--sp-1);
+  padding: 0;
+  margin: var(--sp-2) 0 0;
+  list-style: none;
+}
+
+.streak {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+  color: var(--text-2);
+  font-size: var(--fs-sm);
+}
+
+.streak svg {
+  flex: none;
+  width: 18px;
+  height: 18px;
+  color: var(--text-3);
+}
+
+.streak strong {
+  color: var(--text);
+  font-variant-numeric: tabular-nums;
+}
+
+.streakOn svg {
+  color: var(--accent);
+  animation: flicker 2.4s var(--ease-in-out) infinite;
+}
+
+.streakSong svg {
+  color: var(--info);
+}
+
+.streakHint {
+  color: var(--text-3);
+}
+
+.record {
+  color: var(--text-3);
+  font-size: var(--fs-xs);
+}
+
+@keyframes flicker {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.12);
+  }
+}
+
+/* ───── Wiederholung ───── */
+.dueCard {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+  padding: var(--sp-4);
+}
+
+.dueIcon {
+  display: grid;
+  flex: none;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: var(--r-sm);
+  background: var(--info-soft);
+  color: var(--info-ink);
+}
+
+.dueIconDone {
+  background: var(--success-soft);
+  color: var(--success-ink);
+}
+
+.dueIcon svg {
+  width: 22px;
+  height: 22px;
+}
+
+.dueText {
+  flex: 1;
+  min-width: 0;
+}
+
+.dueTitle {
+  font-weight: var(--fw-bold);
+}
+
+.dueSub {
+  color: var(--text-2);
+  font-size: var(--fs-sm);
+  line-height: var(--lh-snug);
+}
+
+.dueArrow {
+  flex: none;
+  width: 20px;
+  height: 20px;
+  color: var(--text-3);
+}
+
+/* ───── Tagesplan ───── */
+.planTime {
+  flex: none;
+  color: var(--text-2);
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-semibold);
+}
+
+.plan {
+  display: grid;
+  gap: var(--sp-2);
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.planItem {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+  min-height: 64px;
+  padding: var(--sp-3) var(--sp-4) var(--sp-3) var(--sp-3);
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+  background: var(--surface);
+  box-shadow: var(--shadow-sm);
+  color: inherit;
+  text-decoration: none;
+  transition: transform var(--dur-fast) var(--ease-out), border-color var(--dur) var(--ease-out);
+}
+
+.planItem:active {
+  transform: scale(0.99);
+}
+
+@media (hover: hover) {
+  .planItem:hover {
+    border-color: var(--border-strong);
+  }
+}
+
+.planItem:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
+}
+
+.planNum {
+  display: grid;
+  flex: none;
+  place-items: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--surface-2);
+  color: var(--text-2);
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-bold);
+}
+
+.planEmoji {
+  flex: none;
+  font-size: 1.5rem;
+  line-height: 1;
+}
+
+.planText {
+  display: grid;
+  flex: 1;
+  gap: 1px;
+  min-width: 0;
+}
+
+.planTitle {
+  font-weight: var(--fw-semibold);
+  line-height: var(--lh-snug);
+}
+
+.planSub {
+  color: var(--text-2);
+  font-size: var(--fs-sm);
+}
+
+.planReason {
+  color: var(--text-3);
+  font-size: var(--fs-xs);
+}
+
+.planMin {
+  flex: none;
+  color: var(--text-3);
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-semibold);
+  white-space: nowrap;
+}
+
+/* ───── Missionen ───── */
+.missions {
+  display: grid;
+  gap: var(--sp-2);
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.mission {
+  display: flex;
+  gap: var(--sp-3);
+  padding: var(--sp-4);
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+  background: var(--surface);
+  box-shadow: var(--shadow-sm);
+  transition: border-color var(--dur) var(--ease-out), background-color var(--dur) var(--ease-out);
+}
+
+.missionDone {
+  border-color: var(--gold);
+  background: linear-gradient(0deg, var(--gold-soft), var(--gold-soft)), var(--surface);
+}
+
+.missionClaimed {
+  border-color: var(--border);
+  background: var(--surface);
+  opacity: 0.8;
+}
+
+.mIcon {
+  display: grid;
+  flex: none;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: var(--r-sm);
+  background: var(--surface-2);
+  font-size: 1.35rem;
+  line-height: 1;
+}
+
+.mBody {
+  display: grid;
+  flex: 1;
+  gap: 6px;
+  min-width: 0;
+}
+
+.mTitle {
+  font-weight: var(--fw-semibold);
+  line-height: var(--lh-snug);
+}
+
+.mDesc {
+  color: var(--text-2);
+  font-size: var(--fs-sm);
+  line-height: var(--lh-snug);
+}
+
+.mFoot {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sp-2);
+}
+
+.mMeta {
+  color: var(--text-3);
+  font-size: var(--fs-xs);
+  font-variant-numeric: tabular-nums;
+}
+
+.mXp {
+  color: var(--gold-ink);
+  font-weight: var(--fw-bold);
+}
+
+.claimed {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-1);
+  min-height: var(--tap);
+  color: var(--success-ink);
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-semibold);
+}
+
+.claimed svg {
+  width: 16px;
+  height: 16px;
+}
+
+.mGo {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-1);
+  min-height: var(--tap);
+  padding: 0 var(--sp-3);
+  margin-right: calc(-1 * var(--sp-3));
+  border-radius: var(--r-full);
+  color: var(--accent-ink);
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-semibold);
+  text-decoration: none;
+}
+
+.mGo svg {
+  width: 16px;
+  height: 16px;
+}
+
+.mGo:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
+}
+
+/* ───── Level & Niveau ───── */
+.levelGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: var(--sp-3);
+}
+
+.levelCard {
+  display: grid;
+  align-content: start;
+  gap: var(--sp-2);
+  padding: var(--sp-4);
+}
+
+.cardEyebrow {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--text-3);
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-semibold);
+  letter-spacing: var(--tracking-caps);
+  text-transform: uppercase;
+}
+
+.cardEyebrow svg {
+  width: 14px;
+  height: 14px;
+}
+
+.levelBig {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: var(--sp-2);
+}
+
+.levelNum {
+  color: var(--gold-ink);
+  font-family: var(--font-rounded);
+  font-size: var(--fs-3xl);
+  font-weight: var(--fw-heavy);
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+
+.levelTitle {
+  font-size: var(--fs-lg);
+  font-weight: var(--fw-bold);
+}
+
+.levelHint {
+  color: var(--text-2);
+  font-size: var(--fs-xs);
+  line-height: var(--lh-snug);
+}
+
+.langNum {
+  color: var(--accent-ink);
+  font-family: var(--font-rounded);
+  font-size: var(--fs-3xl);
+  font-weight: var(--fw-heavy);
+  line-height: 1;
+}
+
+.langBasis {
+  color: var(--text-2);
+  font-size: var(--fs-sm);
+  line-height: var(--lh-snug);
+}
+
+.explain {
+  display: flex;
+  gap: var(--sp-2);
+  color: var(--text-2);
+  font-size: var(--fs-xs);
+  line-height: var(--lh-normal);
+}
+
+.explain svg {
+  flex: none;
+  width: 16px;
+  height: 16px;
+  margin-top: 1px;
+  color: var(--info);
+}
+
+/* ───── Woche ───── */
+.weekHead {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--sp-2);
+  margin-bottom: var(--sp-3);
+}
+
+.weekTotal {
+  color: var(--text-2);
+  font-size: var(--fs-sm);
+}
+
+.weekTotal strong {
+  color: var(--text);
+  font-size: var(--fs-xl);
+  font-variant-numeric: tabular-nums;
+}
+
+.weekGoal {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-1);
+  color: var(--text-3);
+  font-size: var(--fs-xs);
+}
+
+.weekGoal svg {
+  width: 14px;
+  height: 14px;
+}
+
+/* ───── Song ───── */
+.song {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+}
+
+.cover {
+  display: grid;
+  flex: none;
+  place-items: center;
+  width: 72px;
+  height: 72px;
+  border-radius: var(--r-md);
+  font-size: 2rem;
+  line-height: 1;
+  box-shadow: var(--shadow-sm);
+}
+
+.songText {
+  display: grid;
+  flex: 1;
+  gap: 2px;
+  min-width: 0;
+}
+
+.songTitle {
+  overflow: hidden;
+  font-weight: var(--fw-bold);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.songArtist {
+  color: var(--text-2);
+  font-size: var(--fs-sm);
+}
+
+.songReason {
+  color: var(--text-3);
+  font-size: var(--fs-xs);
+  line-height: var(--lh-snug);
+}
+
+.songArrow {
+  flex: none;
+  width: 20px;
+  height: 20px;
+  margin-right: var(--sp-2);
+  color: var(--text-3);
+}
+
+/* ───── Sync ───── */
+.syncRow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sp-2);
+}
+
+@media (max-width: 360px) {
+  .today {
+    gap: var(--sp-3);
+  }
+  .hello {
+    font-size: var(--fs-xl);
+  }
+}

@@ -1,0 +1,123 @@
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-1);
+  min-height: var(--tap);
+  padding: 0 var(--sp-3) 0 var(--sp-2);
+  border: 1px solid var(--border);
+  border-radius: var(--r-full);
+  background: var(--surface);
+  box-shadow: var(--shadow-sm);
+  color: var(--text);
+  font: inherit;
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-semibold);
+  cursor: pointer;
+  transition: transform var(--dur-fast) var(--ease-out);
+}
+
+.chip:active {
+  transform: scale(0.97);
+}
+
+.chip:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
+}
+
+.flag {
+  font-size: 1.15rem;
+  line-height: 1;
+}
+
+.name {
+  white-space: nowrap;
+}
+
+.chev {
+  width: 16px;
+  height: 16px;
+  color: var(--text-3);
+}
+
+.list {
+  display: grid;
+  gap: var(--sp-2);
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.option {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+  width: 100%;
+  min-height: 64px;
+  padding: var(--sp-3) var(--sp-4);
+  border: 1.5px solid var(--border);
+  border-radius: var(--r-md);
+  background: var(--surface);
+  color: var(--text);
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  transition: border-color var(--dur) var(--ease-out), transform var(--dur-fast) var(--ease-out);
+}
+
+.option:active {
+  transform: scale(0.99);
+}
+
+.option:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
+}
+
+.optionActive {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+}
+
+.optFlag {
+  font-size: 1.75rem;
+  line-height: 1;
+}
+
+.optText {
+  display: grid;
+  flex: 1;
+  gap: 2px;
+  min-width: 0;
+}
+
+.optName {
+  font-weight: var(--fw-semibold);
+}
+
+.native {
+  color: var(--text-3);
+  font-weight: var(--fw-regular);
+}
+
+.optSub {
+  color: var(--text-2);
+  font-size: var(--fs-sm);
+}
+
+.check {
+  width: 22px;
+  height: 22px;
+  color: var(--accent-ink);
+}
+
+.note {
+  margin-top: var(--sp-4);
+  color: var(--text-2);
+  font-size: var(--fs-sm);
+}
+
+.note a {
+  color: var(--accent-ink);
+  font-weight: var(--fw-semibold);
+}

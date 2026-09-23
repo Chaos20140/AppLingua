@@ -1,0 +1,132 @@
+/* ── OfflineBanner ── */
+.topRegion {
+  position: fixed;
+  top: calc(var(--safe-top) + var(--sp-2));
+  left: 0;
+  right: 0;
+  z-index: var(--z-banner);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--sp-2);
+  padding: 0 max(var(--sp-3), var(--safe-right)) 0 max(var(--sp-3), var(--safe-left));
+  pointer-events: none;
+}
+
+.pill {
+  pointer-events: auto;
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+  max-width: 520px;
+  min-height: 40px;
+  padding: 2px 2px 2px var(--sp-3);
+  border-radius: var(--r-full);
+  background: var(--surface-inverse);
+  color: var(--text-on-inverse);
+  box-shadow: var(--shadow-lg);
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-semibold);
+  line-height: var(--lh-snug);
+  animation: drop-in var(--dur-slow) var(--ease-spring) backwards;
+}
+.pillSuccess {
+  padding-right: var(--sp-4);
+  background: var(--success-solid);
+  color: #fff;
+}
+.pillIcon {
+  flex-shrink: 0;
+  width: 18px;
+  height: 18px;
+}
+.pillClose {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: var(--tap);
+  height: var(--tap);
+  margin: -2px 0;
+  border-radius: var(--r-full);
+  color: inherit;
+  opacity: 0.75;
+}
+.pillClose svg {
+  width: 18px;
+  height: 18px;
+}
+
+/* ── UpdatePrompt ── */
+.update {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: calc(var(--nav-space) + var(--kb-inset) + var(--sp-3));
+  z-index: var(--z-banner);
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: var(--sp-3);
+  width: calc(100% - 2 * var(--sp-3) - var(--safe-left) - var(--safe-right));
+  max-width: 440px;
+  margin: 0 auto;
+  padding: var(--sp-4);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  background: var(--surface);
+  box-shadow: var(--shadow-lg);
+  animation: rise-in var(--dur-slow) var(--ease-spring) backwards;
+}
+@media (min-width: 1024px) {
+  .update {
+    left: auto;
+    right: var(--sp-6);
+    bottom: calc(var(--safe-bottom) + var(--sp-6));
+    margin: 0;
+  }
+}
+
+.updateIcon {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--r-sm);
+  background: var(--gold-soft);
+  color: var(--gold-ink);
+}
+.updateIcon svg {
+  width: 22px;
+  height: 22px;
+}
+
+.updateText {
+  min-width: 0;
+}
+.updateTitle {
+  font-family: var(--font-sans);
+  font-size: var(--fs-md);
+  font-weight: var(--fw-bold);
+  letter-spacing: -0.01em;
+}
+.updateBody {
+  margin-top: 2px;
+  font-size: var(--fs-sm);
+  color: var(--text-2);
+  line-height: var(--lh-snug);
+}
+
+.updateActions {
+  grid-column: 1 / -1;
+  display: flex;
+  gap: var(--sp-2);
+}
+.updateActions > * {
+  flex: 1;
+}
+
+@keyframes drop-in {
+  from { opacity: 0; transform: translateY(-12px) scale(0.96); }
+}
+@keyframes rise-in {
+  from { opacity: 0; transform: translateY(16px); }
+}

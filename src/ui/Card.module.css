@@ -1,0 +1,112 @@
+.card {
+  position: relative;
+  display: block;
+  width: 100%;
+  min-width: 0;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  box-shadow: var(--shadow-sm);
+  color: inherit;
+  text-align: left;
+  text-decoration: none;
+  font: inherit;
+}
+
+li.card {
+  list-style: none;
+}
+
+.padNone { padding: 0; }
+.padSm { padding: var(--sp-3); }
+.padMd { padding: var(--sp-4); }
+.padLg { padding: var(--sp-6); }
+
+.muted {
+  background: var(--surface-2);
+  border-color: transparent;
+  box-shadow: none;
+}
+
+.outline {
+  background: transparent;
+  border-color: var(--border-strong);
+  box-shadow: none;
+}
+
+.accent {
+  background: var(--accent-soft);
+  border-color: var(--accent-soft-2);
+  box-shadow: none;
+}
+
+.gold {
+  background: var(--gold-soft);
+  border-color: transparent;
+  box-shadow: none;
+}
+
+.success {
+  background: var(--success-soft);
+  border-color: transparent;
+  box-shadow: none;
+}
+
+/* Hero: kräftiger Kurs-Verlauf mit weißer Schrift (z. B. „Weiterlernen“). */
+.hero {
+  background: var(--hero-grad);
+  border-color: transparent;
+  color: #fff;
+  box-shadow: var(--shadow-accent);
+  overflow: hidden;
+  isolation: isolate;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -90px;
+  right: -70px;
+  width: 240px;
+  height: 240px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.24), transparent 68%);
+  z-index: -1;
+  pointer-events: none;
+}
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: -120px;
+  left: -60px;
+  width: 260px;
+  height: 260px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 214, 110, 0.22), transparent 70%);
+  z-index: -1;
+  pointer-events: none;
+}
+.hero :focus-visible {
+  outline-color: #fff;
+}
+
+.interactive {
+  cursor: pointer;
+  transition:
+    transform var(--dur-fast) var(--ease-out),
+    box-shadow var(--dur),
+    background-color var(--dur),
+    border-color var(--dur);
+}
+.interactive:active {
+  transform: scale(0.985);
+}
+@media (hover: hover) {
+  .interactive:hover {
+    box-shadow: var(--shadow-md);
+    border-color: var(--border-strong);
+  }
+  .interactive.hero:hover {
+    box-shadow: var(--shadow-accent);
+    filter: brightness(1.04);
+  }
+}

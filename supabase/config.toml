@@ -1,0 +1,29 @@
+# Supabase-CLI-Konfiguration für AppLingua (siehe docs/SETUP-SUPABASE.md).
+# Gilt für `supabase start` (lokal) sowie für `supabase functions deploy` (verify_jwt).
+project_id = "applingua"
+
+[api]
+schemas = ["public"]
+# Der Sync lädt Seiten à 1000 Zeilen.
+max_rows = 1000
+
+[auth]
+site_url = "https://chaos20140.github.io/AppLingua/"
+additional_redirect_urls = [
+  "https://chaos20140.github.io/AppLingua/**",
+  "http://localhost:5173/**",
+  "http://127.0.0.1:5173/**",
+]
+minimum_password_length = 8
+
+[auth.email]
+enable_signup = true
+enable_confirmations = true
+
+# Die Functions prüfen das JWT selbst (auth.getUser); so funktionieren auch CORS-Preflights
+# und die neuen asymmetrischen JWT-Schlüssel.
+[functions.ai-coach]
+verify_jwt = false
+
+[functions.delete-account]
+verify_jwt = false

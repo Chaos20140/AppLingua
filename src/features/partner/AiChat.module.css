@@ -1,0 +1,83 @@
+/* aiChat-Übung (kompakt, im Fluss der Lektion) */
+.wrap { display: flex; flex-direction: column; gap: var(--sp-4); }
+
+.note {
+  margin: 0;
+  padding: var(--sp-3);
+  border-radius: var(--r-sm);
+  background: var(--info-soft);
+  font-size: var(--fs-sm);
+  line-height: var(--lh-normal);
+}
+
+.startCard {
+  display: flex;
+  gap: var(--sp-3);
+  align-items: flex-start;
+  padding: var(--sp-4);
+  border-radius: var(--r-lg);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-sm);
+}
+.emoji {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 52px;
+  height: 52px;
+  border-radius: var(--r-md);
+  background: var(--accent-soft);
+  font-size: 28px;
+}
+.startText { display: flex; flex-direction: column; gap: var(--sp-1); min-width: 0; }
+.startTitle { margin: 0; font-size: var(--fs-lg); font-weight: var(--fw-bold); }
+.goal { font-size: var(--fs-md); color: var(--text); }
+.meta { margin: 0; font-size: var(--fs-sm); color: var(--text-2); }
+.modeButtons { display: flex; flex-direction: column; gap: var(--sp-2); }
+
+.head { display: flex; flex-direction: column; gap: var(--sp-3); }
+
+.chatBox {
+  padding: var(--sp-3);
+  border-radius: var(--r-lg);
+  background: var(--surface-2);
+  min-height: 120px;
+}
+
+.error {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-2);
+  padding: var(--sp-3);
+  border-radius: var(--r-md);
+  background: var(--danger-soft);
+}
+.error > p { margin: 0; font-size: var(--fs-sm); }
+
+.row { display: flex; flex-wrap: wrap; align-items: center; gap: var(--sp-2); }
+
+.tip {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--sp-2);
+  padding: var(--sp-3);
+  border-radius: var(--r-md);
+  background: var(--gold-soft);
+}
+.tipHint { margin: 0; display: flex; gap: var(--sp-2); font-size: var(--fs-sm); }
+.tipHint > svg { flex: none; margin-top: 2px; color: var(--gold-ink); }
+.tipSample { font-weight: var(--fw-semibold); }
+
+.actions { display: flex; flex-direction: column; align-items: stretch; }
+.actions:empty { display: none; }
+
+.done {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+  font-weight: var(--fw-semibold);
+  color: var(--success-ink);
+}

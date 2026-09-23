@@ -1,0 +1,124 @@
+.btn {
+  --btn-h: 50px;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--sp-2);
+  min-height: var(--btn-h);
+  min-width: var(--tap);
+  padding: 0 var(--sp-5);
+  border: 1px solid transparent;
+  border-radius: var(--r-md);
+  font-size: var(--fs-md);
+  font-weight: var(--fw-semibold);
+  line-height: 1.2;
+  letter-spacing: -0.005em;
+  text-align: center;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  transition:
+    transform var(--dur-fast) var(--ease-out),
+    background-color var(--dur),
+    border-color var(--dur),
+    box-shadow var(--dur),
+    color var(--dur),
+    opacity var(--dur);
+}
+
+.btn:active:not(:disabled):not([aria-disabled='true']) {
+  transform: scale(0.97);
+}
+
+.lg {
+  --btn-h: 56px;
+  padding: 0 var(--sp-6);
+  font-size: var(--fs-lg);
+  border-radius: var(--r-lg);
+}
+
+.block {
+  display: flex;
+  width: 100%;
+}
+
+.iconOnly {
+  padding: 0;
+  width: var(--btn-h);
+}
+
+.icon {
+  display: inline-flex;
+  align-items: center;
+}
+.icon svg {
+  width: 20px;
+  height: 20px;
+}
+.lg .icon svg {
+  width: 22px;
+  height: 22px;
+}
+
+.label {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ── Varianten ── */
+.primary {
+  background-color: var(--accent-solid);
+  background-image: var(--accent-grad);
+  color: var(--on-accent);
+  box-shadow: var(--shadow-accent);
+}
+
+.secondary {
+  background: var(--surface);
+  color: var(--text);
+  border-color: var(--border-strong);
+  box-shadow: var(--shadow-sm);
+}
+
+.ghost {
+  background: transparent;
+  color: var(--accent-ink);
+}
+
+.danger {
+  background: var(--danger-solid);
+  color: #fff;
+  box-shadow: 0 10px 22px -12px rgba(194, 53, 53, 0.7);
+}
+
+@media (hover: hover) {
+  .primary:hover:not(:disabled):not([aria-disabled='true']) { filter: brightness(1.06); }
+  .secondary:hover:not(:disabled):not([aria-disabled='true']) { background: var(--surface-2); }
+  .ghost:hover:not(:disabled):not([aria-disabled='true']) { background: var(--accent-soft); }
+  .danger:hover:not(:disabled):not([aria-disabled='true']) { filter: brightness(1.06); }
+}
+
+.btn:disabled,
+.btn[aria-disabled='true']:not(.loading) {
+  opacity: 0.45;
+  box-shadow: none;
+  cursor: not-allowed;
+}
+
+/* ── Laden ── */
+.loading {
+  cursor: progress;
+}
+.loading .label,
+.loading .icon {
+  opacity: 0;
+}
+.spinner {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

@@ -1,0 +1,81 @@
+.bar {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  width: 100%;
+}
+
+.meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: var(--sp-3);
+  font-size: var(--fs-sm);
+}
+.metaLabel {
+  color: var(--text-2);
+  font-weight: var(--fw-medium);
+}
+.metaValue {
+  color: var(--text);
+  font-weight: var(--fw-semibold);
+  font-variant-numeric: tabular-nums;
+}
+
+.track {
+  position: relative;
+  height: 10px;
+  border-radius: var(--r-full);
+  background: var(--surface-3);
+  overflow: hidden;
+  transform: translateZ(0);
+}
+.sm .track { height: 6px; }
+.lg .track { height: 14px; }
+
+.fill {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: var(--tone-grad);
+  transition: transform var(--dur-xslow) var(--ease-out);
+}
+
+.accent { --tone: var(--accent); --tone-grad: linear-gradient(90deg, var(--accent-solid), var(--accent)); }
+.gold { --tone: var(--gold); --tone-grad: linear-gradient(90deg, var(--gold), var(--gold-2)); }
+.success { --tone: var(--success); --tone-grad: linear-gradient(90deg, var(--success-solid), var(--success)); }
+.info { --tone: var(--info); --tone-grad: var(--info); }
+
+/* ── Ring ── */
+.ring {
+  position: relative;
+  display: inline-grid;
+  place-items: center;
+  flex-shrink: 0;
+}
+
+.ringSvg {
+  position: absolute;
+  inset: 0;
+  transform: rotate(-90deg);
+}
+
+.ringTrack {
+  stroke: var(--surface-3);
+}
+
+.ringFill {
+  stroke: var(--tone);
+  transition: stroke-dashoffset var(--dur-xslow) var(--ease-out);
+}
+
+.ringCenter {
+  position: relative;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  font-family: var(--font-rounded);
+  font-weight: var(--fw-bold);
+  font-variant-numeric: tabular-nums;
+  line-height: 1.1;
+}

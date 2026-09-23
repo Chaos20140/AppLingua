@@ -1,0 +1,95 @@
+.region {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: calc(var(--nav-space) + var(--kb-inset) + var(--sp-3));
+  z-index: var(--z-toast);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--sp-2);
+  padding: 0 max(var(--sp-3), var(--safe-right)) 0 max(var(--sp-3), var(--safe-left));
+  pointer-events: none;
+}
+
+.toast {
+  pointer-events: auto;
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+  width: 100%;
+  max-width: 440px;
+  min-height: 52px;
+  padding: var(--sp-1) var(--sp-1) var(--sp-1) var(--sp-3);
+  border-radius: var(--r-lg);
+  background: var(--surface-inverse);
+  color: var(--text-on-inverse);
+  box-shadow: var(--shadow-lg);
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-medium);
+  animation: toast-in var(--dur-slow) var(--ease-spring) backwards;
+}
+.toast[data-leaving] {
+  animation: toast-out var(--dur) var(--ease-in-out) forwards;
+}
+
+.icon {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  color: #fff;
+}
+.icon svg {
+  width: 16px;
+  height: 16px;
+  stroke-width: 3;
+}
+.success .icon { background: var(--success-solid); }
+.error .icon { background: var(--danger-solid); }
+.info .icon { background: #3A63C4; }
+
+.message {
+  flex: 1;
+  min-width: 0;
+  padding: var(--sp-2) 0;
+  line-height: var(--lh-snug);
+}
+
+.action {
+  flex-shrink: 0;
+  min-height: var(--tap);
+  padding: 0 var(--sp-2);
+  border-radius: var(--r-sm);
+  font-weight: var(--fw-bold);
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.close {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: var(--tap);
+  height: var(--tap);
+  border-radius: var(--r-sm);
+  color: inherit;
+  opacity: 0.7;
+}
+.close svg {
+  width: 18px;
+  height: 18px;
+}
+@media (hover: hover) {
+  .close:hover { opacity: 1; }
+}
+
+@keyframes toast-in {
+  from { opacity: 0; transform: translateY(16px) scale(0.96); }
+}
+@keyframes toast-out {
+  to { opacity: 0; transform: translateY(8px) scale(0.98); }
+}

@@ -1,0 +1,27 @@
+.page {
+  animation: appear var(--dur-slow) var(--ease-out) 120ms backwards;
+}
+
+.bar {
+  height: calc(var(--safe-top) + var(--topbar-h));
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-4);
+  width: 100%;
+  max-width: calc(var(--content-max) + 2 * var(--gutter));
+  margin: 0 auto;
+  padding: var(--sp-1) max(var(--gutter), var(--safe-right)) var(--sp-8) max(var(--gutter), var(--safe-left));
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--sp-3);
+}
+
+@keyframes appear {
+  from { opacity: 0; }
+}

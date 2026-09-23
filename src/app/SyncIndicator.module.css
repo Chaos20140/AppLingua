@@ -1,0 +1,114 @@
+.ok { --tone-soft: var(--success-soft); --tone-ink: var(--success-ink); }
+.busy { --tone-soft: var(--info-soft); --tone-ink: var(--info-ink); }
+.pending { --tone-soft: var(--warning-soft); --tone-ink: var(--warning-ink); }
+.error { --tone-soft: var(--danger-soft); --tone-ink: var(--danger-ink); }
+.local { --tone-soft: var(--surface-3); --tone-ink: var(--text-2); }
+
+/* ── Kompakt (Pille) ── */
+.pill {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 32px;
+  padding: 0 12px 0 8px;
+  border-radius: var(--r-full);
+  background: var(--tone-soft);
+  color: var(--tone-ink);
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-bold);
+  white-space: nowrap;
+  text-decoration: none;
+}
+.pill.interactive::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  height: var(--tap);
+  transform: translateY(-50%);
+}
+.pillIcon {
+  display: inline-flex;
+}
+.pillIcon svg {
+  width: 16px;
+  height: 16px;
+}
+
+/* ── Voll (Karte) ── */
+.full {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--sp-3);
+  width: 100%;
+  min-height: 56px;
+  padding: var(--sp-3);
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+  background: var(--surface);
+  color: var(--text);
+  text-align: left;
+  text-decoration: none;
+  font: inherit;
+}
+
+.icon {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 34px;
+  height: 34px;
+  border-radius: 11px;
+  background: var(--tone-soft);
+  color: var(--tone-ink);
+}
+.icon svg {
+  width: 18px;
+  height: 18px;
+}
+
+.text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+.label {
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-bold);
+}
+.detail {
+  font-size: var(--fs-xs);
+  color: var(--text-2);
+  line-height: var(--lh-snug);
+}
+
+.warn.full {
+  border-color: var(--warning);
+}
+
+.interactive {
+  cursor: pointer;
+  transition: background-color var(--dur), border-color var(--dur), transform var(--dur-fast) var(--ease-out);
+}
+.interactive:active:not(:disabled) {
+  transform: scale(0.98);
+}
+.interactive:disabled {
+  cursor: progress;
+}
+@media (hover: hover) {
+  .full.interactive:hover:not(:disabled) {
+    border-color: var(--border-strong);
+    background: var(--surface-2);
+  }
+}
+
+.spin svg {
+  animation: spin 1s linear infinite;
+}
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}

@@ -1,0 +1,350 @@
+.summary {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-5);
+}
+
+.ringInner {
+  display: grid;
+  justify-items: center;
+  line-height: 1;
+}
+
+.ringValue {
+  font-family: var(--font-rounded);
+  font-size: var(--fs-xl);
+  font-weight: var(--fw-heavy);
+}
+
+.ringUnit {
+  margin-top: 2px;
+  color: var(--text-3);
+  font-size: var(--fs-2xs);
+  font-weight: var(--fw-semibold);
+}
+
+.summaryText {
+  display: grid;
+  gap: var(--sp-1);
+  min-width: 0;
+}
+
+.summaryTitle {
+  font-size: var(--fs-lg);
+  font-weight: var(--fw-bold);
+}
+
+.summarySub {
+  color: var(--text-2);
+  font-size: var(--fs-sm);
+}
+
+.panel {
+  min-width: 0;
+}
+
+/* ───── Abzeichen ───── */
+.groups {
+  display: grid;
+  gap: var(--sp-6);
+}
+
+.count {
+  color: var(--text-3);
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-semibold);
+  font-variant-numeric: tabular-nums;
+}
+
+.badgeGrid {
+  display: grid;
+  /* Auch auf 320 px (iPhone SE) zwei Spalten – sonst wird die Sammlung sehr lang. */
+  grid-template-columns: repeat(auto-fill, minmax(132px, 1fr));
+  gap: var(--sp-3);
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.badge {
+  display: grid;
+  grid-template-rows: auto auto 1fr auto;
+  justify-items: center;
+  gap: var(--sp-1);
+  padding: var(--sp-4) var(--sp-3);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  background: var(--surface);
+  text-align: center;
+}
+
+.badgeEarned {
+  border-color: color-mix(in srgb, var(--gold) 45%, transparent);
+  background: linear-gradient(180deg, var(--gold-soft), transparent 70%), var(--surface);
+  box-shadow: var(--shadow-sm);
+}
+
+.badgeLocked {
+  background: var(--surface);
+}
+
+.badgeIcon {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 64px;
+  height: 64px;
+  margin-bottom: var(--sp-1);
+  border-radius: 50%;
+  background: var(--surface-2);
+}
+
+.badgeEarned .badgeIcon {
+  background: var(--gold-grad);
+  box-shadow: 0 6px 16px -8px var(--gold);
+}
+
+.badgeEmoji {
+  font-size: 2rem;
+  line-height: 1;
+}
+
+.badgeLocked .badgeEmoji {
+  filter: grayscale(1);
+  opacity: 0.4;
+}
+
+.badgeLock {
+  position: absolute;
+  right: -2px;
+  bottom: -2px;
+  display: grid;
+  place-items: center;
+  width: 22px;
+  height: 22px;
+  border: 2px solid var(--surface);
+  border-radius: 50%;
+  background: var(--surface-3);
+  color: var(--text-2);
+}
+
+.badgeLock svg {
+  width: 12px;
+  height: 12px;
+}
+
+.badgeTitle {
+  max-width: 100%;
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-bold);
+  line-height: var(--lh-snug);
+  -webkit-hyphens: auto;
+  hyphens: auto;
+}
+
+.badgeDesc {
+  color: var(--text-2);
+  font-size: var(--fs-xs);
+  line-height: var(--lh-snug);
+}
+
+.badgeDate {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  margin-top: var(--sp-1);
+  color: var(--gold-ink);
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-semibold);
+}
+
+.badgeDate svg {
+  width: 13px;
+  height: 13px;
+}
+
+.badgeProgress {
+  display: grid;
+  gap: 4px;
+  width: 100%;
+  margin-top: var(--sp-1);
+}
+
+.badgeProgText {
+  color: var(--text-3);
+  font-size: var(--fs-xs);
+  font-variant-numeric: tabular-nums;
+}
+
+/* ───── Rekorde ───── */
+.records {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: var(--sp-3);
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.records > li > * {
+  height: 100%;
+}
+
+/* ───── Level-Leiter ───── */
+.ladder {
+  display: grid;
+  gap: var(--sp-2);
+}
+
+.ladderIntro {
+  margin-bottom: var(--sp-2);
+  color: var(--text-2);
+  font-size: var(--fs-sm);
+  line-height: var(--lh-normal);
+}
+
+.group {
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+  background: var(--surface);
+  overflow: hidden;
+}
+
+.groupCurrent {
+  border-color: var(--gold);
+  box-shadow: var(--shadow-sm);
+}
+
+.groupHead {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+  min-height: 56px;
+  padding: var(--sp-2) var(--sp-4);
+  cursor: pointer;
+  list-style: none;
+}
+
+.groupHead::-webkit-details-marker {
+  display: none;
+}
+
+.groupHead:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: -2px;
+}
+
+.groupIcon {
+  display: grid;
+  flex: none;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--surface-2);
+  color: var(--text-3);
+}
+
+.groupIcon svg {
+  width: 16px;
+  height: 16px;
+}
+
+.groupReached .groupIcon {
+  background: var(--success-soft);
+  color: var(--success-ink);
+}
+
+.groupCurrent .groupIcon {
+  background: var(--gold-soft);
+  color: var(--gold-ink);
+}
+
+.groupText {
+  display: grid;
+  flex: 1;
+  min-width: 0;
+}
+
+.groupTitle {
+  font-weight: var(--fw-bold);
+}
+
+.groupRange {
+  color: var(--text-3);
+  font-size: var(--fs-xs);
+}
+
+.groupState {
+  color: var(--text-3);
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-semibold);
+}
+
+.steps {
+  padding: 0 var(--sp-2) var(--sp-2);
+  margin: 0;
+  list-style: none;
+}
+
+.step {
+  display: grid;
+  grid-template-columns: 1fr auto minmax(96px, auto);
+  align-items: center;
+  gap: var(--sp-3);
+  min-height: 40px;
+  padding: 0 var(--sp-3);
+  border-radius: var(--r-xs);
+  color: var(--text-2);
+  font-size: var(--fs-sm);
+  scroll-margin: 120px;
+}
+
+.step + .step {
+  border-top: 1px solid var(--border);
+}
+
+.stepDone {
+  color: var(--text);
+}
+
+.stepHere {
+  border-top-color: transparent;
+  background: var(--gold-soft);
+  color: var(--text);
+  font-weight: var(--fw-bold);
+}
+
+.stepHere + .step {
+  border-top-color: transparent;
+}
+
+.stepLevel {
+  font-weight: var(--fw-semibold);
+}
+
+.stepXp {
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+}
+
+.stepState {
+  display: inline-flex;
+  justify-content: flex-end;
+  color: var(--text-3);
+  font-size: var(--fs-xs);
+  font-variant-numeric: tabular-nums;
+}
+
+.stepDone .stepState {
+  color: var(--success-ink);
+}
+
+.stepHere .stepState {
+  color: var(--gold-ink);
+}
+
+.stepState svg {
+  width: 16px;
+  height: 16px;
+}

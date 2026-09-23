@@ -1,0 +1,112 @@
+.row {
+  --row-inset: var(--sp-4);
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+  width: 100%;
+  min-height: 56px;
+  padding: var(--sp-3) var(--sp-4);
+  color: inherit;
+  text-align: left;
+  text-decoration: none;
+  font: inherit;
+  background: transparent;
+  border-radius: 0;
+}
+.withLeading {
+  --row-inset: calc(var(--sp-4) + 40px + var(--sp-3));
+}
+
+/* Trennlinie zwischen aufeinanderfolgenden Zeilen (eingerückt wie iOS), auch in <li>-Listen. */
+.row + .row::before,
+:global(li + li) > .row::before {
+  content: "";
+  position: absolute;
+  left: var(--row-inset);
+  right: 0;
+  top: 0;
+  height: 1px;
+  background: var(--border);
+  pointer-events: none;
+}
+
+.interactive {
+  cursor: pointer;
+  transition: background-color var(--dur-fast);
+}
+.interactive:active {
+  background: var(--surface-2);
+}
+@media (hover: hover) {
+  .interactive:hover {
+    background: var(--surface-2);
+  }
+}
+.interactive:focus-visible {
+  outline-offset: -3px;
+  border-radius: var(--r-sm);
+}
+
+.leading {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--r-sm);
+  background: var(--accent-soft);
+  color: var(--accent-ink);
+}
+.leading svg {
+  width: 20px;
+  height: 20px;
+}
+
+.text {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.title {
+  font-weight: var(--fw-semibold);
+  line-height: var(--lh-snug);
+  overflow-wrap: anywhere;
+}
+
+.subtitle {
+  font-size: var(--fs-sm);
+  color: var(--text-2);
+  line-height: var(--lh-snug);
+}
+
+.trailing {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+  color: var(--text-2);
+  font-size: var(--fs-sm);
+  font-variant-numeric: tabular-nums;
+}
+
+.chevron {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  margin-right: calc(-1 * var(--sp-1));
+  color: var(--text-3);
+}
+
+.danger .title { color: var(--danger-ink); }
+.danger .leading { background: var(--danger-soft); color: var(--danger-ink); }
+.gold .leading { background: var(--gold-soft); color: var(--gold-ink); }
+.success .leading { background: var(--success-soft); color: var(--success-ink); }
+
+.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}

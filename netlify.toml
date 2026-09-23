@@ -1,0 +1,37 @@
+# Hosting auf Netlify (Alternative zu GitHub Pages). Basis-Pfad "/" – VITE_BASE_PATH nicht setzen.
+# VITE_SUPABASE_URL / VITE_SUPABASE_ANON_KEY optional als Umgebungsvariablen (ohne: lokaler Modus).
+# Die CSP entspricht dem Meta-Tag aus vite.config.ts plus frame-ancestors (wirkt nur als Header);
+# scripts/postbuild.mjs prüft, dass beide übereinstimmen. Liegt Supabase auf einer eigenen Domain,
+# deren https- und wss-Origin hier und in vercel.json unter connect-src ergänzen.
+
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[build.environment]
+  NODE_VERSION = "22"
+
+# SPA: alle Pfade ohne passende Datei (z. B. /lernpfad, /auth/callback?code=…) liefern die App.
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Content-Security-Policy = "default-src 'self'; script-src 'self' https://www.youtube.com https://s.ytimg.com https://open.spotify.com https://embed-cdn.spotifycdn.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://i.ytimg.com https://*.scdn.co https://*.mzstatic.com; media-src 'self' blob:; connect-src 'self' https://*.supabase.co wss://*.supabase.co; frame-src https://www.youtube-nocookie.com https://open.spotify.com https://embed.music.apple.com; worker-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "microphone=(self), camera=(), geolocation=(), payment=(), usb=()"
+    X-Frame-Options = "DENY"
+
+[[headers]]
+  for = "/sw.js"
+  [headers.values]
+    Cache-Control = "no-cache"
+
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"

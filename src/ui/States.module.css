@@ -1,0 +1,142 @@
+.state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: var(--sp-2);
+  padding: var(--sp-10) var(--sp-4);
+}
+.compact {
+  padding: var(--sp-6) var(--sp-3);
+}
+.fullScreen {
+  min-height: 100vh;
+  min-height: 100dvh;
+  justify-content: center;
+  padding:
+    calc(var(--safe-top) + var(--sp-6))
+    max(var(--gutter), var(--safe-right))
+    calc(var(--safe-bottom) + var(--sp-6))
+    max(var(--gutter), var(--safe-left));
+}
+
+.icon {
+  display: grid;
+  place-items: center;
+  width: 72px;
+  height: 72px;
+  margin-bottom: var(--sp-2);
+  border-radius: 24px;
+  background: var(--accent-soft);
+  color: var(--accent-ink);
+}
+.icon svg {
+  width: 34px;
+  height: 34px;
+}
+.compact .icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 18px;
+}
+.compact .icon svg {
+  width: 26px;
+  height: 26px;
+}
+.iconDanger {
+  background: var(--danger-soft);
+  color: var(--danger-ink);
+}
+
+.title {
+  font-size: var(--fs-lg);
+  font-weight: var(--fw-bold);
+  letter-spacing: -0.012em;
+}
+
+.description {
+  max-width: 38ch;
+  color: var(--text-2);
+  line-height: var(--lh-normal);
+}
+
+.action {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--sp-2);
+  margin-top: var(--sp-4);
+}
+
+/* ── LoadingScreen ── */
+.loading {
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--sp-6);
+  padding: var(--safe-top) var(--gutter) var(--safe-bottom);
+  color: var(--text-2);
+  animation: appear var(--dur-slow) var(--ease-out) 150ms backwards;
+}
+
+.logo {
+  border-radius: 22px;
+  box-shadow: var(--shadow-lg);
+  overflow: hidden;
+  animation: breathe 2.4s var(--ease-in-out) infinite;
+}
+.logo svg {
+  display: block;
+}
+
+.loadingRow {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-medium);
+}
+
+/* ── Skeleton ── */
+.skeleton {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  background: var(--surface-2);
+}
+.skeleton::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.35), transparent);
+  transform: translateX(-100%);
+  animation: shimmer 1.4s ease-in-out infinite;
+}
+:global([data-theme='dark']) .skeleton::after {
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.05), transparent);
+}
+@media (prefers-color-scheme: dark) {
+  :global(:root:not([data-theme='light'])) .skeleton::after {
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.05), transparent);
+  }
+}
+
+.lines {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+@keyframes shimmer {
+  to { transform: translateX(100%); }
+}
+@keyframes appear {
+  from { opacity: 0; }
+}
+@keyframes breathe {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.04); }
+}

@@ -1,0 +1,82 @@
+.intro {
+  color: var(--text-2);
+  line-height: var(--lh-normal);
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--sp-2);
+}
+
+.stat {
+  display: grid;
+  justify-items: center;
+  gap: 2px;
+  padding: var(--sp-3) var(--sp-2);
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+  background: var(--surface);
+}
+
+.statNum {
+  font-family: var(--font-rounded);
+  font-size: var(--fs-2xl);
+  font-weight: var(--fw-heavy);
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+
+.statLabel {
+  color: var(--text-2);
+  font-size: var(--fs-xs);
+}
+
+.soon {
+  display: flex;
+  gap: var(--sp-2);
+  padding: var(--sp-3) var(--sp-4);
+  border: 1px dashed var(--border-strong);
+  border-radius: var(--r-md);
+  color: var(--text-2);
+  font-size: var(--fs-sm);
+  line-height: var(--lh-snug);
+}
+
+.soon svg {
+  flex: none;
+  width: 16px;
+  height: 16px;
+  margin-top: 2px;
+}
+
+.list {
+  overflow: hidden;
+  border-left: 4px solid var(--world);
+}
+
+.list ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.list li + li {
+  border-top: 1px solid var(--border);
+}
+
+.glyph {
+  font-size: 1.35rem;
+  line-height: 1;
+}
+
+.glyphLocked {
+  filter: grayscale(1);
+  opacity: 0.5;
+}
+
+.lock {
+  width: 18px;
+  height: 18px;
+  color: var(--text-3);
+}

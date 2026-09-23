@@ -1,0 +1,72 @@
+.bar {
+  position: sticky;
+  top: 0;
+  z-index: var(--z-sticky);
+  padding-top: var(--safe-top);
+  padding-left: max(var(--sp-2), var(--safe-left));
+  padding-right: max(var(--sp-2), var(--safe-right));
+  border-bottom: 1px solid transparent;
+  background: transparent;
+  transition: background-color var(--dur), border-color var(--dur);
+}
+
+.bar[data-elevated] {
+  background: var(--nav-bg);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  backdrop-filter: saturate(180%) blur(20px);
+  border-bottom-color: var(--border);
+}
+
+.inner {
+  display: grid;
+  /* Seitenspalten mindestens so breit wie ihr Inhalt (z. B. Textbutton „Beenden“) – der Titel kürzt sich statt überlagert zu werden. */
+  grid-template-columns: minmax(max-content, 1fr) minmax(0, auto) minmax(max-content, 1fr);
+  align-items: center;
+  gap: var(--sp-2);
+  height: var(--topbar-h);
+}
+
+.lead {
+  justify-self: start;
+  display: flex;
+  align-items: center;
+  min-width: var(--tap);
+}
+
+.back {
+  margin-left: calc(-1 * var(--sp-1));
+}
+.back svg {
+  width: 26px;
+  height: 26px;
+}
+
+.title {
+  margin: 0;
+  min-width: 0;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  text-align: center;
+  font-family: var(--font-sans);
+  font-size: var(--fs-md);
+  font-weight: var(--fw-semibold);
+  letter-spacing: -0.01em;
+  line-height: var(--lh-snug);
+  transition: opacity var(--dur), transform var(--dur) var(--ease-out);
+}
+
+.title[data-hidden] {
+  opacity: 0;
+  transform: translateY(6px);
+}
+
+.actions {
+  justify-self: end;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: var(--sp-1);
+  min-width: var(--tap);
+}

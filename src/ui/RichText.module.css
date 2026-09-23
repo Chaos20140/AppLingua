@@ -1,0 +1,85 @@
+.rich {
+  line-height: var(--lh-normal);
+  overflow-wrap: break-word;
+}
+.rich > * + * {
+  margin-top: var(--sp-3);
+}
+
+.rich ul,
+.rich ol {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-1);
+  padding-left: 1.3em;
+}
+.rich li {
+  padding-left: 0.15em;
+}
+.rich li::marker {
+  color: var(--accent);
+}
+.rich ol li::marker {
+  font-weight: var(--fw-bold);
+  font-variant-numeric: tabular-nums;
+}
+
+.rich strong {
+  font-weight: var(--fw-bold);
+  color: var(--text);
+}
+
+.inline {
+  display: inline;
+}
+
+/* `Zielsprache` */
+.target {
+  display: inline;
+  padding: 0.05em 0.35em;
+  margin: 0 0.05em;
+  border-radius: 7px;
+  background: var(--accent-soft);
+  /* deckend statt transparent: auf getönten Kästen (Variante, Fehler, Tipp) bleibt der Kontrast ≥ 4.5:1 */
+  background: color-mix(in srgb, var(--accent) 11%, var(--surface));
+  color: var(--accent-ink);
+  font-weight: var(--fw-semibold);
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+
+.speak {
+  position: relative;
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.25em;
+  font: inherit;
+  font-weight: var(--fw-semibold);
+  line-height: inherit;
+  text-align: inherit;
+  vertical-align: baseline;
+  cursor: pointer;
+  transition: background-color var(--dur-fast), transform var(--dur-fast) var(--ease-out);
+}
+/* Größere Trefferfläche für den Finger. */
+.speak::before {
+  content: '';
+  position: absolute;
+  inset: -9px -3px;
+}
+.speak:active {
+  background: var(--accent-soft-2);
+  transform: scale(0.97);
+}
+@media (hover: hover) {
+  .speak:hover {
+    background: var(--accent-soft-2);
+  }
+}
+
+.speakIcon {
+  width: 0.85em;
+  height: 0.85em;
+  align-self: center;
+  opacity: 0.75;
+}

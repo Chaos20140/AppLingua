@@ -1,0 +1,246 @@
+/* ── Cover ── */
+.cover {
+  position: relative;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  overflow: hidden;
+  background: linear-gradient(145deg, var(--from), var(--to));
+  border-radius: var(--r-md);
+  isolation: isolate;
+}
+.cover::before {
+  /* dezente Schallplatten-Rillen */
+  content: '';
+  position: absolute;
+  inset: -30%;
+  background: repeating-radial-gradient(circle at 70% 120%, rgba(255, 255, 255, 0.07) 0 2px, transparent 2px 9px);
+  z-index: -1;
+}
+.cover::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.22), transparent 45%);
+  pointer-events: none;
+}
+.coverEmoji {
+  line-height: 1;
+  filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.22));
+}
+.cover_sm { width: 56px; height: 56px; border-radius: var(--r-sm); }
+.cover_sm .coverEmoji { font-size: 26px; }
+.cover_md { width: 88px; height: 88px; }
+.cover_md .coverEmoji { font-size: 40px; }
+.cover_lg { width: 148px; height: 148px; border-radius: var(--r-xl); box-shadow: var(--shadow-lg); }
+.cover_lg .coverEmoji { font-size: 68px; }
+.cover_fill { width: 100%; aspect-ratio: 1 / 1; border-radius: var(--r-lg); }
+.cover_fill .coverEmoji { font-size: clamp(40px, 12vw, 64px); }
+
+/* ── Favorit ── */
+.heart {
+  position: relative;
+  z-index: 2;
+  display: inline-grid;
+  place-items: center;
+  width: var(--tap, 44px);
+  height: var(--tap, 44px);
+  flex-shrink: 0;
+  border: 0;
+  border-radius: var(--r-full);
+  background: transparent;
+  color: var(--text-3);
+  cursor: pointer;
+  transition: transform var(--dur-fast) var(--ease-out), color var(--dur-fast) var(--ease-out);
+}
+.heart:active { transform: scale(0.88); }
+.heart:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
+.heartOn { color: var(--danger); }
+.heartOn svg { animation: pop var(--dur-slow) var(--ease-spring); }
+@keyframes pop {
+  0% { transform: scale(0.6); }
+  60% { transform: scale(1.18); }
+  100% { transform: scale(1); }
+}
+
+.ringText {
+  font-weight: var(--fw-bold);
+  font-variant-numeric: tabular-nums;
+  color: var(--text);
+}
+
+/* ── gemeinsame Texte ── */
+.stretch {
+  color: inherit;
+  text-decoration: none;
+  border-radius: var(--r-xs);
+}
+.stretch::after {
+  /* ganze Karte antippbar; Favoriten-Herz liegt darüber */
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  border-radius: inherit;
+}
+.stretch:focus-visible { outline: none; }
+.stretch:focus-visible::after { outline: 2px solid var(--focus); outline-offset: 2px; border-radius: var(--r-lg); }
+
+.title {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  font-weight: var(--fw-bold);
+  font-size: var(--fs-md);
+  line-height: var(--lh-snug);
+  letter-spacing: var(--tracking-tight);
+}
+.artist {
+  color: var(--text-2);
+  font-size: var(--fs-sm);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.meta {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+  margin-top: var(--sp-1);
+  font-size: var(--fs-xs);
+  color: var(--text-2);
+}
+.flag { font-size: 15px; line-height: 1; }
+.level {
+  padding: 2px var(--sp-2);
+  border-radius: var(--r-full);
+  background: var(--surface-2);
+  font-weight: var(--fw-semibold);
+  white-space: nowrap;
+}
+.match {
+  margin-top: var(--sp-1);
+  font-size: var(--fs-xs);
+  color: var(--text-2);
+  font-style: italic;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* ── Kachel ── */
+.tile {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+  min-width: 0;
+  padding: var(--sp-2) var(--sp-2) var(--sp-3);
+  border-radius: var(--r-xl);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--dur) var(--ease-out), box-shadow var(--dur) var(--ease-out);
+}
+.tile:has(.stretch:active) { transform: scale(0.98); }
+@media (hover: hover) {
+  .tile:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); }
+}
+.tileCover { position: relative; }
+.tileHeart {
+  position: absolute;
+  top: var(--sp-1);
+  right: var(--sp-1);
+  color: #fff;
+  background: rgba(0, 0, 0, 0.22);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+.tileHeart.heartOn { color: #ff6b81; background: rgba(255, 255, 255, 0.92); }
+.tileRing {
+  position: absolute;
+  right: var(--sp-2);
+  bottom: calc(-1 * var(--sp-4));
+  z-index: 2;
+  padding: 3px;
+  border-radius: var(--r-full);
+  background: var(--surface);
+  box-shadow: var(--shadow-sm);
+  pointer-events: none;
+}
+.tileBody {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+  padding: 0 var(--sp-2);
+}
+.reasons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-1);
+  margin: var(--sp-2) 0 0;
+  padding: 0;
+  list-style: none;
+}
+.reason {
+  padding: 3px var(--sp-2);
+  border-radius: var(--r-full);
+  background: var(--accent-soft);
+  color: var(--accent-ink);
+  font-size: var(--fs-2xs);
+  font-weight: var(--fw-semibold);
+  line-height: 1.3;
+}
+
+/* ── Zeile ── */
+.row {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+  min-height: 72px;
+  padding: var(--sp-2) var(--sp-2) var(--sp-2) var(--sp-3);
+  border-radius: var(--r-lg);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  transition: background var(--dur-fast) var(--ease-out), transform var(--dur-fast) var(--ease-out);
+}
+.row:has(.stretch:active) { transform: scale(0.99); background: var(--surface-2); }
+.rowBody {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+.rowBody .title { -webkit-line-clamp: 2; font-size: var(--fs-sm); }
+.rowSide {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-1);
+  flex-shrink: 0;
+}
+.rowSide > * { position: relative; z-index: 2; }
+
+/* ── Skeleton ── */
+.tileSkel, .rowSkel {
+  display: flex;
+  gap: var(--sp-3);
+  padding: var(--sp-2);
+  border-radius: var(--r-xl);
+  background: var(--surface);
+  border: 1px solid var(--border);
+}
+.tileSkel { flex-direction: column; }
+.tileSkel .skelCover { aspect-ratio: 1 / 1; height: auto; }
+.rowSkel { align-items: center; border-radius: var(--r-lg); }
+.skelText {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-2);
+  flex: 1;
+  padding: 0 var(--sp-2) var(--sp-2);
+}

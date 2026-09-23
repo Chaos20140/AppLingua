@@ -1,0 +1,259 @@
+.root {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-celebration);
+  display: grid;
+  place-items: center;
+  padding:
+    calc(var(--safe-top) + var(--sp-6))
+    calc(var(--safe-right) + var(--sp-5))
+    calc(var(--safe-bottom) + var(--sp-6))
+    calc(var(--safe-left) + var(--sp-5));
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  --medal-bg: linear-gradient(145deg, #FFE39A 0%, #F2B33D 48%, #C98512 100%);
+  --medal-fg: #4E3200;
+  --medal-glow: rgba(242, 179, 61, 0.55);
+}
+.root[data-variant='success'] {
+  --medal-bg: var(--hero-grad);
+  --medal-fg: #fff;
+  --medal-glow: var(--accent-glow);
+}
+.root[data-state='closed'] {
+  pointer-events: none;
+}
+
+.backdrop {
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(120% 80% at 50% 28%, rgba(28, 33, 58, 0.8), rgba(6, 8, 16, 0.94));
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  animation: fade-in var(--dur-slow) var(--ease-out) backwards;
+}
+.root[data-state='closed'] .backdrop,
+.root[data-state='closed'] .card,
+.root[data-state='closed'] .confetti {
+  animation: fade-out var(--dur) var(--ease-in-out) forwards;
+}
+
+/* ── Konfetti ── */
+.confetti {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+.piece {
+  position: absolute;
+  top: -24px;
+  left: var(--x);
+  width: var(--w);
+  height: calc(var(--w) * 1.6);
+  border-radius: 2px;
+  background: var(--c);
+  opacity: 0;
+  animation: confetti-fall var(--d) cubic-bezier(0.2, 0.6, 0.4, 1) var(--delay) forwards;
+}
+
+/* ── Karte ── */
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--sp-2);
+  width: 100%;
+  max-width: 380px;
+  color: #fff;
+  text-align: center;
+  outline: none;
+  animation: pop-in 560ms var(--ease-spring) backwards;
+}
+
+.stage {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 176px;
+  height: 176px;
+  margin-bottom: var(--sp-3);
+}
+
+.rays {
+  position: absolute;
+  inset: -64px;
+  border-radius: 50%;
+  background: repeating-conic-gradient(from 0deg, rgba(255, 220, 130, 0.2) 0deg 9deg, transparent 9deg 24deg);
+  -webkit-mask-image: radial-gradient(circle, #000 18%, transparent 66%);
+  mask-image: radial-gradient(circle, #000 18%, transparent 66%);
+  animation: spin 22s linear infinite;
+}
+
+.glow {
+  position: absolute;
+  inset: 8px;
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--medal-glow) 0%, transparent 70%);
+  animation: pulse 2.6s var(--ease-in-out) infinite;
+}
+
+.medal {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 124px;
+  height: 124px;
+  border-radius: 50%;
+  background: var(--medal-bg);
+  color: var(--medal-fg);
+  box-shadow:
+    0 0 0 6px rgba(255, 255, 255, 0.1),
+    0 20px 44px -12px var(--medal-glow),
+    inset 0 2px 0 rgba(255, 255, 255, 0.55),
+    inset 0 -8px 16px rgba(0, 0, 0, 0.18);
+  animation: medal-in 760ms var(--ease-spring) 120ms backwards;
+}
+.medal svg {
+  width: 58px;
+  height: 58px;
+  stroke-width: 1.75;
+}
+
+.levelWrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  line-height: 1;
+}
+.levelCap {
+  font-size: var(--fs-2xs);
+  font-weight: var(--fw-heavy);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  opacity: 0.8;
+}
+.levelNum {
+  font-family: var(--font-rounded);
+  font-size: 3.25rem;
+  font-weight: var(--fw-heavy);
+  letter-spacing: -0.04em;
+  font-variant-numeric: tabular-nums;
+}
+
+.kicker {
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-heavy);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #FFD76E;
+}
+
+.title {
+  font-family: var(--font-display);
+  font-size: var(--fs-3xl);
+  font-weight: var(--fw-heavy);
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  color: #fff;
+}
+
+.message {
+  max-width: 34ch;
+  color: rgba(255, 255, 255, 0.84);
+  line-height: var(--lh-normal);
+}
+
+.xp {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-2);
+  margin-top: var(--sp-2);
+  padding: var(--sp-2) var(--sp-4);
+  border-radius: var(--r-full);
+  background: rgba(255, 215, 110, 0.14);
+  border: 1px solid rgba(255, 215, 110, 0.38);
+  color: #FFD76E;
+  font-family: var(--font-rounded);
+  font-size: var(--fs-xl);
+  font-weight: var(--fw-heavy);
+  font-variant-numeric: tabular-nums;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(92px, 1fr));
+  gap: var(--sp-2);
+  width: 100%;
+  margin: var(--sp-3) 0 0;
+}
+.stat {
+  display: flex;
+  flex-direction: column-reverse;
+  gap: 2px;
+  padding: var(--sp-3) var(--sp-2);
+  border-radius: var(--r-md);
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+.statValue {
+  margin: 0;
+  font-family: var(--font-rounded);
+  font-size: var(--fs-lg);
+  font-weight: var(--fw-heavy);
+  font-variant-numeric: tabular-nums;
+}
+.statLabel {
+  font-size: var(--fs-xs);
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.actions {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-1);
+  width: 100%;
+  margin-top: var(--sp-5);
+}
+
+.secondary {
+  min-height: var(--tap);
+  border-radius: var(--r-md);
+  color: rgba(255, 255, 255, 0.88);
+  font-weight: var(--fw-semibold);
+}
+@media (hover: hover) {
+  .secondary:hover {
+    background: rgba(255, 255, 255, 0.08);
+  }
+}
+.card :focus-visible {
+  outline-color: #fff;
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+}
+@keyframes fade-out {
+  to { opacity: 0; }
+}
+@keyframes pop-in {
+  from { opacity: 0; transform: translateY(24px) scale(0.94); }
+}
+@keyframes medal-in {
+  0% { opacity: 0; transform: scale(0.3) rotate(-20deg); }
+  100% { opacity: 1; transform: none; }
+}
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+@keyframes pulse {
+  0%, 100% { opacity: 0.75; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.08); }
+}
+@keyframes confetti-fall {
+  0% { opacity: 1; transform: translate3d(0, 0, 0) rotate(0deg); }
+  85% { opacity: 1; }
+  100% { opacity: 0; transform: translate3d(var(--dx), 105vh, 0) rotate(var(--r)); }
+}

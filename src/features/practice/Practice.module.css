@@ -1,0 +1,195 @@
+.quick {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: var(--sp-4);
+  min-height: 88px;
+  padding: var(--sp-4) var(--sp-5);
+  overflow: hidden;
+  isolation: isolate;
+  border-radius: var(--r-xl);
+  background: var(--hero-grad);
+  color: #fff;
+  text-decoration: none;
+  box-shadow: var(--shadow-accent);
+  transition: transform var(--dur-fast) var(--ease-out);
+}
+
+.quick::before {
+  content: '';
+  position: absolute;
+  top: -80px;
+  right: -60px;
+  z-index: -1;
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.22), transparent 68%);
+}
+
+.quick:active {
+  transform: scale(0.99);
+}
+
+.quick:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 3px;
+}
+
+.quickIcon {
+  display: grid;
+  flex: none;
+  place-items: center;
+  width: 52px;
+  height: 52px;
+  border-radius: var(--r-md);
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.quickIcon svg {
+  width: 26px;
+  height: 26px;
+}
+
+.quickText {
+  display: grid;
+  flex: 1;
+  gap: 2px;
+  min-width: 0;
+}
+
+.quickTitle {
+  font-family: var(--font-display);
+  font-size: var(--fs-lg);
+  font-weight: var(--fw-heavy);
+}
+
+.quickSub {
+  opacity: 0.93;
+  font-size: var(--fs-sm);
+  line-height: var(--lh-snug);
+}
+
+.quickGo {
+  flex: none;
+  padding: var(--sp-2) var(--sp-4);
+  border-radius: var(--r-full);
+  background: #fff;
+  color: var(--accent-solid);
+  font-weight: var(--fw-bold);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(132px, 1fr));
+  gap: var(--sp-3);
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.cell {
+  animation: rise var(--dur-slow) var(--ease-out) both;
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+}
+
+.tile {
+  --tone: var(--text-2);
+  --tone-soft: var(--surface-2);
+  display: grid;
+  grid-template-rows: auto auto 1fr auto;
+  align-content: start;
+  gap: var(--sp-1);
+  height: 100%;
+  min-height: 156px;
+  padding: var(--sp-4);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  background: var(--surface);
+  box-shadow: var(--shadow-sm);
+  color: inherit;
+  text-decoration: none;
+  transition: transform var(--dur-fast) var(--ease-out), border-color var(--dur) var(--ease-out), box-shadow var(--dur) var(--ease-out);
+}
+
+.tile:active {
+  transform: scale(0.98);
+}
+
+@media (hover: hover) {
+  .tile:hover {
+    border-color: var(--border-strong);
+    box-shadow: var(--shadow-md);
+  }
+}
+
+.tile:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
+}
+
+.accent { --tone: var(--accent-ink); --tone-soft: var(--accent-soft); }
+.info { --tone: var(--info-ink); --tone-soft: var(--info-soft); }
+.success { --tone: var(--success-ink); --tone-soft: var(--success-soft); }
+.gold { --tone: var(--gold-ink); --tone-soft: var(--gold-soft); }
+.warning { --tone: var(--warning-ink); --tone-soft: var(--warning-soft); }
+.danger { --tone: var(--danger-ink); --tone-soft: var(--danger-soft); }
+
+.attention {
+  border-color: color-mix(in srgb, var(--tone) 35%, transparent);
+  background: linear-gradient(160deg, var(--tone-soft), transparent 60%), var(--surface);
+}
+
+.tileIcon {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  margin-bottom: var(--sp-1);
+  border-radius: var(--r-sm);
+  background: var(--tone-soft);
+  color: var(--tone);
+}
+
+.tileIcon svg {
+  width: 20px;
+  height: 20px;
+}
+
+.tileTitle {
+  color: var(--text-2);
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-semibold);
+}
+
+.tileValue {
+  align-self: end;
+  font-family: var(--font-rounded);
+  font-size: var(--fs-2xl);
+  font-weight: var(--fw-heavy);
+  line-height: 1.1;
+  font-variant-numeric: tabular-nums;
+}
+
+.tileValueText {
+  display: -webkit-box;
+  overflow: hidden;
+  font-family: var(--font-display);
+  font-size: var(--fs-lg);
+  font-weight: var(--fw-bold);
+  line-height: var(--lh-snug);
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.tileCaption {
+  color: var(--text-3);
+  font-size: var(--fs-xs);
+  line-height: var(--lh-snug);
+}

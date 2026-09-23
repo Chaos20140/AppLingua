@@ -1,0 +1,142 @@
+/* ── Tabs ── */
+.tabs {
+  display: flex;
+  gap: var(--sp-1);
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scrollbar-width: none;
+  border-bottom: 1px solid var(--border);
+}
+.tabs::-webkit-scrollbar {
+  display: none;
+}
+
+.tab {
+  position: relative;
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 46px;
+  padding: 0 var(--sp-3);
+  color: var(--text-2);
+  font-size: var(--fs-md);
+  font-weight: var(--fw-semibold);
+  white-space: nowrap;
+  transition: color var(--dur);
+}
+.tab::after {
+  content: '';
+  position: absolute;
+  left: var(--sp-3);
+  right: var(--sp-3);
+  bottom: -1px;
+  height: 3px;
+  border-radius: 3px 3px 0 0;
+  background: var(--accent);
+  transform: scaleX(0);
+  transition: transform var(--dur) var(--ease-out);
+}
+.tab[aria-selected='true'] {
+  color: var(--text);
+}
+.tab[aria-selected='true']::after {
+  transform: scaleX(1);
+}
+.tab:disabled {
+  opacity: 0.4;
+}
+.tab:focus-visible {
+  outline-offset: -3px;
+  border-radius: var(--r-xs);
+}
+
+.icon {
+  display: inline-flex;
+}
+.icon svg {
+  width: 18px;
+  height: 18px;
+}
+
+.badge {
+  min-width: 20px;
+  height: 20px;
+  padding: 0 6px;
+  border-radius: var(--r-full);
+  background: var(--surface-2);
+  color: var(--text-2);
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-bold);
+  line-height: 20px;
+  text-align: center;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ── Segmented ── */
+.segmented {
+  position: relative;
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(0, 1fr);
+  padding: 3px;
+  border-radius: var(--r-md);
+  background: var(--surface-2);
+  isolation: isolate;
+}
+
+.thumb {
+  position: absolute;
+  top: 3px;
+  bottom: 3px;
+  left: 3px;
+  width: calc((100% - 6px) / var(--count));
+  border-radius: calc(var(--r-md) - 3px);
+  background: var(--surface-raised);
+  box-shadow: var(--shadow-sm), 0 0 0 0.5px var(--border);
+  transform: translateX(calc(var(--index) * 100%));
+  transition: transform var(--dur-slow) var(--ease-out);
+  z-index: -1;
+}
+
+.segment {
+  display: flex;
+  /* Schmale Displays (iPhone SE): Symbol und Text untereinander statt abgeschnitten. */
+  flex-wrap: wrap;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  gap: 2px 6px;
+  min-width: 0;
+  min-height: var(--tap);
+  padding: 4px var(--sp-2);
+  line-height: var(--lh-tight);
+  text-align: center;
+  border-radius: calc(var(--r-md) - 3px);
+  color: var(--text-2);
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-semibold);
+  transition: color var(--dur);
+}
+.segment[aria-checked='true'] {
+  color: var(--text);
+}
+.segment:disabled {
+  opacity: 0.4;
+}
+
+.segLabel {
+  min-width: 0;
+  max-width: 100%;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+}
+/* Sehr schmal (iPhone SE 1. Gen.): einheitlich Symbol über Text statt gemischt. */
+@media (max-width: 359px) {
+  .segment { flex-direction: column; }
+}
+
+.segSm .segment {
+  min-height: 40px;
+  font-size: var(--fs-xs);
+}

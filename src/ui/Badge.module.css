@@ -1,0 +1,39 @@
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  min-height: 22px;
+  padding: 2px 8px;
+  border-radius: var(--r-full);
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-bold);
+  line-height: 1.2;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+  vertical-align: middle;
+}
+
+.icon {
+  display: inline-flex;
+}
+.icon svg {
+  width: 13px;
+  height: 13px;
+}
+
+.neutral { background: var(--surface-2); color: var(--text-2); }
+.accent { background: var(--accent-soft); color: var(--accent-ink); }
+.gold { background: var(--gold-soft); color: var(--gold-ink); }
+.success { background: var(--success-soft); color: var(--success-ink); }
+.danger { background: var(--danger-soft); color: var(--danger-ink); }
+.info { background: var(--info-soft); color: var(--info-ink); }
+.warning { background: var(--warning-soft); color: var(--warning-ink); }
+
+.solid.neutral { background: var(--surface-inverse); color: var(--text-on-inverse); }
+.solid.accent { background: var(--accent-solid); color: var(--on-accent); }
+.solid.gold { background: var(--gold-grad); color: var(--on-gold); }
+.solid.success { background: var(--success-solid); color: #fff; }
+.solid.danger { background: var(--danger-solid); color: #fff; }
+.solid.info { background: #2A56B0; color: #fff; }
+.solid.warning { background: #8A5800; color: #fff; }
