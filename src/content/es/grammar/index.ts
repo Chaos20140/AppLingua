@@ -20,11 +20,24 @@ import { topic as gustar } from './gustar';
 import { topic as reflexive } from './reflexive';
 import { topic as irA } from './ir-a';
 import { topic as possessives } from './possessives';
+import { topic as prepositionsPlace } from './prepositions-place';
+import { topic as imperativeTu } from './imperative-tu';
+import { topic as irVenir } from './ir-venir';
+import { topic as stemChange } from './stem-change';
+import { topic as numbersBig } from './numbers-big';
+import { topic as demonstratives } from './demonstratives';
+import { topic as timeDates } from './time-dates';
+import { topic as weather } from './weather';
+import { topic as yoIrregular } from './yo-irregular';
+import { topic as muyMucho } from './muy-mucho';
+import { topic as politeRequests } from './polite-requests';
 
 const all: GrammarTopic[] = [
   formality, alphabetSounds, stress, pronouns, ser, estar, serEstar, articles, genderPlural, adjectives,
   wordOrderNegation, presentRegular, numbers, questions, hay,
   tener, gustar, reflexive, irA, possessives,
+  prepositionsPlace, imperativeTu, irVenir, stemChange, numbersBig, demonstratives, timeDates, weather, yoIrregular,
+  muyMucho, politeRequests,
 ];
 
 /** Alle Grammatikthemen Spanisch, sortiert nach Etappe und Reihenfolge. */

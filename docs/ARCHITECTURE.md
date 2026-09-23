@@ -131,19 +131,25 @@ antippbare Hervorhebung, Listen; nie innerHTML), `Celebration` (XP/Level-Up-Over
 `src/ai/client.ts`: `aiStatus()` → `{available, reason}`; `aiPartnerReply(req)`, `aiPartnerEvaluate(req)`, `aiExplain(req)` (Fehler → deutsche Meldung, Aufrufer zeigt Offline-Fallback).
 
 ## Inhalts-IDs (für Querverweise zwischen Inhalts-Autoren)
-- Lektionen: `es.s0.l01`…`es.s0.l14`, `es.a1.l01`…`es.a1.l04`, `pt.s0.l01`…`pt.s0.l07` (Dateien `src/content/es/lessons/s0l01.ts`, `a1l01.ts`, `src/content/pt-BR/lessons/p0l01.ts` usw., `export default` Lesson).
-- Kapitel: `es.s0.c1`…`es.s0.c5`, `es.a1.c1`…; Prüfungen: `es.exam.s0.mid`, `es.exam.s0.final`, `es.exam.s0.boss`, `es.exam.a1.c1`, `pt.exam.s0.final`, `pt.exam.s0.boss`.
+- Lektionen: `es.s0.l01`…`es.s0.l14`, `es.a1.l01`…`es.a1.l16`, `pt.s0.l01`…`pt.s0.l07`, `pt.a1.l01`…`pt.a1.l06` (Dateien `src/content/es/lessons/s0l01.ts`, `a1l01.ts`, `src/content/pt-BR/lessons/p0l01.ts`, `a1l01.ts` usw., `export default` Lesson).
+- Kapitel: `es.s0.c1`…`es.s0.c5`, `es.a1.c1`…`es.a1.c5`, `pt.s0.c1`…`pt.s0.c3`, `pt.a1.c1`…`pt.a1.c4` (`pt.a1.c3`/`c4` noch ohne Lektionen);
+  Prüfungen: `es.exam.s0.mid`, `es.exam.s0.final`, `es.exam.s0.boss`, `es.exam.a1.c1`…`es.exam.a1.c5`, `es.exam.a1.final`, `es.exam.a1.boss`,
+  `pt.exam.s0.final`, `pt.exam.s0.boss`, `pt.exam.a1.c1`, `pt.exam.a1.c2` (Abschlussprüfung und Endgegner Portugiesisch A1 folgen).
 - Vokabeln: `<lessonId>.v.<slug>`; Übungen: `<lessonId>.g01` (geführt), `.a01` (Anwendung), `.r01` (Wiederholung); Grammatik-Übungen `<topicId>.L1.01`; Prüfungsübungen `<examId>.01`; Einstufung `es.pl.01`.
 - Grammatikthemen Spanisch (`src/content/es/grammar/`): `es.g.alphabet-sounds`, `es.g.stress`, `es.g.formality`,
   `es.g.pronouns`, `es.g.ser`, `es.g.estar`, `es.g.ser-estar`, `es.g.articles`, `es.g.gender-plural`, `es.g.adjectives`,
   `es.g.word-order-negation`, `es.g.present-regular`, `es.g.numbers`, `es.g.questions`, `es.g.hay`,
-  `es.g.tener`, `es.g.gustar`, `es.g.reflexive`, `es.g.ir-a`, `es.g.possessives` (letzte 5 = A1).
-- Aussprache Spanisch – Kategorien `es.pc.vowels|r|j-g|ll-y|b-v|c-z|ny|h-ch|stress|syllables|intonation`; Items, die Lektionen referenzieren dürfen:
+  `es.g.alphabet-sounds` … `es.g.hay` = Stufe 0; A1: `es.g.tener`, `es.g.gustar`, `es.g.reflexive`, `es.g.ir-a`, `es.g.possessives`,
+  `es.g.prepositions-place`, `es.g.imperative-tu`, `es.g.ir-venir`, `es.g.stem-change`, `es.g.numbers-big`, `es.g.demonstratives`,
+  `es.g.time-dates`, `es.g.weather`, `es.g.yo-irregular`, `es.g.muy-mucho`, `es.g.polite-requests`.
+- Aussprache Spanisch – Kategorien `es.pc.vowels|r|j-g|ll-y|b-v|c-z|ny|h-ch|stress|syllables|intonation|linking`; Items, die Lektionen referenzieren dürfen:
   `es.p.vowels.mama|pelo|libro|todo|luna|euro`, `es.p.r.pero|perro|caro|carro|rosa|tres`, `es.p.j.jamon|gente|gato|guitarra|julio`,
   `es.p.ll.llamo|calle|yo|playa`, `es.p.bv.vaca|beber|vivir|uva`, `es.p.cz.gracias|cerveza|zapato|cinco`,
   `es.p.ny.espanol|manana|nino`, `es.p.h.hola|hablar|chico|noche`, `es.p.stress.hablo|hablo-pasado|cafe|arbol|telefono|ciudad`,
-  `es.p.syl.buenos-dias|encantado`, `es.p.into.como-te-llamas|me-llamo-ana|que-bien|de-donde-eres`.
+  `es.p.syl.buenos-dias|encantado`, `es.p.into.como-te-llamas|me-llamo-ana|que-bien|de-donde-eres`,
+  `es.p.link.mis-amigos|vamos-a-la-playa|que-hora-es|un-cafe-con-leche|esta-en-el-centro`.
 - Portugiesisch: Präfix `pt.` (Grammatik `pt.g.*`, Aussprache `pt.pc.*`/`pt.p.*`) – vollständig im Besitz von CONTENT-PT.
+  A1-Grammatik: `pt.g.ter`, `pt.g.possessives`, `pt.g.tem-haver`, `pt.g.adjectives`, `pt.g.reflexive`, `pt.g.time-dates`, `pt.g.gerund`.
 - KI-Szenarien: `<es|pt>.sc.<key>` mit key ∈ `alltag, gefuehrt, restaurant, hotel, flughafen, universitaet, arbeit,
   bewerbung, arzt, einkaufen, telefon, diskussion, praesentation, reise, pruefung`.
 - Songs: `song.es.<slug>` / `song.pt.<slug>`; `grammarTags` nur aus obigen Grammatik-IDs.
@@ -173,7 +179,7 @@ laufende Transaktion abbrechen – Browser erlauben beim Entladen keine synchron
 
 ## Offline & Caching (Service Worker, `vite.config.ts`)
 - **Precache** (bei Installation/Update): App-Shell, alle Seiten-Chunks, Spanisch-Kurs (Standardkurs) und Songs.
-- **Portugiesisch** (`assets/pt-BR-*.js`, ~350 KB) ist bewusst nicht im Precache: Runtime-Cache `course-content`
+- **Portugiesisch** (`assets/pt-BR-*.js`, ~560 KB, gzip ~170 KB) ist bewusst nicht im Precache: Runtime-Cache `course-content`
   (CacheFirst, Dateinamen mit Hash). `src/app/useOfflineWarmup.ts` lädt den aktiven Kurs nach dem Start im
   Hintergrund vor und legt ihn in diesen Cache – nach einmaligem Öffnen online ist auch pt-BR offline verfügbar.
 - **Supabase** (`assets/vendor-supabase-*.js`): nur im Precache, wenn der Build mit Supabase-Variablen gebaut

@@ -227,6 +227,13 @@ export const pronItems: PronItem[] = [
     mistakes: ['Betonung auf „FA“ (das wäre `fala`, er spricht)', 'kräftiges Reibe-R am Ende'],
     tips: ['Infinitive werden immer auf der letzten Silbe betont: falar, comer, abrir.', '`Vou falar` klingt im Alltag oft wie „vou fa-LA“.'],
   }),
+  mk('r', 'mar', {
+    text: 'mar', german: 'Meer', helper: '„MAH“ – End-r als leichter Hauch', ipa: '[ˈmah]',
+    syllables: ['mar'], stress: 0, level: 2, issueCodes: ['r'],
+    mouth: 'Offenes a wie in „Mann“, danach ein leichtes Hauchen aus dem Rachen – ohne Zungenbewegung. Das r darf **nicht** in einem langen deutschen „a“ verschwinden („Maa“).',
+    mistakes: ['vokalisiertes deutsches R wie in „Meer“ („Maa“)', 'kräftig gerolltes Zungenspitzen-R', 'Reibe-R wie im deutschen „Rad“'],
+    tips: ['Das End-r klingt regional verschieden: gehaucht in Rio und im Nordosten, getippt in São Paulo, amerikanisch gebogen im Landesinneren. Alle Varianten sind richtig.', 'Folgt ein Vokal, wird das r zum getippten r und bindet an: `mar azul` ≈ „ma-ra-SUU“.', 'Gleicher Laut am Silbenende: `porta`, `falar`, `amor`.'],
+  }),
 
   // ───────── t/d vor i ─────────
   mk('d-t', 'tia', {
@@ -359,6 +366,13 @@ export const pronItems: PronItem[] = [
     mistakes: ['scharfes „ß“ vor m'],
     tips: ['In Rio: „MESCH-mu“ (stimmhaftes sch). Beides ist korrekt.', '`É mesmo?` = Echt? Wirklich?'],
   }),
+  mk('s-x', 'tres-horas', {
+    text: 'três horas', german: 'drei Uhr; drei Stunden', helper: '„trei-SÓ-ras“ – das End-s summt ins nächste Wort hinüber', ipa: '[ˈtɾejz ˈɔɾɐs]',
+    syllables: ['três', 'ho', 'ras'], stress: 1, level: 2, issueCodes: ['s-x', 'open-closed'],
+    mouth: '`três` klingt im Alltag oft wie „treis“ (ein kleines i schleicht sich ein). Das End-s wird vor einem Vokal **stimmhaft** wie in „Rose“ und bindet direkt an `horas` an – das h ist stumm. `ho` hat ein offenes o, das r ist ein kurzer Zungenschlag.',
+    mistakes: ['scharfes „ß“ und Pause zwischen den Wörtern', 'gesprochenes h in „horas“', 'Reibe-R statt Zungenschlag in „horas“'],
+    tips: ['Sprich es wie ein Wort: „trei-SÓ-ras“.', 'Gleiche Regel: `duas horas` ≈ „DU-a-SÓ-ras“, `dois anos` ≈ „doi-SA-nus“.', 'In Rio klingt das End-s vor Pause oder Konsonant wie „sch“ (`três` ≈ „treisch“) – vor einem Vokal summt es aber überall.'],
+  }),
 
   // ───────── Betonung ─────────
   mk('stress', 'cafe', {
@@ -439,6 +453,20 @@ export const pronItems: PronItem[] = [
     mouth: 'g vor e = stimmhaftes „sch“ wie in „Journal“. Nasales e, dann „tschi“. Unbetontes `se` ≈ „ßi“. Satzakzent auf `vê` (geschlossenes e).',
     mistakes: ['hartes g wie in „gut“', '„gen-te“ mit klarem t'],
     tips: ['g vor e/i und j klingen wie das „j“ in „Journal“.', 'Beliebter Abschied unter Freunden – wie „Man sieht sich!“.'],
+  }),
+  mk('rhythm', 'que-horas-sao', {
+    text: 'Que horas são?', german: 'Wie spät ist es?', helper: '„ki Ó-ras ßãu?“ – Stimme am Ende runter', ipa: '[ki ˈɔɾɐs ˈsɐ̃w̃]',
+    syllables: ['Que', 'ho', 'ras', 'são'], stress: 3, level: 1, issueCodes: ['rhythm', 'ao', 'open-closed'],
+    mouth: 'Unbetontes `que` klingt wie ein kurzes „ki“. In `horas` ist das h stumm, das o offen, das r ein kurzer Zungenschlag. `são` endet auf dem nasalen „ãu“ – dort liegt der Satzakzent, danach fällt die Melodie.',
+    mistakes: ['„kwe“ oder „ke“ statt „ki“', 'gehauchtes h in „horas“', '„sau“ ohne Nasal am Ende'],
+    tips: ['Fragen mit Fragewort fallen am Ende ab – wie im Deutschen.', 'Die zwei s von `horas são` verschmelzen zu einem scharfen „ß“: „Ó-ra-ßãu“.', 'Antworten: `É uma hora.` – `São três horas.`'],
+  }),
+  mk('rhythm', 'eu-me-levanto', {
+    text: 'Eu me levanto cedo.', german: 'Ich stehe früh auf.', helper: '„eu mi le-WÃN-tu ßE-du“ – me ganz leicht wie „mi“', ipa: '[ˈew mi leˈvɐ̃tu ˈsedu]',
+    syllables: ['Eu', 'me', 'le', 'van', 'to', 'ce', 'do'], stress: 5, level: 2, issueCodes: ['rhythm', 'nasal'],
+    mouth: 'Das Pronomen `me` ist unbetont und klingt wie ein kurzes „mi“ – es lehnt sich an das Verb an: „mi-le-WÃN-tu“. `van` ist nasal (kein hörbares n), `cedo` beginnt mit scharfem „ß“, hat ein geschlossenes e und endet auf „u“.',
+    mistakes: ['betontes „ME“ mit Pause davor', '„le-VAN-to“ mit deutlichem n und o am Ende', 'summendes s in „cedo“'],
+    tips: ['Sprich `me levanto` wie ein Wort: „mi-le-WÃN-tu“.', 'Genauso: `você se levanta` ≈ „wo-ßE ßi le-WÃN-ta“, `me chamo` ≈ „mi SCHÃ-mu“.'],
   }),
 ];
 

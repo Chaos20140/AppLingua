@@ -1,10 +1,13 @@
 import { test, expect, onboard, waitForStored } from './fixtures';
 
+/** Begrüßung je nach Tageszeit (src/features/dashboard/greeting.ts): „Guten Morgen, Alex“, „Hallo, Alex“, „Guten Abend, Alex“ oder nachts „Hallo Alex, noch wach?“. */
+const GREETING = /^(Guten Morgen, |Hallo, |Guten Abend, |Hallo )Alex\b/;
+
 test('Onboarding: Spanisch (Lateinamerika) bis zum Dashboard im lokalen Modus', async ({ page }) => {
   await onboard(page, { variant: 'es-LA', name: 'Alex' });
 
   await expect(page.getByRole('button', { name: 'Aktiver Kurs: Spanisch (Lateinamerika). Kurs wechseln' })).toBeVisible();
-  await expect(page.getByText(/^Hallo Alex/)).toBeVisible();
+  await expect(page.getByText(GREETING)).toBeVisible();
 
   // Level & Sprachniveau
   await expect(page.getByRole('link', { name: /^Spielerlevel 1\b/ })).toBeVisible();
@@ -28,7 +31,7 @@ test('Onboarding: Spanisch (Lateinamerika) bis zum Dashboard im lokalen Modus', 
   await waitForStored(page, 'profile', '"onboardingDone":true');
   await page.reload();
   await expect(page).toHaveURL(/\/dashboard$/);
-  await expect(page.getByText(/^Hallo Alex/)).toBeVisible();
+  await expect(page.getByText(GREETING)).toBeVisible();
   await page.goto('/');
   await expect(page).toHaveURL(/\/dashboard$/);
 });

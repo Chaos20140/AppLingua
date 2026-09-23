@@ -13,10 +13,16 @@ import p0l04 from './lessons/p0l04';
 import p0l05 from './lessons/p0l05';
 import p0l06 from './lessons/p0l06';
 import p0l07 from './lessons/p0l07';
+import a1l01 from './lessons/a1l01';
+import a1l02 from './lessons/a1l02';
+import a1l03 from './lessons/a1l03';
+import a1l04 from './lessons/a1l04';
+import a1l05 from './lessons/a1l05';
+import a1l06 from './lessons/a1l06';
 
 const content: CourseContent = {
   meta, stages, exams, placement, grammar, pronCategories, pronItems, scenarios,
-  lessons: [p0l01, p0l02, p0l03, p0l04, p0l05, p0l06, p0l07],
+  lessons: [p0l01, p0l02, p0l03, p0l04, p0l05, p0l06, p0l07, a1l01, a1l02, a1l03, a1l04, a1l05, a1l06],
 };
 
 export default content;

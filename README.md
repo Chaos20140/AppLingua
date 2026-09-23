@@ -11,8 +11,15 @@ optional.
 
 ## Funktionen
 
-- **Lernpfad**: getrennte Kurse. Spanisch hat 18 Lektionen (14 Einstieg, 4 A1), Portugiesisch 7 Lektionen
-  im Einstieg. Dazu Kapitelprüfungen, Boss-Prüfungen und ein optionaler Einstufungstest.
+- **Lernpfad**: getrennte Kurse mit Kapitel-Tests, Abschlussprüfung und Endgegner je Etappe sowie einem
+  optionalen Einstufungstest.
+  - **Spanisch**: Stufe 0 und **A1 komplett**. 30 Lektionen (14 in Stufe 0, 16 in A1 in 5 Kapiteln),
+    31 Grammatikthemen (15 + 16), 10 Prüfungen (Stufe 0: Zwischentest, Abschlussprüfung, Endgegner;
+    A1: 5 Kapiteltests, Abschlussprüfung, Endgegner „La Reina del Mercado“), 12 Aussprache-Kategorien.
+  - **Portugiesisch**: Stufe 0 komplett, **A1 begonnen**. 13 Lektionen (7 in Stufe 0, 6 in A1), 19
+    Grammatikthemen (12 + 7), 4 Prüfungen (Stufe 0: Abschlussprüfung, Endgegner; A1: 2 Kapiteltests).
+    A1-Kapitel 3–4 sowie Abschlussprüfung und Endgegner von A1 sind in der App als „folgt in einem Update“
+    gekennzeichnet. Das Sprachniveau A1 lässt sich deshalb auf Portugiesisch noch nicht nachweisen.
 - **Übungen**: Auswahl, Lückentext, Satzbau, Übersetzen, Diktat, Konjugieren, Fehler finden, Zuordnen,
   Minimalpaare, Dialoge, freies Schreiben, Hören und Sprechen. Die Bewertung toleriert Akzente und
   Tippfehler und erklärt Fehler auf Deutsch.
@@ -61,7 +68,13 @@ npx playwright install webkit chromium   # einmalig
 npm run test:e2e                    # E2E gegen einen eigenen Produktions-Build (Port 4317)
 ```
 
+`src/content/a1-progression.test.ts` prüft die Freischaltung mit echtem Kursinhalt (Stufe 0 → A1-Lektionen →
+Kapiteltests → Abschlussprüfung → Endgegner → Sprachniveau A1; Portugiesisch A1 mit „folgt“-Hinweisen),
+`e2e/path.spec.ts` den Lernpfad beider Kurse in der Oberfläche.
+
 Die E2E-Tests laufen in den Profilen iPhone 15, iPhone SE, iPhone 15 Pro Max (WebKit) und Desktop-Chromium.
+Auf Rechnern mit wenig freiem Arbeitsspeicher stürzen parallele WebKit-Instanzen gelegentlich ab; dann hilft
+`npx playwright test --workers=2` (oder `--workers=1`).
 Die Offline-Tests laufen nur in Chromium, weil Playwright-WebKit unter Windows/Linux keine
 Offline-Navigationen aus dem Service Worker ausliefert.
 
@@ -105,7 +118,8 @@ docs/           Architektur, Einrichtung, Deploy, iPhone, Songs & Recht
 
 ## Bekannte Grenzen
 
-- **Kursumfang**: A1 ist bei Spanisch erst begonnen, Portugiesisch hat nur den Einstieg.
+- **Kursumfang**: Spanisch reicht bis A1 (ab A2 nur der Lehrplan). Portugiesisch A1 ist begonnen
+  (Kapitel 1–2). Die übrigen Kapitel, Abschlussprüfung und Endgegner von A1 folgen.
 - **Offline-Partner**: Die geskripteten Dialoge erkennen Antworten über Schlüsselwörter, ohne Verneinung zu
   verstehen („Sí, pero no puedo“ kann als Zusage zählen). Freie Gespräche gibt es nur mit KI.
 - **Aussprache**: Bewertet wird die Verständlichkeit laut Spracherkennung, keine Phonetik. Auf dem iPhone

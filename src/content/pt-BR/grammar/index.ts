@@ -11,6 +11,13 @@ import contractions from './contractions';
 import presentRegular from './present-regular';
 import numbers from './numbers';
 import questions from './questions';
+import ter from './ter';
+import possessives from './possessives';
+import temHaver from './tem-haver';
+import adjectives from './adjectives';
+import reflexive from './reflexive';
+import timeDates from './time-dates';
+import gerund from './gerund';
 
 export const grammar: GrammarTopic[] = [
   sounds,
@@ -25,4 +32,11 @@ export const grammar: GrammarTopic[] = [
   presentRegular,
   numbers,
   questions,
+  ter,
+  possessives,
+  temHaver,
+  adjectives,
+  reflexive,
+  timeDates,
+  gerund,
 ];

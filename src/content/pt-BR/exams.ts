@@ -278,4 +278,232 @@ const bossExam: Exam = {
   ],
 };
 
-export const exams: Exam[] = [finalExam, bossExam];
+const A1C1 = 'pt.exam.a1.c1';
+const A1C2 = 'pt.exam.a1.c2';
+
+const a1c1: Exam = {
+  id: A1C1,
+  courseId: 'pt-BR',
+  stageId: 'a1',
+  kind: 'midterm',
+  title: 'Kapiteltest: Família & Zuhause',
+  description:
+    'Prüft Kapitel 1 von A1: **ter**, Possessivbegleiter (**meu, seu, dele, dela**), **tem** = es gibt mit Ortsangaben sowie **Adjektive** zum Beschreiben von Menschen. Du brauchst **60 %**.',
+  passPct: 60,
+  sections: [
+    {
+      title: 'Grammatik',
+      skill: 'grammar',
+      exercises: [
+        {
+          id: `${A1C1}.01`, type: 'mc', skills: ['grammar', 'reading'], topicIds: ['pt.g.ter'], difficulty: 1,
+          prompt: 'Meus pais ___ três filhos.',
+          options: [{ text: 'têm' }, { text: 'tem', why: '`tem` ist Singular – für eles/elas/vocês schreibt man `têm`.' }, { text: 'temos', why: '`temos` gehört zu `nós`.' }],
+          answer: 0,
+          feedback: { rule: 'eles (meus pais) → `têm`.', why: '`tem` und `têm` klingen gleich – der Zirkumflex markiert den Plural.', avoid: 'Plural → Dach (^).' },
+        },
+        {
+          id: `${A1C1}.02`, type: 'cloze', skills: ['grammar', 'writing'], topicIds: ['pt.g.possessives'], difficulty: 2,
+          sentence: 'A Paula tem um irmão. A esposa ___ é médica.', answers: [['dele']], german: 'Paula hat einen Bruder. Seine Frau ist Ärztin.',
+          feedback: { rule: 'Die Frau gehört zum Bruder (ele) → `a esposa dele`.', why: '`dela` würde auf Paula zeigen; `sua` klingt wie „deine“.', avoid: 'Frag: Wem gehört es? – ihm → dele.' },
+        },
+        {
+          id: `${A1C1}.03`, type: 'mc', skills: ['grammar', 'reading'], topicIds: ['pt.g.tem-haver'], difficulty: 2,
+          prompt: '„Gibt es hier in der Nähe einen Supermarkt?“',
+          options: [{ text: 'Tem um mercado aqui perto?' }, { text: 'Está um mercado aqui perto?', why: '`estar` bedeutet nicht „es gibt“.' }, { text: 'É um mercado aqui perto?', why: 'Das hieße „Ist das ein Supermarkt hier in der Nähe?“' }],
+          answer: 0,
+          feedback: { rule: '„es gibt“ = `tem`: `Tem um mercado aqui perto?`', why: 'Nach etwas Unbestimmtem (um mercado) fragt man mit `tem`.', avoid: 'Gibt es …? → Tem …?' },
+        },
+        {
+          id: `${A1C1}.04`, type: 'cloze', skills: ['grammar', 'writing'], topicIds: ['pt.g.adjectives'], difficulty: 2,
+          instruction: 'Setze „baixo“ und „engraçado“ in der richtigen Form ein.',
+          sentence: 'A minha avó é ___ e muito ___.', answers: [['baixa'], ['engraçada']], german: 'Meine Großmutter ist klein und sehr lustig.',
+          feedback: { rule: '`avó` ist weiblich → `baixa`, `engraçada`; `muito` bleibt unverändert.', why: 'Auch nach `é` passen sich Adjektive an.', avoid: 'Frau → -a, bei jedem Adjektiv.' },
+        },
+        {
+          id: `${A1C1}.05`, type: 'order', skills: ['grammar', 'reading'], topicIds: ['pt.g.tem-haver', 'pt.g.contractions'], difficulty: 2,
+          tokens: ['O', 'banheiro', 'fica', 'ao', 'lado', 'da', 'cozinha.'], extra: ['tem', 'de'], german: 'Das Bad liegt neben der Küche.',
+          feedback: { rule: 'Bestimmter Raum + `fica` + `ao lado da` (de + a).', why: '`tem` passt nicht zu „das Bad“ (bestimmt); `de a` muss verschmelzen.', avoid: 'der/die/das + Ort → fica.' },
+        },
+        {
+          id: `${A1C1}.06`, type: 'fixError', skills: ['grammar', 'writing'], topicIds: ['pt.g.ter'], difficulty: 2,
+          sentence: 'Meu pai é cinquenta anos.',
+          answers: ['Meu pai tem cinquenta anos.', 'O meu pai tem cinquenta anos.', 'Meu pai tem 50 anos.', 'O meu pai tem 50 anos.'],
+          german: 'Mein Vater ist fünfzig.',
+          feedback: { rule: 'Alter: `ter` + Zahl + `anos`.', why: 'Das deutsche „ist … alt“ wird mit `ter` ausgedrückt.', avoid: 'Jahre hat man: tem … anos.' },
+        },
+      ],
+    },
+    {
+      title: 'Hörverstehen',
+      skill: 'listening',
+      exercises: [
+        {
+          id: `${A1C1}.07`, type: 'listening', skills: ['listening', 'vocabulary'], topicIds: ['pt.g.ter'], difficulty: 2,
+          audio: 'Eu tenho dois irmãos e uma irmã. A minha irmã é casada e tem um filho.', question: 'Was stimmt?',
+          options: ['Die Person hat drei Geschwister; die Schwester hat einen Sohn.', 'Die Person hat zwei Geschwister; die Schwester ist ledig.', 'Die Person hat drei Brüder und einen Sohn.'],
+          answer: 0,
+          feedback: { rule: '`dois irmãos e uma irmã` = drei Geschwister; `casada` = verheiratet; `tem um filho` = hat einen Sohn.', why: 'Der Sohn gehört zur Schwester, nicht zur sprechenden Person.', avoid: 'Auf das Subjekt jedes Satzes achten.' },
+        },
+        {
+          id: `${A1C1}.08`, type: 'listening', skills: ['listening', 'vocabulary'], topicIds: ['pt.g.tem-haver', 'pt.g.adjectives'], difficulty: 2,
+          audio: 'No meu apartamento tem dois quartos, uma sala pequena e uma varanda.', question: 'Was gibt es in der Wohnung?',
+          options: ['zwei Schlafzimmer, ein kleines Wohnzimmer und einen Balkon', 'ein Schlafzimmer, zwei Wohnzimmer und einen Balkon', 'zwei Schlafzimmer, eine große Küche und einen Balkon'],
+          answer: 0,
+          feedback: { rule: '`dois quartos` = zwei Schlafzimmer, `uma sala pequena` = ein kleines Wohnzimmer, `uma varanda` = ein Balkon.', why: '`sala` ist das Wohnzimmer, die Küche heißt `cozinha`.', avoid: 'quarto = Schlafzimmer, sala = Wohnzimmer.' },
+        },
+        {
+          id: `${A1C1}.09`, type: 'dictation', skills: ['listening', 'writing'], topicIds: ['pt.g.possessives', 'pt.g.tem-haver'], difficulty: 3,
+          audio: 'A casa dela fica perto da praia.', answers: ['A casa dela fica perto da praia.'], german: 'Ihr Haus liegt in der Nähe des Strandes.',
+          feedback: { rule: '`a casa dela` (ihr Haus) · `fica perto da praia` (liegt in der Nähe des Strandes).', why: '`dela` und `da` sind Verschmelzungen mit `de` – man schreibt sie zusammen.', avoid: 'de + ela = dela, de + a = da.' },
+        },
+      ],
+    },
+    {
+      title: 'Wortschatz',
+      skill: 'vocabulary',
+      exercises: [
+        {
+          id: `${A1C1}.10`, type: 'imageMatch', skills: ['vocabulary', 'reading'], difficulty: 1,
+          pairs: [{ emoji: '🛏️', word: 'a cama' }, { emoji: '🛋️', word: 'o sofá' }, { emoji: '🪟', word: 'a janela' }, { emoji: '🐶', word: 'o cachorro' }, { emoji: '🐱', word: 'o gato' }],
+          feedback: { rule: 'a cama = Bett, o sofá = Sofa, a janela = Fenster, o cachorro = Hund, o gato = Katze.', why: 'Diese Wörter gehören zum Grundwortschatz von Kapitel 1.', avoid: 'Vokabeln immer mit Artikel lernen.' },
+        },
+      ],
+    },
+    {
+      title: 'Aussprache & Sprechen',
+      skill: 'pronunciation',
+      exercises: [
+        {
+          id: `${A1C1}.11`, type: 'speak', skills: ['pronunciation', 'speaking'], topicIds: ['pt.g.adjectives', 'pt.g.possessives'], difficulty: 2,
+          text: 'Minha filha tem olhos azuis.', german: 'Meine Tochter hat blaue Augen.', phonetic: 'MI-nja FI-lja tẽi Ó-lju-sa-SUIS', ipa: '[ˈmiɲɐ ˈfiʎɐ ˈtẽj̃ ˈɔʎuz aˈzujs]',
+          feedback: { rule: '`nh` ≈ „nj“, `lh` ≈ „lj“; `olhos` mit offenem o; das s von `olhos` summt ins nächste Wort.', why: 'Ein hartes „l-h“ oder eine Pause zwischen `olhos` und `azuis` klingt unnatürlich.', avoid: '`olhos azuis` wie ein Wort sprechen: „Ó-lju-sa-SUIS“.' },
+        },
+        {
+          id: `${A1C1}.12`, type: 'speakFree', skills: ['speaking', 'grammar'], topicIds: ['pt.g.ter', 'pt.g.possessives', 'pt.g.adjectives'], difficulty: 3,
+          prompt: 'Stell mündlich deine Familie oder deine Wohnung vor (2–3 Sätze).',
+          keywords: ['tenho', 'tem', 'meu', 'minha', 'meus', 'minhas', 'dele', 'dela', 'fica', 'muito'], minMatch: 3,
+          sample: 'Eu tenho uma irmã. Ela é alta e muito legal. O apartamento dela fica perto da praia.',
+          feedback: { rule: 'Bausteine: Tenho … · Meu/Minha … · … dele/dela · Tem … · Fica perto de …', why: 'Fehlende Schlüsselwörter bedeuten, dass ein Baustein fehlt oder nicht erkannt wurde.', avoid: 'Kurze, vollständige Sätze sprechen.' },
+        },
+      ],
+    },
+  ],
+};
+
+const a1c2: Exam = {
+  id: A1C2,
+  courseId: 'pt-BR',
+  stageId: 'a1',
+  kind: 'midterm',
+  title: 'Kapiteltest: Mein Tag',
+  description:
+    'Prüft Kapitel 2 von A1: den Tagesablauf mit **reflexiven Verben** (eu me levanto), **Uhrzeit, Wochentage und Datum** sowie **estar + Gerundium** (estou falando). Du brauchst **60 %**.',
+  passPct: 60,
+  sections: [
+    {
+      title: 'Grammatik',
+      skill: 'grammar',
+      exercises: [
+        {
+          id: `${A1C2}.01`, type: 'mc', skills: ['grammar', 'reading'], topicIds: ['pt.g.reflexive'], difficulty: 1,
+          prompt: 'Ela ___ levanta às sete.',
+          options: [{ text: 'se' }, { text: 'me', why: '`me` gehört zu `eu`.' }, { text: 'nos', why: '`nos` gehört zu `nós`.' }],
+          answer: 0,
+          feedback: { rule: 'ela → `se`: `Ela se levanta.`', why: 'Das Pronomen passt zur Person – bei ele/ela/você immer `se`.', avoid: 'eu – me, nós – nos, alle anderen – se.' },
+        },
+        {
+          id: `${A1C2}.02`, type: 'cloze', skills: ['grammar', 'writing'], topicIds: ['pt.g.reflexive'], difficulty: 2,
+          sentence: 'Nós ___ levantamos cedo, mas as crianças ___ levantam tarde.', answers: [['nos'], ['se']],
+          german: 'Wir stehen früh auf, aber die Kinder stehen spät auf.',
+          feedback: { rule: 'nós → `nos`; eles (as crianças) → `se`.', why: 'Pronomen und Verbendung passen immer zur gleichen Person.', avoid: '-mos → nos; -am → se.' },
+        },
+        {
+          id: `${A1C2}.03`, type: 'cloze', skills: ['grammar', 'writing'], topicIds: ['pt.g.time-dates', 'pt.g.contractions'], difficulty: 2,
+          sentence: 'De segunda a sexta eu me levanto ___ seis e almoço ___ meio-dia.', answers: [['às'], ['ao']],
+          german: 'Von Montag bis Freitag stehe ich um sechs auf und esse um zwölf zu Mittag.',
+          feedback: { rule: 'um sechs = `às seis`; um zwölf (mittags) = `ao meio-dia` (a + o).', why: '`meio-dia` ist männlich – deshalb `ao`, nicht `às`.', avoid: 'Stunden → às; meio-dia → ao; meia-noite → à.' },
+        },
+        {
+          id: `${A1C2}.04`, type: 'mc', skills: ['grammar', 'reading'], topicIds: ['pt.g.time-dates'], difficulty: 2,
+          prompt: 'Es ist 1:30 Uhr.',
+          options: [{ text: 'É uma e meia.' }, { text: 'São uma e meia.', why: 'Bei 1 Uhr steht `é` – auch mit Minuten.' }, { text: 'É meia duas.', why: '„halb zwei“ lässt sich nicht wörtlich übersetzen.' }],
+          answer: 0,
+          feedback: { rule: '1:30 = `É uma e meia.`', why: 'Die volle Stunde (uma) bestimmt den Singular; die halbe Stunde wird addiert.', avoid: 'uma → é; „halb“ = e meia nach der vollen Stunde.' },
+        },
+        {
+          id: `${A1C2}.05`, type: 'conjugate', skills: ['grammar', 'writing'], topicIds: ['pt.g.gerund'], difficulty: 2,
+          verb: 'fazer', tense: 'Verlaufsform (estar + Gerundium)', person: 'vocês', sentence: 'O que vocês ___?', answers: ['estão fazendo', 'tão fazendo'],
+          feedback: { rule: 'vocês → `estão` + `fazendo`.', why: 'Nur estar wird konjugiert; das Gerundium `fazendo` ist regelmäßig.', avoid: 'estar + -ndo.' },
+        },
+      ],
+    },
+    {
+      title: 'Hörverstehen',
+      skill: 'listening',
+      exercises: [
+        {
+          id: `${A1C2}.06`, type: 'listening', skills: ['listening', 'grammar'], topicIds: ['pt.g.time-dates'], difficulty: 2,
+          audio: 'Eu almoço ao meio-dia e meia.', question: 'Wann isst die Person zu Mittag?',
+          options: ['12:30', '12:00', '0:30'], answer: 0,
+          feedback: { rule: '`meio-dia e meia` = 12:30.', why: '12:00 wäre nur `meio-dia`, 0:30 `meia-noite e meia`.', avoid: 'meio-dia = Mittag, meia-noite = Mitternacht.' },
+        },
+        {
+          id: `${A1C2}.07`, type: 'listening', skills: ['listening', 'vocabulary'], topicIds: ['pt.g.time-dates'], difficulty: 2,
+          audio: 'Na segunda e na quarta eu trabalho de manhã. Na sexta eu trabalho à tarde.', question: 'An welchem Tag arbeitet die Person nachmittags?',
+          options: ['am Freitag', 'am Montag', 'am Mittwoch'], answer: 0,
+          feedback: { rule: '`na sexta … à tarde` = am Freitag nachmittags.', why: 'Montag (segunda) und Mittwoch (quarta) arbeitet die Person morgens (de manhã).', avoid: 'à tarde = nachmittags, de manhã = morgens.' },
+        },
+        {
+          id: `${A1C2}.08`, type: 'dictation', skills: ['listening', 'writing'], topicIds: ['pt.g.reflexive', 'pt.g.time-dates'], difficulty: 3,
+          audio: 'Eu me levanto às seis e meia.', answers: ['Eu me levanto às seis e meia.'], german: 'Ich stehe um halb sieben auf.',
+          feedback: { rule: '`me levanto` (Pronomen vor dem Verb) · `às seis e meia` (um 6:30).', why: 'Häufige Fehler: „as“ ohne Akzent, „se levanto“ statt „me levanto“.', avoid: 'um … Uhr = às (mit Gravis).' },
+        },
+      ],
+    },
+    {
+      title: 'Wortschatz',
+      skill: 'vocabulary',
+      exercises: [
+        {
+          id: `${A1C2}.09`, type: 'matchPairs', skills: ['vocabulary', 'reading'], topicIds: ['pt.g.reflexive', 'pt.g.time-dates'], difficulty: 1,
+          pairs: [{ left: 'sempre', right: 'immer' }, { left: 'nunca', right: 'nie' }, { left: 'às vezes', right: 'manchmal' }, { left: 'geralmente', right: 'normalerweise' }, { left: 'sábado', right: 'Samstag' }],
+          feedback: { rule: 'sempre = immer, nunca = nie, às vezes = manchmal, geralmente = normalerweise, sábado = Samstag.', why: 'Häufigkeitswörter und Wochentage braucht man für jeden Tagesablauf.', avoid: 'Häufigkeitswörter als Skala lernen: nunca → às vezes → geralmente → sempre.' },
+        },
+      ],
+    },
+    {
+      title: 'Aussprache & Sprechen',
+      skill: 'pronunciation',
+      exercises: [
+        {
+          id: `${A1C2}.10`, type: 'speak', skills: ['pronunciation', 'speaking'], topicIds: ['pt.g.time-dates'], difficulty: 1,
+          text: 'Que horas são?', german: 'Wie spät ist es?', phonetic: 'ki Ó-ras ßãu', ipa: '[ki ˈɔɾɐs ˈsɐ̃w̃]', pronItemId: 'pt.p.rhythm.que-horas-sao',
+          feedback: { rule: '`que` ≈ „ki“, stummes h in `horas`, nasales „ãu“ in `são` – Melodie am Ende fallend.', why: 'Ein gesprochenes h oder ein „sau“ ohne Nasal wird schlechter verstanden.', avoid: 'Satz als eine Melodie: „ki Ó-ra-ßãu“.' },
+        },
+        {
+          id: `${A1C2}.11`, type: 'speakFree', skills: ['speaking', 'grammar'], topicIds: ['pt.g.reflexive', 'pt.g.time-dates'], difficulty: 3,
+          prompt: 'Erzähl mündlich von deinem Morgen: Wann wachst du auf, wann stehst du auf, und was machst du danach? (2–3 Sätze)',
+          keywords: ['acordo', 'levanto', 'horas', 'meia', 'tomo banho', 'me visto', 'tomo café'], minMatch: 3,
+          sample: 'Eu acordo às seis e meia e me levanto às sete. Depois eu tomo banho, me visto e tomo café.',
+          feedback: { rule: 'acordo · me levanto · às … (horas) · tomo banho · me visto · tomo café.', why: 'Fehlende Schlüsselwörter bedeuten, dass ein Teil des Ablaufs fehlt oder nicht erkannt wurde.', avoid: 'Uhrzeit mit „às“ nennen und die Verben der Reihe nach sprechen.' },
+        },
+      ],
+    },
+    {
+      title: 'Situation',
+      skill: 'reading',
+      exercises: [
+        {
+          id: `${A1C2}.12`, type: 'situation', skills: ['reading', 'speaking'], topicIds: ['pt.g.gerund'], difficulty: 2,
+          scenario: 'Eine Freundin schreibt dir: „Cadê você?“ (Wo bist du?). Du bist schon unterwegs und fast da. Was antwortest du?',
+          options: [{ text: 'Tô chegando!' }, { text: 'Tô em casa.', why: 'Dann wärst du noch zu Hause.' }, { text: 'Eu chegar.', why: 'Hier fehlt ein konjugiertes Verb.' }],
+          answer: 0,
+          feedback: { rule: '`Tô chegando!` = Bin gleich da! (estou + Gerundium).', why: 'Die Verlaufsform zeigt: Du bist gerade dabei anzukommen.', avoid: 'Unterwegs → tô chegando.' },
+        },
+      ],
+    },
+  ],
+};
+
+export const exams: Exam[] = [finalExam, bossExam, a1c1, a1c2];

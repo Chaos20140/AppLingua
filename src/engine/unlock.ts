@@ -254,12 +254,16 @@ export function computeUnlocks(content: CourseContent, input: UnlockInput): Unlo
   if (!nextStep) {
     const lastOpen = [...statuses].reverse().find((s) => s.state === 'available' || s.state === 'completed');
     const blocked = statuses.find((s) => s.state === 'available' && !s.masteryMet);
+    const first = blocked?.missing[0] ?? 'etwas Übung';
     nextStep = {
       kind: 'done',
       stageId: blocked?.stageId ?? lastOpen?.stageId ?? null,
-      message: blocked
-        ? `Für die nächste Etappe fehlt noch: ${blocked.missing[0] ?? 'etwas Übung'}.`
-        : 'Du hast alle verfügbaren Inhalte abgeschlossen – neue Etappen folgen. Nutze Wiederholung, Songs und den KI-Partner, um in Form zu bleiben.',
+      message: !blocked
+        ? 'Du hast alle verfügbaren Inhalte abgeschlossen – neue Etappen folgen. Nutze Wiederholung, Songs und den KI-Partner, um in Form zu bleiben.'
+        // Etappe begonnen, Abschlussprüfung/Endgegner fehlen noch im Inhalt (z. B. Portugiesisch A1)
+        : /folg(t|en) in einem Update\.$/.test(first)
+          ? `Alle verfügbaren Lektionen dieser Etappe sind geschafft. ${first} Nutze bis dahin Wiederholung, Songs und den KI-Partner.`
+          : `Für die nächste Etappe fehlt noch: ${first.replace(/\.$/, '')}.`,
     };
   }
   return { stages: statuses, lessons, nextLesson, nextStep };

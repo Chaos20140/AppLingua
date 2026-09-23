@@ -152,6 +152,14 @@ function World({
   const comingSoon = state === 'coming-soon';
   const headId = `world-${world.stage.id}`;
   const hasCurrent = !!currentId && worldNodes(world).some((n) => n.id === currentId);
+  // Etappe mit Lektionen, aber (noch) ohne Abschlussprüfung/Endgegner: ehrlich ankündigen statt weglassen
+  const hasFinal = world.finale.some((n) => n.exam.kind === 'final');
+  const hasBoss = world.finale.some((n) => n.exam.kind === 'boss');
+  const finaleSoon = comingSoon || (hasFinal && hasBoss)
+    ? null
+    : !hasFinal && !hasBoss
+      ? 'Abschlussprüfung und Endgegner dieser Etappe folgen in einem Update.'
+      : !hasFinal ? 'Die Abschlussprüfung dieser Etappe folgt in einem Update.' : 'Der Endgegner dieser Etappe folgt in einem Update.';
 
   return (
     <section className={cx(s.world, comingSoon && s.worldSoon)} style={worldStyle(theme)} aria-labelledby={headId}>
@@ -223,14 +231,19 @@ function World({
               )}
             </div>
           ))}
-          {world.finale.length > 0 && (
+          {(world.finale.length > 0 || finaleSoon) && (
             <div className={s.chapter}>
               <div className={s.chapterHead}>
                 <p className={s.chapterNo}>Etappenfinale</p>
                 <h3 className={s.chapterTitle}>Abschlussprüfung & Endgegner</h3>
                 <p className={s.chapterDesc}>Bestehe beide, um dein Sprachniveau nachzuweisen und die nächste Welt zu öffnen.</p>
               </div>
-              <Track nodes={world.finale} onLocked={onLocked} currentRef={currentRef} />
+              {world.finale.length > 0 && <Track nodes={world.finale} onLocked={onLocked} currentRef={currentRef} />}
+              {finaleSoon && (
+                <p className={s.planned}>
+                  <Hourglass aria-hidden="true" /> {finaleSoon}
+                </p>
+              )}
             </div>
           )}
         </>

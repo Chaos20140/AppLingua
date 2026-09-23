@@ -22,6 +22,12 @@ import RewardCenter from '../rewards/RewardCenter';
 import StatsPage from '../stats/StatsPage';
 import DashboardPage from './DashboardPage';
 
+// Kursinhalt vorab laden: Der Spanisch-Chunk (ganz A1) wird beim ersten Import transformiert –
+// unter Last dauert das länger als die 3-s-Wartezeit der Einzeltests.
+beforeAll(async () => {
+  await loadCourse('es');
+}, 120_000);
+
 beforeAll(() => {
   const mm = (q: string) => ({ matches: false, media: q, onchange: null, addListener() {}, removeListener() {}, addEventListener() {}, removeEventListener() {}, dispatchEvent: () => false });
   vi.stubGlobal('matchMedia', mm);

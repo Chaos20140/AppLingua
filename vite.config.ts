@@ -118,7 +118,7 @@ export default defineConfig({
       },
       workbox: {
         globPatterns: ['**/*.{js,css,html,svg,png,webp,ico,txt,webmanifest}'],
-        // Precache = App-Shell + Spanisch (Standardkurs) + Songs. Der Portugiesisch-Chunk (~350 KB)
+        // Precache = App-Shell + Spanisch (Standardkurs) + Songs. Der Portugiesisch-Chunk (~560 KB)
         // kommt per Runtime-Cache dazu, sobald er geladen wird – src/app/useOfflineWarmup.ts lädt den
         // aktiven Kurs nach dem Start im Hintergrund vor und legt ihn in diesen Cache.
         globIgnores: ['**/assets/pt-BR-*.js'],

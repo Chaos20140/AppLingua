@@ -1,0 +1,416 @@
+import type { Lesson } from '../../types';
+
+const L = 'pt.a1.l05';
+
+const lesson: Lesson = {
+  id: L,
+  courseId: 'pt-BR',
+  stageId: 'a1',
+  chapterId: 'pt.a1.c2',
+  order: 5,
+  title: 'Que horas são? – Uhrzeit, Tage, Datum',
+  subtitle: 'É uma hora · São duas e meia · na segunda-feira',
+  icon: '🕒',
+  minutes: 14,
+  goal:
+    'Du kannst **nach der Uhrzeit fragen und sie angeben**, sagen, **um wie viel Uhr** etwas passiert (`às oito`), und Tageszeiten, **Wochentage** und ein **Datum** nennen – für Verabredungen, Öffnungszeiten und Geburtstage.',
+  canDo: [
+    'Ich kann nach der Uhrzeit fragen und sie mit „é uma hora“ / „são … horas“ angeben.',
+    'Ich kann sagen, um wie viel Uhr ich etwas mache (às sete, ao meio-dia).',
+    'Ich kann Tageszeiten und Wochentage verwenden (de manhã, na segunda-feira).',
+    'Ich kann nach dem Datum fragen und ein Datum nennen.',
+  ],
+  topicIds: ['pt.g.time-dates'],
+  vocab: [
+    { id: `${L}.v.que-horas-sao`, target: 'Que horas são?', german: 'Wie spät ist es?', pos: 'phrase', emoji: '🕒', field: 'Uhrzeit', stageId: 'a1', lessonId: L, example: { target: 'Que horas são? – São duas e meia.', german: 'Wie spät ist es? – Es ist halb drei.' } },
+    { id: `${L}.v.hora`, target: 'a hora', german: 'die Stunde; die Uhrzeit', pos: 'noun', gender: 'f', plural: 'horas', emoji: '🕐', field: 'Uhrzeit', stageId: 'a1', lessonId: L, example: { target: 'São duas horas.', german: 'Es ist zwei Uhr.' } },
+    { id: `${L}.v.meio-dia`, target: 'o meio-dia', german: 'der Mittag, 12 Uhr mittags', pos: 'noun', gender: 'm', emoji: '🕛', field: 'Uhrzeit', stageId: 'a1', lessonId: L, example: { target: 'A gente almoça ao meio-dia.', german: 'Wir essen um zwölf zu Mittag.' } },
+    { id: `${L}.v.meia-noite`, target: 'a meia-noite', german: 'die Mitternacht', pos: 'noun', gender: 'f', emoji: '🌃', field: 'Uhrzeit', stageId: 'a1', lessonId: L, example: { target: 'Eu me deito à meia-noite.', german: 'Ich gehe um Mitternacht ins Bett.' } },
+    { id: `${L}.v.de-manha`, target: 'de manhã', german: 'morgens, vormittags', pos: 'adv', emoji: '🌅', field: 'Tageszeiten', stageId: 'a1', lessonId: L, example: { target: 'Eu trabalho de manhã.', german: 'Ich arbeite vormittags.' } },
+    { id: `${L}.v.a-tarde`, target: 'à tarde', german: 'nachmittags', pos: 'adv', field: 'Tageszeiten', stageId: 'a1', lessonId: L, example: { target: 'À tarde eu estudo português.', german: 'Nachmittags lerne ich Portugiesisch.' } },
+    { id: `${L}.v.a-noite`, target: 'à noite', german: 'abends, nachts', pos: 'adv', emoji: '🌙', field: 'Tageszeiten', stageId: 'a1', lessonId: L, example: { target: 'À noite a gente janta em casa.', german: 'Abends essen wir zu Hause.' } },
+    { id: `${L}.v.segunda-feira`, target: 'a segunda-feira', german: 'der Montag', pos: 'noun', gender: 'f', plural: 'segundas-feiras', field: 'Wochentage', stageId: 'a1', lessonId: L, example: { target: 'Na segunda eu trabalho.', german: 'Am Montag arbeite ich.' } },
+    { id: `${L}.v.terca-feira`, target: 'a terça-feira', german: 'der Dienstag', pos: 'noun', gender: 'f', plural: 'terças-feiras', field: 'Wochentage', stageId: 'a1', lessonId: L, example: { target: 'Às terças eu jogo futebol.', german: 'Dienstags spiele ich Fußball.' } },
+    { id: `${L}.v.quarta-feira`, target: 'a quarta-feira', german: 'der Mittwoch', pos: 'noun', gender: 'f', plural: 'quartas-feiras', field: 'Wochentage', stageId: 'a1', lessonId: L, example: { target: 'Hoje é quarta-feira.', german: 'Heute ist Mittwoch.' } },
+    { id: `${L}.v.quinta-feira`, target: 'a quinta-feira', german: 'der Donnerstag', pos: 'noun', gender: 'f', plural: 'quintas-feiras', field: 'Wochentage', stageId: 'a1', lessonId: L, example: { target: 'Na quinta à noite eu janto fora.', german: 'Am Donnerstagabend esse ich auswärts.' } },
+    { id: `${L}.v.sexta-feira`, target: 'a sexta-feira', german: 'der Freitag', pos: 'noun', gender: 'f', plural: 'sextas-feiras', field: 'Wochentage', stageId: 'a1', lessonId: L, example: { target: 'Toda sexta a gente janta junto.', german: 'Jeden Freitag essen wir zusammen zu Abend.' } },
+    { id: `${L}.v.sabado`, target: 'o sábado', german: 'der Samstag', pos: 'noun', gender: 'm', plural: 'sábados', field: 'Wochentage', stageId: 'a1', lessonId: L, example: { target: 'No sábado eu acordo tarde.', german: 'Am Samstag wache ich spät auf.' } },
+    { id: `${L}.v.domingo`, target: 'o domingo', german: 'der Sonntag', pos: 'noun', gender: 'm', plural: 'domingos', field: 'Wochentage', stageId: 'a1', lessonId: L, example: { target: 'Aos domingos eu durmo até tarde.', german: 'Sonntags schlafe ich lange.' } },
+    { id: `${L}.v.fim-de-semana`, target: 'o fim de semana', german: 'das Wochenende', pos: 'noun', gender: 'm', plural: 'fins de semana', field: 'Wochentage', stageId: 'a1', lessonId: L, example: { target: 'No fim de semana eu não trabalho.', german: 'Am Wochenende arbeite ich nicht.' } },
+    { id: `${L}.v.hoje`, target: 'hoje', german: 'heute', pos: 'adv', field: 'Zeit', stageId: 'a1', lessonId: L, example: { target: 'Que dia é hoje?', german: 'Welcher Tag ist heute?' } },
+  ],
+  explanation: [
+    {
+      type: 'text',
+      md:
+        'Nach der Uhrzeit fragst du mit `Que horas são?` (Wie spät ist es?). Die Antwort richtet sich nach der Stunde:\n' +
+        '- **1 Uhr, 12 Uhr, 0 Uhr** → Singular `é`: `É uma hora.` · `É meio-dia.` · `É meia-noite.`\n' +
+        '- **ab 2 Uhr** → Plural `são`: `São duas horas.` · `São oito horas.`\n' +
+        '- Minuten **nach** der Stunde mit `e`: `São três e dez.` (3:10) · `São três e quinze.` (3:15) · `São três e meia.` (3:30)\n' +
+        '- Minuten **vor** der Stunde mit `para as`: `São dez para as oito.` (7:50) · `São quinze para as nove.` (8:45)\n' +
+        '`hora` ist **weiblich** – deshalb `uma`, `duas` und `meia` (halb). Das Wort `horas` darfst du weglassen: `São duas.` Mittags heißt 12:30 `meio-dia e meia`.',
+    },
+    {
+      type: 'compare',
+      target: 'São duas e meia.',
+      german: 'Es ist halb drei.',
+      md:
+        'Vorsicht, Falle! Das Deutsche denkt **zur nächsten Stunde hin**: „halb drei“ ist die Hälfte auf dem Weg zu drei. Portugiesisch zählt **ab der vollen Stunde**: zwei **und** eine halbe → `duas e meia` = 2:30. `São três e meia` wäre schon 3:30 – auf Deutsch „halb vier“.',
+    },
+    {
+      type: 'text',
+      md:
+        '**Um wie viel Uhr?** – `A que horas …?` In der Antwort steht `a` + Artikel:\n' +
+        '- `às duas`, `às oito e meia` (a + as = **às**)\n' +
+        '- `à uma`, `à meia-noite` (a + a = **à**)\n' +
+        '- `ao meio-dia` (a + o = **ao**)\n' +
+        '**Tageszeiten:** `de manhã` (morgens, vormittags), `à tarde` (nachmittags), `à noite` (abends, nachts). Zusammen mit einer Uhrzeit wird daraus `da`: `às oito da manhã`, `às três da tarde`, `às dez da noite`.\n' +
+        'Fahrpläne, Öffnungszeiten und Einladungen nutzen oft die 24-Stunden-Zählung: `às 20h` (gesprochen: „às vinte horas“), `8h30`.',
+    },
+    {
+      type: 'colored',
+      parts: [
+        { text: 'O jantar', role: 'subject' },
+        { text: ' ' },
+        { text: 'é', role: 'verb' },
+        { text: ' ' },
+        { text: 'às', role: 'preposition' },
+        { text: ' ' },
+        { text: 'oito', role: 'other' },
+        { text: ' ' },
+        { text: 'da noite', role: 'adverb' },
+        { text: '.' },
+      ],
+      german: 'Das Abendessen ist um acht Uhr abends.',
+    },
+    {
+      type: 'text',
+      md:
+        '**Wochentage:** `segunda-feira` (Mo), `terça-feira` (Di), `quarta-feira` (Mi), `quinta-feira` (Do), `sexta-feira` (Fr), `sábado` (Sa), `domingo` (So). Im Alltag lässt man `-feira` meist weg: `na segunda`, `na sexta`.\n' +
+        '- am Montag: `na segunda(-feira)` – die -feira-Tage sind weiblich; aber `no sábado`, `no domingo` – männlich\n' +
+        '- montags, jeden Montag: `às segundas`, `aos sábados` oder locker `toda segunda`\n' +
+        '- am Wochenende: `no fim de semana`\n' +
+        '**Datum:** `Que dia é hoje?` – `Hoje é quarta-feira.` oder `Hoje é dia 23 de setembro.` Schema: `dia` + Zahl + `de` + Monat. Nur der Monatserste heißt `primeiro`: `primeiro de maio`. Monate schreibt man klein: janeiro, fevereiro, março, abril, maio, junho, julho, agosto, setembro, outubro, novembro, dezembro.',
+    },
+    {
+      type: 'mistake',
+      wrong: 'São dois horas.',
+      right: 'São duas horas.',
+      why: '`hora` ist weiblich – also `uma hora`, `duas horas`. Auch ohne das Wort `horas` bleibt es weiblich: `São duas e meia.` Und für 1 Uhr steht der Singular: `É uma hora`, nicht `São uma hora`.',
+    },
+    {
+      type: 'tip',
+      md: 'Merksatz: **Eins steht allein, ab zwei sind es viele** – `É uma hora`, `São duas horas`. **Hora ist weiblich:** uma, duas, meia. Und **um … Uhr = às** (bei eins `à uma`, mittags `ao meio-dia`).',
+    },
+    { type: 'audio', text: 'Que horas são? – São três e meia da tarde.', label: 'Nach der Uhrzeit fragen' },
+  ],
+  examples: [
+    {
+      target: 'Que horas são? – É uma hora.',
+      german: 'Wie spät ist es? – Es ist ein Uhr.',
+      parts: [{ text: 'Que horas', role: 'question' }, { text: ' ' }, { text: 'são', role: 'verb' }, { text: '? – ' }, { text: 'É', role: 'verb' }, { text: ' ' }, { text: 'uma hora', role: 'other' }, { text: '.' }],
+    },
+    {
+      target: 'São duas e meia.',
+      german: 'Es ist halb drei.',
+      literal: 'Es sind zwei und (eine) halbe.',
+      parts: [{ text: 'São', role: 'verb' }, { text: ' ' }, { text: 'duas', role: 'other' }, { text: ' e ' }, { text: 'meia', role: 'other' }, { text: '.' }],
+    },
+    { target: 'São dez para as oito.', german: 'Es ist zehn vor acht.', literal: 'Es sind zehn für die acht.', note: 'Hier steht `as` ohne Akzent: `para` + Artikel `as`.' },
+    {
+      target: 'A que horas você almoça? – Ao meio-dia.',
+      german: 'Um wie viel Uhr isst du zu Mittag? – Um zwölf.',
+      parts: [{ text: 'A que horas', role: 'question' }, { text: ' ' }, { text: 'você', role: 'subject' }, { text: ' ' }, { text: 'almoça', role: 'verb' }, { text: '? – ' }, { text: 'Ao', role: 'preposition' }, { text: ' ' }, { text: 'meio-dia', role: 'noun' }, { text: '.' }],
+    },
+    { target: 'Eu me levanto às seis e meia da manhã.', german: 'Ich stehe um halb sieben Uhr morgens auf.' },
+    { target: 'Na segunda-feira eu trabalho de manhã e à tarde.', german: 'Am Montag arbeite ich vormittags und nachmittags.' },
+    { target: 'Aos domingos a gente almoça com a minha avó.', german: 'Sonntags essen wir mit meiner Oma zu Mittag.', note: '`aos domingos` = sonntags (regelmäßig), `no domingo` = am (kommenden) Sonntag.' },
+    { target: 'Que dia é hoje? – Hoje é sexta-feira, dia primeiro de março.', german: 'Welcher Tag ist heute? – Heute ist Freitag, der erste März.', note: 'Nur der Monatserste heißt `primeiro`; sonst Grundzahlen: `dia dois`, `dia vinte e três`.' },
+  ],
+  guided: [
+    {
+      id: `${L}.g01`,
+      type: 'matchPairs',
+      skills: ['vocabulary', 'reading'],
+      topicIds: ['pt.g.time-dates'],
+      difficulty: 1,
+      instruction: 'Ordne die Uhrzeiten zu.',
+      pairs: [
+        { left: '1:00', right: 'É uma hora.' },
+        { left: '2:30', right: 'São duas e meia.' },
+        { left: '3:15', right: 'São três e quinze.' },
+        { left: '7:50', right: 'São dez para as oito.' },
+        { left: '12:00 (mittags)', right: 'É meio-dia.' },
+      ],
+      feedback: {
+        rule: '`e` = nach, `para as` = vor, `meia` = halb (30 Minuten nach der Stunde), `meio-dia` = 12 Uhr mittags.',
+        why: '`dez para as oito` ist 7:50 (zehn vor acht), nicht 8:10 – `para` heißt hier „vor“.',
+        avoid: 'Rechne von der genannten vollen Stunde aus: `e` = plus, `para as` = minus.',
+      },
+    },
+    {
+      id: `${L}.g02`,
+      type: 'mc',
+      skills: ['grammar', 'reading'],
+      topicIds: ['pt.g.time-dates'],
+      difficulty: 1,
+      prompt: 'Wie sagt man „Es ist zwei Uhr.“?',
+      options: [
+        { text: 'É dois horas.', why: 'Ab 2 Uhr steht der Plural `são` – und `hora` ist weiblich (`duas`).' },
+        { text: 'São duas horas.' },
+        { text: 'São dois horas.', why: '`hora` ist weiblich: `duas horas`, nicht `dois`.' },
+      ],
+      answer: 1,
+      feedback: {
+        rule: 'Ab 2 Uhr: `São` + weibliche Zahl + `horas` → `São duas horas.`',
+        why: 'Im Deutschen heißt es immer „es ist“ – im Portugiesischen richtet sich das Verb nach der Stundenzahl.',
+        avoid: 'Eins allein (`é`), ab zwei viele (`são`); hora ist weiblich.',
+      },
+    },
+    {
+      id: `${L}.g03`,
+      type: 'listening',
+      skills: ['listening', 'grammar'],
+      topicIds: ['pt.g.time-dates'],
+      difficulty: 2,
+      audio: 'São três e meia.',
+      question: 'Welche Uhrzeit hörst du?',
+      options: ['2:30 (halb drei)', '3:30 (halb vier)', '4:30 (halb fünf)'],
+      answer: 1,
+      feedback: {
+        rule: '`três e meia` = drei und eine halbe = 3:30 (auf Deutsch: halb vier).',
+        why: '2:30 wäre `duas e meia`, 4:30 `quatro e meia`. Die deutsche Logik „halb vier“ verleitet dazu, `quatro` zu erwarten.',
+        avoid: 'Denk beim Hören digital: três e meia → 3:30.',
+      },
+    },
+    {
+      id: `${L}.g04`,
+      type: 'cloze',
+      skills: ['grammar', 'writing'],
+      topicIds: ['pt.g.time-dates', 'pt.g.contractions'],
+      difficulty: 2,
+      sentence: 'Eu acordo ___ seis, almoço ___ meio-dia e me deito ___ meia-noite.',
+      answers: [['às'], ['ao'], ['à']],
+      bank: ['às', 'ao', 'à', 'no', 'em'],
+      german: 'Ich wache um sechs auf, esse um zwölf zu Mittag und gehe um Mitternacht ins Bett.',
+      feedback: {
+        rule: '„um … Uhr“ = `a` + Artikel: `às seis` (as horas), `ao meio-dia` (o meio-dia), `à meia-noite` (a meia-noite).',
+        why: '`no` und `em` sind Ortsangaben („in“). Bei Uhrzeiten steht immer `a` + Artikel.',
+        avoid: 'Frag nach dem Artikel: as seis → às, o meio-dia → ao, a meia-noite → à.',
+      },
+    },
+    {
+      id: `${L}.g05`,
+      type: 'order',
+      skills: ['grammar', 'reading'],
+      topicIds: ['pt.g.time-dates', 'pt.g.reflexive'],
+      difficulty: 2,
+      tokens: ['A', 'que', 'horas', 'você', 'se', 'levanta?'],
+      alternatives: [['Você', 'se', 'levanta', 'a', 'que', 'horas?']],
+      extra: ['me'],
+      german: 'Um wie viel Uhr stehst du auf?',
+      feedback: {
+        rule: 'Frage nach der Uhrzeit: `A que horas` + você + Verb. Umgangssprachlich steht die Frage auch am Ende: `Você se levanta a que horas?`',
+        why: '`me` gehört zu eu – zu você passt `se`.',
+        avoid: 'Kein Tausch von Subjekt und Verb wie im Deutschen („stehst du“): você bleibt vor dem Verb.',
+      },
+    },
+    {
+      id: `${L}.g06`,
+      type: 'fixError',
+      skills: ['grammar', 'writing'],
+      topicIds: ['pt.g.time-dates', 'pt.g.contractions'],
+      difficulty: 2,
+      sentence: 'Eu trabalho na sábado.',
+      answers: ['Eu trabalho no sábado.', 'Trabalho no sábado.', 'Eu trabalho sábado.', 'Trabalho sábado.'],
+      german: 'Ich arbeite am Samstag.',
+      feedback: {
+        rule: '`sábado` und `domingo` sind männlich → `no sábado`, `no domingo`. Die -feira-Tage sind weiblich → `na segunda`, `na sexta`.',
+        why: '`na` (em + a) passt nur zu weiblichen Wörtern.',
+        avoid: 'Wochenende männlich (no sábado, no domingo), Werktage weiblich (na segunda … na sexta).',
+      },
+    },
+    {
+      id: `${L}.g07`,
+      type: 'translate',
+      skills: ['reading', 'vocabulary'],
+      topicIds: ['pt.g.time-dates'],
+      difficulty: 2,
+      direction: 'toGerman',
+      source: 'Eu trabalho de segunda a sexta.',
+      answers: [
+        'Ich arbeite von Montag bis Freitag.',
+        'Ich arbeite Montag bis Freitag.',
+        'Von Montag bis Freitag arbeite ich.',
+        'Ich arbeite montags bis freitags.',
+      ],
+      feedback: {
+        rule: '`de segunda a sexta` = von Montag bis Freitag (`de` = von, `a` = bis).',
+        why: 'Die Wochentage werden gezählt, beginnend mit dem Sonntag (`domingo`) als erstem Tag: `segunda` ist der 2. Tag = Montag, `sexta` der 6. Tag = Freitag.',
+        avoid: 'Eselsbrücke: segunda = 2. Tag = Montag … sexta = 6. Tag = Freitag.',
+      },
+    },
+    {
+      id: `${L}.g08`,
+      type: 'dictation',
+      skills: ['listening', 'writing'],
+      topicIds: ['pt.g.time-dates'],
+      difficulty: 3,
+      audio: 'São dez para as oito da manhã.',
+      answers: ['São dez para as oito da manhã.', 'São 10 para as 8 da manhã.'],
+      german: 'Es ist zehn vor acht (morgens).',
+      feedback: {
+        rule: '`dez para as oito` = zehn vor acht; mit Uhrzeit heißt „morgens“ `da manhã`.',
+        why: 'Hier steht `as` **ohne** Akzent: `para` + Artikel `as`. Und mit Uhrzeit heißt es `da manhã`, nicht `de manhã`.',
+        avoid: 'Akzent nur bei „um … Uhr“: `às oito`. „vor acht“ = `para as oito`.',
+      },
+    },
+  ],
+  pronunciation: ['pt.p.rhythm.que-horas-sao', 'pt.p.s-x.tres-horas', 'pt.p.d-t.vinte'],
+  application: [
+    {
+      id: `${L}.a01`,
+      type: 'freeText',
+      skills: ['writing', 'grammar'],
+      topicIds: ['pt.g.time-dates'],
+      difficulty: 3,
+      prompt: 'Beschreibe zwei Tage deiner Woche: Was machst du wann? Nenne Wochentage, Uhrzeiten (`às …`) und Tageszeiten. (4–5 Sätze)',
+      requirements: [
+        { pattern: '(segunda|terça|terca|quarta|quinta|sexta|sábado|sabado|domingo)', hint: 'Nenne mindestens einen Wochentag, z. B. „na segunda-feira“ oder „no sábado“.' },
+        { pattern: '\\b(às|as|à|a|ao) (uma|duas|três|tres|quatro|cinco|seis|sete|oito|nove|dez|onze|doze|meio-dia|meia-noite|[0-9])', hint: 'Sag, um wie viel Uhr du etwas machst, z. B. „às oito“ oder „ao meio-dia“.' },
+        { pattern: '(manhã|manha|tarde|noite)', hint: 'Nutze eine Tageszeit: de manhã, à tarde, à noite.' },
+      ],
+      samples: ['Na segunda-feira eu me levanto às seis e meia e trabalho de manhã e à tarde. Almoço ao meio-dia e janto às oito da noite. No sábado eu acordo tarde e tomo café da manhã às dez. À noite eu janto com meus amigos.'],
+      minWords: 20,
+      feedback: {
+        rule: 'Wochentag mit `na`/`no`, Uhrzeit mit `às`/`à`/`ao`, Tageszeit mit `de manhã` / `à tarde` / `à noite`.',
+        why: 'Typische Fehler: `na sábado` statt `no sábado`, `em oito horas` statt `às oito` und `dois horas` statt `duas horas`.',
+        avoid: 'Prüfe jede Zeitangabe: Welcher Artikel steckt drin? → na/no, às/à/ao.',
+      },
+    },
+    {
+      id: `${L}.a02`,
+      type: 'speakFree',
+      skills: ['speaking', 'listening'],
+      topicIds: ['pt.g.time-dates'],
+      difficulty: 3,
+      prompt: 'Beantworte laut: `Que horas são agora? A que horas você se levanta e a que horas você se deita?`',
+      keywords: ['são', 'às', 'me levanto', 'me deito', 'meia', 'horas'],
+      minMatch: 3,
+      sample: 'Agora são três e meia. Eu me levanto às sete e me deito às onze.',
+      feedback: {
+        rule: 'Uhrzeit: `São …` (ab 2 Uhr) bzw. `É uma hora`; „um … Uhr“: `às …`.',
+        why: 'Fehlen Schlüsselwörter, hat die Spracherkennung sie nicht gehört – oder sie fehlen in deiner Antwort.',
+        avoid: 'Sprich `às` und das folgende Wort zusammen, z. B. „às sete“ ≈ „a-SSÄ-tschi“.',
+      },
+    },
+    {
+      id: `${L}.a03`,
+      type: 'dialogue',
+      skills: ['reading', 'grammar'],
+      topicIds: ['pt.g.time-dates'],
+      difficulty: 2,
+      instruction: 'Die Verkäuferin antwortet. Was sagt sie?',
+      lines: [
+        { speaker: 'Cliente', text: 'Bom dia! A padaria abre no domingo?', german: 'Guten Morgen! Hat die Bäckerei am Sonntag geöffnet?' },
+        { speaker: 'Atendente', text: 'Abre, sim, mas só de manhã.', german: 'Ja, aber nur vormittags.' },
+        { speaker: 'Cliente', text: 'E a que horas abre?', german: 'Und um wie viel Uhr macht sie auf?' },
+        { speaker: 'Atendente', text: '…' },
+      ],
+      gapIndex: 3,
+      options: [
+        'Na domingo a gente abre às sete.',
+        'No domingo a gente abre nas sete.',
+        'No domingo a gente abre às sete.',
+      ],
+      answer: 2,
+      feedback: {
+        rule: '`no domingo` (männlich) und die Uhrzeit mit `às`: `às sete`.',
+        why: '`na domingo` hat den falschen Artikel; `nas sete` ist die Ortspräposition (em + as) und passt nicht zur Uhrzeit.',
+        avoid: 'Tag → no/na, Uhrzeit → às.',
+      },
+    },
+    {
+      id: `${L}.a04`,
+      type: 'aiChat',
+      skills: ['speaking', 'listening'],
+      topicIds: ['pt.g.time-dates'],
+      difficulty: 3,
+      scenarioId: 'pt.sc.telefon',
+      goal: 'Vereinbare am Telefon einen Termin: Nenne einen Wochentag (`na quinta`), eine Tageszeit (`à tarde`) und eine Uhrzeit (`às três e meia`). Frag nach, wenn nötig: `A que horas?`',
+      turns: 5,
+      feedback: {
+        rule: 'Tag mit `na`/`no`, Tageszeit mit `de manhã` / `à tarde` / `à noite`, Uhrzeit mit `às`.',
+        avoid: 'Wiederhole zur Sicherheit Tag und Uhrzeit am Ende: `Então, na quinta às três e meia.`',
+      },
+    },
+  ],
+  review: [
+    {
+      id: `${L}.r01`,
+      type: 'conjugate',
+      skills: ['grammar', 'writing'],
+      topicIds: ['pt.g.present-regular'],
+      difficulty: 2,
+      verb: 'dormir',
+      tense: 'Präsens',
+      person: 'eu',
+      sentence: 'No fim de semana eu ___ muito.',
+      answers: ['durmo'],
+      feedback: {
+        rule: '`dormir` hat bei eu die Sonderform `durmo` (você `dorme`, nós `dormimos`).',
+        why: '`dormo` wäre regelmäßig gebildet – das o im Stamm wird bei eu aber zu u.',
+        avoid: 'Paar lernen: **durmo – dorme** (wie me visto – se veste).',
+      },
+    },
+    {
+      id: `${L}.r02`,
+      type: 'cloze',
+      skills: ['grammar', 'writing'],
+      topicIds: ['pt.g.ter'],
+      difficulty: 1,
+      sentence: 'Meu irmão ___ trinta anos e ___ dois filhos.',
+      answers: [['tem'], ['tem']],
+      german: 'Mein Bruder ist dreißig Jahre alt und hat zwei Kinder.',
+      feedback: {
+        rule: '`ter` in der 3. Person Singular: `ele tem`. Das Alter „hat“ man: `tem trinta anos`.',
+        why: '`é trinta anos` ist eine wörtliche Übertragung von „er ist dreißig“. `têm` (mit Zirkumflex) ist der Plural.',
+        avoid: 'Alter und Besitz → ter: tenho, tem, temos, têm.',
+      },
+    },
+    {
+      id: `${L}.r03`,
+      type: 'translate',
+      skills: ['writing', 'grammar'],
+      topicIds: ['pt.g.reflexive', 'pt.g.time-dates'],
+      difficulty: 2,
+      direction: 'toTarget',
+      source: 'Ich stehe um sieben Uhr auf.',
+      answers: [
+        'Eu me levanto às sete.',
+        'Eu me levanto às sete horas.',
+        'Me levanto às sete.',
+        'Me levanto às sete horas.',
+        'Eu me levanto às 7.',
+        'Eu me levanto às 7h.',
+        'Eu me levanto às sete da manhã.',
+        'Eu levanto às sete.',
+        'Eu levanto às sete horas.',
+        'Levanto às sete.',
+        'Levanto às sete horas.',
+        'Me levanto às 7.',
+        'Me levanto às 7h.',
+        'Eu me levanto às 7 horas.',
+        'Eu me levanto às sete horas da manhã.',
+        'Me levanto às sete da manhã.',
+      ],
+      feedback: {
+        rule: '`eu me levanto` + Uhrzeit mit `às`: `Eu me levanto às sete.`',
+        why: 'Häufige Fehler: `levanto me` (Pronomen hinter dem Verb) und `em sete horas` statt `às sete`.',
+        avoid: 'Pronomen vor das Verb, „um … Uhr“ = às.',
+      },
+    },
+  ],
+};
+
+export default lesson;
